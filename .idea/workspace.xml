@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e35a623d-8631-49d1-95c2-2de2f23b17fb" name="Changes" comment="" />
+    <list default="true" id="e35a623d-8631-49d1-95c2-2de2f23b17fb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/html/250 (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/250.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/AK-47-KNIFE_TRANSFORMER.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/M4A1-S_TRANSFORMER.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/latest (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/latest (2).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/latest.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/temp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,9 +31,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2kxpQj6t8Q9ViR40vh1sDWeLdR2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -30,17 +43,26 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "man",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/csmd3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\csmd3\M3_G3_Assignment\html" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
       </set>
     </attachedChunks>
   </component>
@@ -53,6 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1724235072081</updated>
       <workItem from="1724235073111" duration="1000" />
+      <workItem from="1724314504577" duration="803000" />
     </task>
     <servers />
   </component>
