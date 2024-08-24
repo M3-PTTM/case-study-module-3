@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Gradle : com.example : M3_G3_Assignment-1.0-SNAPSHOT.war (exploded)" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e35a623d-8631-49d1-95c2-2de2f23b17fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/phuc/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/css/register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/html/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/html/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/img/Nu-xa-thu_-29.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/js/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/js/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuc/css/admin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuc/css/login-register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuc/html/admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuc/html/changepass.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuc/js/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/css/register.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/phuc/html/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/html/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/phuc/html/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/img/Nu-xa-thu_-29.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/js/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/phuc/js/login-register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +45,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -47,9 +63,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JavaScript Debug.admin.html.executor": "Run",
+    "JavaScript Debug.login.htm.executor": "Run",
     "JavaScript Debug.login.html.executor": "Run",
+    "JavaScript Debug.register.html.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.index.jsp.executor": "Run",
+    "git-widget-placeholder": "phuc",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/codegym/Module-3-Java-Web-Back-end-Development/M3_G3_Assignment",
     "list.type.of.created.stylesheet": "CSS",
@@ -67,8 +88,17 @@
       <recent name="D:\codegym\Module-3-Java-Web-Back-end-Development\M3_G3_Assignment\src\phuc\img" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.login.html">
+  <component name="RunManager" selected="JavaScript Debug.admin.html">
+    <configuration name="admin.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/admin.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/login.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/login.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="register.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/register.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.93" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
@@ -158,12 +188,58 @@
         </option>
       </method>
     </configuration>
+    <configuration name="index.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.93" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/index.jsp" />
+      <deployment>
+        <artifact name="Gradle : com.example : M3_G3_Assignment-1.0-SNAPSHOT.war (exploded)">
+          <settings>
+            <option name="CONTEXT_PATH" value="/Gradle___com_example___M3_G3_Assignment_1_0_SNAPSHOT_war__exploded_" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="08c5dfeb-5cac-4d06-b7f8-e580a4a2ba4a" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : com.example : M3_G3_Assignment-1.0-SNAPSHOT.war (exploded)" />
+        </option>
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="JavaScript Debug.admin.html" />
+      <item itemvalue="JavaScript Debug.register.html" />
       <item itemvalue="JavaScript Debug.login.html" />
       <item itemvalue="Tomcat Server.Unnamed" />
+      <item itemvalue="Tomcat Server.index.jsp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.admin.html" />
+        <item itemvalue="JavaScript Debug.login.html" />
+        <item itemvalue="JavaScript Debug.register.html" />
+        <item itemvalue="Tomcat Server.index.jsp" />
         <item itemvalue="JavaScript Debug.login.html" />
       </list>
     </recent_temporary>
@@ -186,7 +262,9 @@
       <updated>1724235072081</updated>
       <workItem from="1724235073111" duration="1000" />
       <workItem from="1724289424952" duration="604000" />
-      <workItem from="1724313996466" duration="2635000" />
+      <workItem from="1724313996466" duration="4134000" />
+      <workItem from="1724377788251" duration="28162000" />
+      <workItem from="1724466473015" duration="7144000" />
     </task>
     <servers />
   </component>
