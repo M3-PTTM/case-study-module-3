@@ -63,3 +63,6 @@ footer p {
     margin: 30px auto;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+.content{
+    background: linear-gradient(to bottom, #fffeff,#212529);
+}
