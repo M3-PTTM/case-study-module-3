@@ -1,26 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Gradle : com.example : M3_G3_Assignment-1.0-SNAPSHOT.war" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77634e38-9e33-4634-b0cc-b9f51f547769" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/IOrdersDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/OrdersDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/model/Orders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/utils/JDBCConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/HelloServlet.java" beforeDir="false" />
+    <list default="true" id="e35a623d-8631-49d1-95c2-2de2f23b17fb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/phuc/html/customer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuc/html/orders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuc/html/product.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuc/html/review.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuc/js/customer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuc/js/orders.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuc/js/product.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuc/js/review.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/phuc/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/html/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/phuc/html/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/html/changepass.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/phuc/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/phuc/js/admin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -38,84 +58,227 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
+        <option value="CSS File" />
+        <option value="Jsp File" />
         <option value="Class" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
-}</component>
-  <component name="ProjectId" id="2lESziB1a4TD71op9qYbRdqwSpJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2kxpQj6t8Q9ViR40vh1sDWeLdR2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "JavaScript Debug.admin.html.executor": "Run",
+    "JavaScript Debug.customer.html.executor": "Run",
+    "JavaScript Debug.dashboard.html.executor": "Run",
+    "JavaScript Debug.login.htm.executor": "Run",
+    "JavaScript Debug.login.html.executor": "Run",
+    "JavaScript Debug.orders.html.executor": "Run",
+    "JavaScript Debug.product.html.executor": "Run",
+    "JavaScript Debug.register.html.executor": "Run",
+    "JavaScript Debug.review.html.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.hello.jsp.executor": "Run",
+    "Tomcat Server.index.jsp.executor": "Run",
+    "Tomcat Server.welcome.jsp.executor": "Run",
     "git-widget-placeholder": "phuc",
+    "jdk.selected.JAVA_MODULE": "graalvm-jdk-17",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/tienm/IdeaProjects/M3_G3_Assignment",
+    "last_opened_file_path": "C:/Users/Acer/Downloads/79221",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
-    ]
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="admin.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/admin.html" useBuiltInWebServerPort="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\codegym\Module-3-Java-Web-Back-end-Development\M3_G3_Assignment\src\phuc\img" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.review.html">
+    <configuration name="customer.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/customer.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="dashboard.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/dashboard.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="dashboard.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/dashboard.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="orders.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/orders.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="product.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/product.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="review.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/review.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.93" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Gradle : com.example : M3_G3_Assignment-1.0-SNAPSHOT.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="ffa43aae-1af3-4cd7-8871-fbdf0e18c2cd" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="53865" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : com.example : M3_G3_Assignment-1.0-SNAPSHOT.war" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.orders.html" />
+      <item itemvalue="JavaScript Debug.product.html" />
+      <item itemvalue="JavaScript Debug.review.html" />
+      <item itemvalue="JavaScript Debug.customer.html" />
+      <item itemvalue="JavaScript Debug.dashboard.html" />
+      <item itemvalue="Tomcat Server.Unnamed" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.admin.html" />
-        <item itemvalue="JavaScript Debug.admin.html" />
-        <item itemvalue="JavaScript Debug.admin.html" />
+        <item itemvalue="JavaScript Debug.review.html" />
+        <item itemvalue="JavaScript Debug.orders.html" />
+        <item itemvalue="JavaScript Debug.product.html" />
+        <item itemvalue="JavaScript Debug.customer.html" />
+        <item itemvalue="JavaScript Debug.dashboard.html" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="77634e38-9e33-4634-b0cc-b9f51f547769" name="Changes" comment="" />
-      <created>1724744009795</created>
+      <changelist id="e35a623d-8631-49d1-95c2-2de2f23b17fb" name="Changes" comment="" />
+      <created>1724235072081</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1724744009795</updated>
-      <workItem from="1724744012739" duration="1218000" />
-      <workItem from="1724751340504" duration="1213000" />
-      <workItem from="1724816143168" duration="12000" />
-      <workItem from="1724821777431" duration="8000" />
-      <workItem from="1724821833695" duration="152000" />
-      <workItem from="1724828362404" duration="2472000" />
+      <updated>1724235072081</updated>
+      <workItem from="1724235073111" duration="1000" />
+      <workItem from="1724289424952" duration="604000" />
+      <workItem from="1724313996466" duration="4134000" />
+      <workItem from="1724377788251" duration="28162000" />
+      <workItem from="1724466473015" duration="7144000" />
+      <workItem from="1724502766467" duration="11424000" />
+      <workItem from="1724554279239" duration="4544000" />
+      <workItem from="1724574008400" duration="4086000" />
+      <workItem from="1724634681119" duration="11603000" />
+      <workItem from="1724675713815" duration="10151000" />
+      <workItem from="1724730094246" duration="1619000" />
+      <workItem from="1724743540741" duration="896000" />
+      <workItem from="1724744535200" duration="229000" />
+      <workItem from="1724744949723" duration="147000" />
+      <workItem from="1724746787963" duration="45000" />
+      <workItem from="1724746934091" duration="5879000" />
+      <workItem from="1724819513840" duration="19624000" />
+      <workItem from="1724852912113" duration="5864000" />
     </task>
     <servers />
   </component>

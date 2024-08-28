@@ -77,8 +77,25 @@ body {
     border: none;
 }
 
+.btn {
+    background: var(--first-bg-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--second-bg-color);
+    color: var(--first-text-color);
+}
+
 #menu-toggle, h2 {
     color: var(--second-text-color);
+}
+
+.card-hover:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
 }
 
 @media (min-width: 768px) {

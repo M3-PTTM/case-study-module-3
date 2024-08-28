@@ -17,32 +17,23 @@
 <div class="d-flex" id="wrapper">
     <div class="bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold border-bottom">
-            <i class="fas fa-user-secret me-2"></i> GunShop
+            <i class="fas fa-gun me-2"></i> GunShop
         </div>
         <div class="list-group list-group-flush my-3">
-            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold ">
                 <i class="fas fa-tachometer-alt me-2"></i> Tổng quan
-            </a>
-            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                <i class="fas fa-boxes me-2"></i> Danh mục sản phẩm
             </a>
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-box me-2"></i> Sản phẩm
             </a>
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                <i class="fas fa-user-circle me-2"></i> Tài khoản
+                <i class="fas fa-user-circle me-2"></i> Khách hàng
             </a>
-            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                <i class="fas fa-building me-2"></i> Nhà cung cấp
-            </a>
-            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
                 <i class="fas fa-shopping-cart me-2"></i> Đơn hàng
             </a>
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-comment-dots me-2"></i> Đánh giá
-            </a>
-            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                <i class="fas fa-paperclip me-2"></i> Báo cáo
             </a>
         </div>
     </div>
@@ -50,7 +41,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
             <div class="d-flex align-items-center">
                 <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                <h2 class="fs-2 m-0">Tổng quan</h2>
+                <h2 class="fs-2 m-0">Đơn hàng</h2>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent"
@@ -64,7 +55,7 @@
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-user me-2"></i> Admin
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a href="#" class="dropdown-item">Thông tin</a></li>
                             <li><a href="#" class="dropdown-item">Cài đặt</a></li>
                             <li><a href="#" class="dropdown-item">Đăng xuất</a></li>
@@ -74,80 +65,37 @@
             </div>
         </nav>
         <div class="container-fluid px-4">
-            <div class="row g-3 my-2">
-                <div class="col-md-3">
-                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                        <div>
-                            <h3 class="fs-2">720</h3>
-                            <p class="fs-5">Sản phẩm</p>
-                        </div>
-                        <i class="fas fa-box fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                        <div>
-                            <h3 class="fs-2">1902</h3>
-                            <p class="fs-5">Đơn hàng</p>
-                        </div>
-                        <i class="fas fa-shopping-bag fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                        <div>
-                            <h3 class="fs-2">5000</h3>
-                            <p class="fs-5">Đánh giá</p>
-                        </div>
-                        <i class="fas fa-comment-dots fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                        <div>
-                            <h3 class="fs-2">10.000$</h3>
-                            <p class="fs-5">Doanh thu</p>
-                        </div>
-                        <i class="fas fa-money-bill-alt fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                    </div>
-                </div>
-            </div>
             <div class="row my-5">
-                <h3 class="fs-4 mb-3">Đơn hàng gần đây</h3>
                 <div class="col">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2>Danh sách đơn hàng</h2>
+                    </div>
                     <table class="table bg-white rounded shadow-sm table-hover">
                         <thead>
                         <tr>
-                            <th scope="col" width="50">#</th>
-                            <th scope="col">Sản phẩm</th>
-                            <th scope="col">Khách hàng</th>
+                            <th scope="col">Mã đơn hàng</th>
+                            <th scope="col">Tên khách hàng</th>
+                            <th scope="col">Tên sản phẩm</th>
+                            <th scope="col">Số lượng</th>
                             <th scope="col">Giá tiền</th>
+                            <th scope="col">Tổng tiền</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col"></th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="productTable">
                         <tr>
                             <th scope="row">1</th>
-                            <td>AKM</td>
-                            <td>Mẫn</td>
-                            <td>120$</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Groza</td>
                             <td>Phúc</td>
-                            <td>120$</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>M416</td>
-                            <td>Tuấn</td>
-                            <td>120$</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>SCAR-L</td>
-                            <td>Tiến</td>
-                            <td>120$</td>
+                            <td>Súng Groza</td>
+                            <td>2</td>
+                            <td>$200</td>
+                            <td>$400</td>
+                            <td>Đã thanh toán</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm">Sửa</button>
+                                <button class="btn btn-danger btn-sm">Xóa</button>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -162,5 +110,6 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 <script src="../js/admin.js"></script>
+<script src="../js/orders.js"></script>
 </body>
 </html>
