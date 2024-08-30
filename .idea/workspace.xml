@@ -10,20 +10,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e35a623d-8631-49d1-95c2-2de2f23b17fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/phuc/html/customer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/html/orders.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/html/product.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/html/review.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/js/customer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/js/orders.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/js/product.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/phuc/js/review.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/phuc/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/phuc/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/phuc/html/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/phuc/html/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/phuc/html/changepass.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/phuc/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/phuc/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/phuc/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/phuc/js/admin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/ICustomerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/CustomerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/CustomerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/customer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/41dfde9a-ba39-4b51-8966-0263649c644d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/41dfde9a-ba39-4b51-8966-0263649c644d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/css/login-register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/css/login-register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/html/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/html/customer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/html/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/html/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/html/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/html/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/html/orders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/html/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/html/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/html/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/html/review.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/html/review.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/images/Shotgun_Software_Logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/images/Shotgun_Software_Logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/images/sg.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/images/sg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/js/customer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/js/customer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/js/login-register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/js/login-register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/js/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/js/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/js/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/js/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/phuc/js/review.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/js/review.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,10 +73,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Jsp File" />
-        <option value="Class" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -89,6 +104,7 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "JavaScript Debug.admin.html.executor": "Run",
+    "JavaScript Debug.customer.html (1).executor": "Run",
     "JavaScript Debug.customer.html.executor": "Run",
     "JavaScript Debug.dashboard.html.executor": "Run",
     "JavaScript Debug.login.htm.executor": "Run",
@@ -99,9 +115,16 @@
     "JavaScript Debug.review.html.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TomEE Server.TomEE 9.0.93.executor": "Run",
+    "TomEE Server.Unnamed.executor": "Run",
+    "Tomcat Server.Tomcat 9.0.93.executor": "Run",
+    "Tomcat Server.customer.jsp (1).executor": "Run",
+    "Tomcat Server.customer.jsp (2).executor": "Run",
+    "Tomcat Server.customer.jsp.executor": "Run",
     "Tomcat Server.hello.jsp.executor": "Run",
     "Tomcat Server.index.jsp.executor": "Run",
     "Tomcat Server.welcome.jsp.executor": "Run",
+    "deletionFromPopupRequiresConfirmation": "false",
     "git-widget-placeholder": "phuc",
     "jdk.selected.JAVA_MODULE": "graalvm-jdk-17",
     "kotlin-language-version-configured": "true",
@@ -118,29 +141,24 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\codegym\Module-3-Java-Web-Back-end-Development\M3_G3_Assignment\src\main\webapp" />
       <recent name="D:\codegym\Module-3-Java-Web-Back-end-Development\M3_G3_Assignment\src\phuc\img" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.review.html">
-    <configuration name="customer.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/customer.html" useBuiltInWebServerPort="true">
-      <method v="2" />
+  <component name="RunManager">
+    <configuration default="true" type="TomeeConfiguration" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="dashboard.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/dashboard.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="dashboard.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/dashboard.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="orders.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/orders.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="product.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/product.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="review.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/M3_G3_Assignment/src/phuc/html/review.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.93" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9.0.93" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.93" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Gradle : com.example : M3_G3_Assignment-1.0-SNAPSHOT.war">
@@ -150,7 +168,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="ffa43aae-1af3-4cd7-8871-fbdf0e18c2cd" />
+        <option name="BASE_DIRECTORY_NAME" value="08535938-bc06-4b93-8802-73c1c75f65f4" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -158,7 +176,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="53865" />
+        <option name="DEBUG_PORT" value="54388" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -227,23 +245,6 @@
         </option>
       </method>
     </configuration>
-    <list>
-      <item itemvalue="JavaScript Debug.orders.html" />
-      <item itemvalue="JavaScript Debug.product.html" />
-      <item itemvalue="JavaScript Debug.review.html" />
-      <item itemvalue="JavaScript Debug.customer.html" />
-      <item itemvalue="JavaScript Debug.dashboard.html" />
-      <item itemvalue="Tomcat Server.Unnamed" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JavaScript Debug.review.html" />
-        <item itemvalue="JavaScript Debug.orders.html" />
-        <item itemvalue="JavaScript Debug.product.html" />
-        <item itemvalue="JavaScript Debug.customer.html" />
-        <item itemvalue="JavaScript Debug.dashboard.html" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -278,7 +279,14 @@
       <workItem from="1724746787963" duration="45000" />
       <workItem from="1724746934091" duration="5879000" />
       <workItem from="1724819513840" duration="19624000" />
-      <workItem from="1724852912113" duration="5864000" />
+      <workItem from="1724852912113" duration="6314000" />
+      <workItem from="1724859450739" duration="170000" />
+      <workItem from="1724859656655" duration="102000" />
+      <workItem from="1724897413562" duration="18000" />
+      <workItem from="1724898338074" duration="2102000" />
+      <workItem from="1724900478031" duration="20088000" />
+      <workItem from="1724936440864" duration="6856000" />
+      <workItem from="1724979929237" duration="11843000" />
     </task>
     <servers />
   </component>
