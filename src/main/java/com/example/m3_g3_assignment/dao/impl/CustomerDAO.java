@@ -62,7 +62,7 @@ public class CustomerDAO implements ICustomerDAO {
             preparedStatement.setString(3, customer.getCustomer_email());
             preparedStatement.setString(4, customer.getCustomer_phone());
             preparedStatement.setString(5, customer.getCustomer_citizen());
-            preparedStatement.setString(6, customer.getCustomer_role()); // Added role
+            preparedStatement.setString(6, customer.getCustomer_role());
             preparedStatement.setInt(7, customer.getCustomer_id());
             rowUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
