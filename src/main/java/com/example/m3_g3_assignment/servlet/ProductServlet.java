@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Map;
+import java.util.List;
 
 @WebServlet("/home")
 public class ProductServlet extends HttpServlet {
@@ -27,7 +27,7 @@ public class ProductServlet extends HttpServlet {
         try {
             switch (action) {
                 default:
-                    productMap(req, resp);
+                    productsList(req, resp);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -35,9 +35,9 @@ public class ProductServlet extends HttpServlet {
 
     }
 
-    private void productMap(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLException {
-        Map<Product, Integer> map = SERVICE_PRODUCT.getProductsNewLimit3();
-        req.setAttribute("map", map);
+    private void productsList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLException {
+       List<Product> products = SERVICE_PRODUCT.getProductsNewLimit3();
+        req.setAttribute("products", products);
         req.getRequestDispatcher("/man/home.jsp").forward(req, resp);
     }
 }

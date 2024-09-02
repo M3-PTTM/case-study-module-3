@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.Map;
+import java.util.List;
 
 @WebServlet("/search")
 public class SearchProduct extends HttpServlet {
@@ -24,30 +24,30 @@ public class SearchProduct extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         try {
             String keyword = req.getParameter("keyword").trim();
-            Map<Product, Integer> map;
+            List<Product> products;
             PrintWriter out;
             int count = 1;
             if (keyword.isEmpty()) {
-                map = SERVICE_PRODUCT.getProductsNewLimit3();
+                products = SERVICE_PRODUCT.getProductsNewLimit3();
                 out = resp.getWriter();
-                for (Map.Entry<Product, Integer> entry : map.entrySet()) {
-                    if (entry.getValue() > 0) {
+                for (Product product : products) {
+                    if (product.getInventory() > 0) {
                         if (count % 2 != 0) {
                             out.println("<div class=\"product cycle_section_3 layout_padding\">\n" +
                                     "                            <div class=\"row\">\n" +
                                     "                                <div class=\"col-md-6\">\n" +
                                     "                                    <div class=\"box_main_3\">\n" +
                                     "                                        <h6 class=\"number_text\">" + count + "</h6>\n" +
-                                    "                                        <div class=\"image_2\"><img src=\"/man/images/" + entry.getKey().getImg() + "\"></div>\n" +
+                                    "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div>\n" +
                                     "                                    </div>\n" +
                                     "                                </div>\n" +
                                     "                                <div class=\"col-md-6\">\n" +
-                                    "                                    <h1 class=\"cycles_text\">" + entry.getKey().getCategory() + " " + entry.getKey().getName() + "</h1>\n" +
-                                    "                                    <p class=\"lorem_text\">" + entry.getKey().getDescription() + "</p>\n" +
+                                    "                                    <h1 class=\"cycles_text\">" + product.getCategory() + " " + product.getName() + "</h1>\n" +
+                                    "                                    <p class=\"lorem_text\">" + product.getDescription() + "</p>\n" +
                                     "                                    <div class=\"btn_main\">\n" +
                                     "                                        <div class=\"buy_bt\"><a href=\"#\">Buy Now</a></div>\n" +
                                     "                                        <h4 class=\"price_text\">Price <span style=\" color: #f7c17b\">$</span> <span\n" +
-                                    "                                                style=\" color: #325662\">" + entry.getKey().getPrice() + "</span></h4>\n" +
+                                    "                                                style=\" color: #325662\">" + product.getPrice() + "</span></h4>\n" +
                                     "                                    </div>\n" +
                                     "                                </div>\n" +
                                     "                            </div>\n" +
@@ -57,18 +57,18 @@ public class SearchProduct extends HttpServlet {
                             out.println("<div class=\"product cycle_section_3 layout_padding\">\n" +
                                     "                            <div class=\"row\">\n" +
                                     "                                <div class=\"col-md-6\">\n" +
-                                    "                                    <h1 class=\"cycles_text\">" + entry.getKey().getCategory() + " " + entry.getKey().getName() + "</h1>\n" +
-                                    "                                    <p class=\"lorem_text\">" + entry.getKey().getDescription() + "</p>\n" +
+                                    "                                    <h1 class=\"cycles_text\">" + product.getCategory() + " " + product.getName() + "</h1>\n" +
+                                    "                                    <p class=\"lorem_text\">" + product.getDescription() + "</p>\n" +
                                     "                                    <div class=\"btn_main\">\n" +
                                     "                                        <div class=\"buy_bt\"><a href=\"#\">Buy Now</a></div>\n" +
                                     "                                        <h4 class=\"price_text\">Price <span style=\" color: #f7c17b\">$</span> <span\n" +
-                                    "                                                style=\" color: #325662\">" + entry.getKey().getPrice() + "</span></h4>\n" +
+                                    "                                                style=\" color: #325662\">" + product.getPrice() + "</span></h4>\n" +
                                     "                                    </div>\n" +
                                     "                                </div>\n" +
                                     "                                <div class=\"col-md-6\">\n" +
                                     "                                    <div class=\"box_main_3\">\n" +
                                     "                                        <h6 class=\"number_text\">" + count + "</h6>\n" +
-                                    "                                        <div class=\"image_2\"><img src=\"/man/images/" + entry.getKey().getImg() + "\"></div>\n" +
+                                    "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div>\n" +
                                     "                                    </div>\n" +
                                     "                                </div>\n" +
                                     "                            </div>\n" +
@@ -78,27 +78,27 @@ public class SearchProduct extends HttpServlet {
                     }
                 }
             } else {
-                map = SERVICE_PRODUCT.searchProductsByNameOrModel(keyword);
+                products = SERVICE_PRODUCT.searchProductsByNameOrModel(keyword);
                 out = resp.getWriter();
-                if (!map.isEmpty()) {
-                    for (Map.Entry<Product, Integer> entry : map.entrySet()) {
-                        if (entry.getValue() > 0) {
+                if (!products.isEmpty()) {
+                    for (Product product : products) {
+                        if (product.getInventory() > 0) {
                             if (count % 2 != 0) {
                                 out.println("<div class=\"product cycle_section_3 layout_padding\">\n" +
                                         "                            <div class=\"row\">\n" +
                                         "                                <div class=\"col-md-6\">\n" +
                                         "                                    <div class=\"box_main_3\">\n" +
                                         "                                        <h6 class=\"number_text\">" + count + "</h6>\n" +
-                                        "                                        <div class=\"image_2\"><img src=\"/man/images/" + entry.getKey().getImg() + "\"></div>\n" +
+                                        "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div>\n" +
                                         "                                    </div>\n" +
                                         "                                </div>\n" +
                                         "                                <div class=\"col-md-6\">\n" +
-                                        "                                    <h1 class=\"cycles_text\">" + entry.getKey().getCategory() + " " + entry.getKey().getName() + "</h1>\n" +
-                                        "                                    <p class=\"lorem_text\">" + entry.getKey().getDescription() + "</p>\n" +
+                                        "                                    <h1 class=\"cycles_text\">" + product.getCategory() + " " + product.getName() + "</h1>\n" +
+                                        "                                    <p class=\"lorem_text\">" + product.getDescription() + "</p>\n" +
                                         "                                    <div class=\"btn_main\">\n" +
                                         "                                        <div class=\"buy_bt\"><a href=\"#\">Buy Now</a></div>\n" +
                                         "                                        <h4 class=\"price_text\">Price <span style=\" color: #f7c17b\">$</span> <span\n" +
-                                        "                                                style=\" color: #325662\">" + entry.getKey().getPrice() + "</span></h4>\n" +
+                                        "                                                style=\" color: #325662\">" + product.getPrice() + "</span></h4>\n" +
                                         "                                    </div>\n" +
                                         "                                </div>\n" +
                                         "                            </div>\n" +
@@ -108,18 +108,18 @@ public class SearchProduct extends HttpServlet {
                                 out.println("<div class=\"product cycle_section_3 layout_padding\">\n" +
                                         "                            <div class=\"row\">\n" +
                                         "                                <div class=\"col-md-6\">\n" +
-                                        "                                    <h1 class=\"cycles_text\">" + entry.getKey().getCategory() + " " + entry.getKey().getName() + "</h1>\n" +
-                                        "                                    <p class=\"lorem_text\">" + entry.getKey().getDescription() + "</p>\n" +
+                                        "                                    <h1 class=\"cycles_text\">" + product.getCategory() + " " + product.getName() + "</h1>\n" +
+                                        "                                    <p class=\"lorem_text\">" + product.getDescription() + "</p>\n" +
                                         "                                    <div class=\"btn_main\">\n" +
                                         "                                        <div class=\"buy_bt\"><a href=\"#\">Buy Now</a></div>\n" +
                                         "                                        <h4 class=\"price_text\">Price <span style=\" color: #f7c17b\">$</span> <span\n" +
-                                        "                                                style=\" color: #325662\">" + entry.getKey().getPrice() + "</span></h4>\n" +
+                                        "                                                style=\" color: #325662\">" + product.getPrice() + "</span></h4>\n" +
                                         "                                    </div>\n" +
                                         "                                </div>\n" +
                                         "                                <div class=\"col-md-6\">\n" +
                                         "                                    <div class=\"box_main_3\">\n" +
                                         "                                        <h6 class=\"number_text\">" + count + "</h6>\n" +
-                                        "                                        <div class=\"image_2\"><img src=\"/man/images/" + entry.getKey().getImg() + "\"></div>\n" +
+                                        "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div>\n" +
                                         "                                    </div>\n" +
                                         "                                </div>\n" +
                                         "                            </div>\n" +
