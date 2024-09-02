@@ -20,7 +20,7 @@
 <div class="d-flex" id="wrapper">
     <div class="bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold border-bottom">
-            <i class="fas fa-gun me-2"></i> GunShop
+            <img src="/man/images/logo.png">
         </div>
         <div class="list-group list-group-flush my-3">
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold ">
