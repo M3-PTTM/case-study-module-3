@@ -29,17 +29,26 @@
             <div class="form-inline my-2 my-lg-0">
                 <div class="login_menu">
                     <ul>
-                        <li><a href="#">Login</a></li>
+                        <c:if test="${sessionScope.account != null}">
+                            <li><a href="#">Logout</a></li>
+                        </c:if>
+                        <c:if test="${sessionScope.account == null}">
+                            <li><a href="#">Login</a></li>
+                        </c:if>
                         <li><a href="#"><img src="/man/images/trolly-icon.png"></a></li>
                         <li>
                             <form method="get" action="/search"><input class="form-control me-2" type="search"
                                                                        placeholder="Search"
-                                                                       aria-label="Search" name="search" oninput="searchByNameOrModel(this)">
+                                                                       aria-label="Search" name="search"
+                                                                       oninput="searchByNameOrModel(this)">
                                 <button class="btn btn-outline-success" type="submit"><img
                                         src="/man/images/search-icon.png">
                                 </button>
                             </form>
                         </li>
+                        <c:if test="${sessionScope.account != null}">
+                            <li><a href="#">Welcome ${sessionScope.account.name}</a></li>
+                        </c:if>
                     </ul>
                 </div>
             </div>
@@ -52,7 +61,7 @@
     <div class="banner_section layout_padding">
         <div id="main_slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                <c:forEach var="entry" items="${map}" varStatus="status">
+                <c:forEach var="product" items="${products}" varStatus="status">
                     <c:choose>
                         <c:when test="${status.count==1}">
                             <div class="carousel-item active">
@@ -60,11 +69,11 @@
                                     <div class="row">
                                         <div class="col-md-7">
                                             <div class="best_text">New</div>
-                                            <div class="image_1"><img src="/man/images/${entry.key.img}"></div>
+                                            <div class="image_1"><img src="/man/images/${product.img}"></div>
                                         </div>
                                         <div class="col-md-5">
                                             <h1 class="banner_taital">New Model</h1>
-                                            <p class="banner_text">${entry.key.description}</p>
+                                            <p class="banner_text">${product.description}</p>
                                             <div class="contact_bt"><a href="#">Buy Now</a></div>
                                         </div>
                                     </div>
@@ -77,11 +86,11 @@
                                     <div class="row">
                                         <div class="col-md-7">
                                             <div class="best_text">New</div>
-                                            <div class="image_1"><img src="/man/images/${entry.key.img}"></div>
+                                            <div class="image_1"><img src="/man/images/${product.img}"></div>
                                         </div>
                                         <div class="col-md-5">
                                             <h1 class="banner_taital">New Model</h1>
-                                            <p class="banner_text">${entry.key.description}</p>
+                                            <p class="banner_text">${product.description}</p>
                                             <div class="contact_bt"><a href="#">Buy Now</a></div>
                                         </div>
                                     </div>
@@ -104,8 +113,8 @@
     <div id="content" class="container">
         <h1 class="cycle_taital">Our Gear</h1>
         <p class="cycle_text">It is a long established fact that a reader will be distracted by the </p>
-        <c:forEach var="entry" items="${map}" varStatus="status">
-            <c:if test="${entry.value>0}">
+        <c:forEach var="product" items="${products}" varStatus="status">
+            <c:if test="${product.inventory>0}">
                 <c:choose>
                     <c:when test="${status.count%2!=0}">
                         <div class="product cycle_section_3 layout_padding">
@@ -113,16 +122,16 @@
                                 <div class="col-md-6">
                                     <div class="box_main_3">
                                         <h6 class="number_text">${status.count}</h6>
-                                        <div class="image_2"><img src="/man/images/${entry.key.img}"></div>
+                                        <div class="image_2"><img src="/man/images/${product.img}"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h1 class="cycles_text">${entry.key.category} ${entry.key.name}</h1>
-                                    <p class="lorem_text">${entry.key.description}</p>
+                                    <h1 class="cycles_text">${productcategory} ${product.name}</h1>
+                                    <p class="lorem_text">${product.description}</p>
                                     <div class="btn_main">
                                         <div class="buy_bt"><a href="#">Buy Now</a></div>
                                         <h4 class="price_text">Price <span style=" color: #f7c17b">$</span> <span
-                                                style=" color: #325662">${entry.key.price}</span></h4>
+                                                style=" color: #325662">${product.price}</span></h4>
                                     </div>
                                 </div>
                             </div>
@@ -132,18 +141,18 @@
                         <div class="product cycle_section_3 layout_padding">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h1 class="cycles_text">${entry.key.category} ${entry.key.name}</h1>
-                                    <p class="lorem_text">${entry.key.description}</p>
+                                    <h1 class="cycles_text">${product.category} ${product.name}</h1>
+                                    <p class="lorem_text">${product.description}</p>
                                     <div class="btn_main">
                                         <div class="buy_bt"><a href="#">Buy Now</a></div>
                                         <h4 class="price_text">Price <span style=" color: #f7c17b">$</span> <span
-                                                style=" color: #325662">${entry.key.price}</span></h4>
+                                                style=" color: #325662">${product.price}</span></h4>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="box_main_3">
                                         <h6 class="number_text">${status.count}</h6>
-                                        <div class="image_2"><img src="/man/images/${entry.key.img}"></div>
+                                        <div class="image_2"><img src="/man/images/${product.img}"></div>
                                     </div>
                                 </div>
                             </div>

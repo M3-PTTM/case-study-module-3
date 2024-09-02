@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,14 +13,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="../css/admin.css">
-    <title>GunShop Admin</title>
+    <link rel="stylesheet" href="/phuc/css/admin.css">
+    <title>War Machine</title>
+    <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
+    <style>
+        input {
+            border: none;
+            outline: none;
+        }
+    </style>
 </head>
 <body>
 <div class="d-flex" id="wrapper">
     <div class="bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold border-bottom">
-            <i class="fas fa-gun me-2"></i> GunShop
+            <img src="/man/images/logo.png">
         </div>
         <div class="list-group list-group-flush my-3">
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold ">
@@ -85,19 +95,38 @@
                         </tr>
                         </thead>
                         <tbody id="productTable">
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Súng Groza</td>
-                            <td>$200</td>
-                            <td>Vũ khí</td>
-                            <td>50</td>
-                            <td><img src="https://cdn-img.thethao247.vn/upload/hungnguyen/2019/02/27/groza-pubg-2.jpg" style="width: 100px; height: auto;"></td>
-                            <td>Súng Groza</td>
-                            <td>
-                                <button class="btn btn-warning btn-sm">Sửa</button>
-                                <button class="btn btn-danger btn-sm">Xóa</button>
-                            </td>
-                        </tr>
+                        <c:forEach var="product" items="${products}" varStatus="status">
+                            <tr>
+                                <form action="/product" method="post">
+                                    <input name="action" value="edit" type="hidden">
+                                    <input name="id" value="${product.id}" type="hidden">
+                                    <th scope="row">${status.count}</th>
+                                    <td><input type="text" name="name" value="${product.name}"></td>
+                                    <td><input type="text" name="price"
+                                               value="<fmt:formatNumber value="${product.price}" pattern="###,###"/>">USD</input>
+                                    </td>
+                                    <td><select name="category">
+                                        <option value="Model-F" ${product.category == "Model-F" ? "SELECTED" : ""}>
+                                            Model-F
+                                        </option>
+                                        <option value="Model-G" ${product.category == "Model-G" ? "SELECTED" : ""}>
+                                            Model-G
+                                        </option>
+                                        <option value="Model-T" ${product.category == "Model-T" ? "SELECTED" : ""}>
+                                            Model-T
+                                        </option>
+                                    </select></td>
+                                    <td><input type="text" name="inventory" value="${product.inventory}"></td>
+                                    <td><input type="text" name="img" value="${product.img}"></td>
+                                    <td><input type="text" name="description" value="${product.description}"></td>
+                                    <td>
+                                        <button class="btn btn-warning btn-sm">Sửa</button>
+                                </form>
+                                <a href="/product?action=delete&id=${product.id}"
+                                   class="btn btn-danger btn-sm">Xóa</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -111,30 +140,42 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="productForm">
+                        <form id="productForm" action="/product" method="post">
+                            <input type="hidden" name="action" value="add">
                             <div class="mb-3">
                                 <label for="productName" class="form-label">Tên sản phẩm</label>
-                                <input type="text" class="form-control" id="productName" required>
+                                <input type="text" class="form-control" id="productName" name="name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="productPrice" class="form-label">Giá tiền</label>
-                                <input type="number" class="form-control" id="productPrice" required>
+                                <input type="number" class="form-control" id="productPrice" name="price" value="0">
                             </div>
                             <div class="mb-3">
                                 <label for="productType" class="form-label">Loại sản phẩm</label>
-                                <input type="text" class="form-control" id="productType" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="productQuantity" class="form-label">Số lượng</label>
-                                <input type="number" class="form-control" id="productQuantity" required>
+                                <select name="category" class="form-control" id="productType" required>
+                                    <option value="Model-F">
+                                        Model-F
+                                    </option>
+                                    <option value="Model-G">
+                                        Model-G
+                                    </option>
+                                    <option value="Model-T">
+                                        Model-T
+                                    </option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="productImage" class="form-label">Hình ảnh</label>
-                                <input type="text" class="form-control" id="productImage" required>
+                                <input type="text" class="form-control" id="productImage" name="img">
                             </div>
                             <div class="mb-3">
                                 <label for="productDescription" class="form-label">Mô tả</label>
-                                <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+                                <textarea class="form-control" id="productDescription" rows="3"
+                                          name="description"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productInventory" class="form-label">Số Lượng</label>
+                                <input type="number" class="form-control" id="productInventory" name="inventory" value="0">
                             </div>
                             <button type="submit" class="btn btn-primary">Lưu</button>
                         </form>
@@ -147,7 +188,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-<script src="../js/admin.js"></script>
-<script src="../js/product.js"></script>
+<script src="/phuc/js/admin.js"></script>
+<script src="/phuc/js/product.js"></script>
 </body>
 </html>

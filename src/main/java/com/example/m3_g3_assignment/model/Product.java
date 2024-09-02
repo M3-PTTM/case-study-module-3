@@ -9,6 +9,7 @@ public class Product {
     private String category;
     private String img;
     private String description;
+    private int inventory;
 
     public Product() {
     }
@@ -21,6 +22,15 @@ public class Product {
         this.description = description;
     }
 
+    public Product(String name, double price, String category, String img, String description, int inventory) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.img = img;
+        this.description = description;
+        this.inventory = inventory;
+    }
+
     public Product(int id, String name, double price, String category, String img, String description) {
         this.id = id;
         this.name = name;
@@ -28,6 +38,16 @@ public class Product {
         this.category = category;
         this.img = img;
         this.description = description;
+    }
+
+    public Product(int id, String name, double price, String category, String img, String description, int inventory) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.img = img;
+        this.description = description;
+        this.inventory = inventory;
     }
 
     public int getId() {
@@ -76,6 +96,14 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(int inventory) {
+        this.inventory = inventory;
     }
 
     @Override
