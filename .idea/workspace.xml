@@ -10,21 +10,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e35a623d-8631-49d1-95c2-2de2f23b17fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_26_2024_2_47_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_26_2024_2_47_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_26_2024_2_52_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_26_2024_2_52_PM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_26_2024_2_52_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_26_2024_2_52_PM__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_26_2024_2_54_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_26_2024_2_54_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_26_2024_2_58_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_26_2024_2_58_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_26_2024_2_59_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_26_2024_2_59_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_26_2024_2_55_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_26_2024_2_55_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/ServiceProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/ServiceProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/ServiceProductImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/ServiceProductImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/model/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/LoadProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/LoadProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/ProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/ProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/ProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/SearchProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/SearchProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/customer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/man/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/man/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/man/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/man/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/phuc/html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/html/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/man/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +139,7 @@
       <recent name="D:\case\M3_G3_Assignment\src\main\webapp\man" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\case\M3_G3_Assignment\src\main\webapp" />
       <recent name="D:\case\M3_G3_Assignment\src\main\webapp\man" />
       <recent name="D:\codegym\Module-3-Java-Web-Back-end-Development\M3_G3_Assignment\src\main\webapp" />
       <recent name="D:\codegym\Module-3-Java-Web-Back-end-Development\M3_G3_Assignment\src\phuc\img" />
@@ -289,6 +295,9 @@
       <workItem from="1725248152392" duration="21000" />
       <workItem from="1725248780346" duration="5323000" />
       <workItem from="1725255354515" duration="4750000" />
+      <workItem from="1725276014481" duration="3083000" />
+      <workItem from="1725286251950" duration="17000" />
+      <workItem from="1725286927902" duration="2219000" />
     </task>
     <servers />
   </component>
