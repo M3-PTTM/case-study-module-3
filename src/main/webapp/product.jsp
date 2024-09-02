@@ -101,11 +101,13 @@
                                     <input name="action" value="edit" type="hidden">
                                     <input name="id" value="${product.id}" type="hidden">
                                     <th scope="row">${status.count}</th>
-                                    <td><input type="text" name="name" value="${product.name}"></td>
-                                    <td><input type="text" name="price"
+                                    <td><input data-button="button${status.count}" type="text" name="name"
+                                               value="${product.name}"></td>
+                                    <td><input data-button="button${status.count}" type="text" name="price"
                                                value="<fmt:formatNumber value="${product.price}" pattern="###,###"/>">USD</input>
                                     </td>
-                                    <td><select name="category">
+                                    <td><select name="category" onchange="handleInputChange(this)"
+                                                data-button="button${status.count}">
                                         <option value="Model-F" ${product.category == "Model-F" ? "SELECTED" : ""}>
                                             Model-F
                                         </option>
@@ -116,11 +118,15 @@
                                             Model-T
                                         </option>
                                     </select></td>
-                                    <td><input type="text" name="inventory" value="${product.inventory}"></td>
-                                    <td><input type="text" name="img" value="${product.img}"></td>
-                                    <td><input type="text" name="description" value="${product.description}"></td>
+                                    <td><input data-button="button${status.count}" type="text" name="inventory"
+                                               value="${product.inventory}"></td>
+                                    <td><input data-button="button${status.count}" type="text" name="img"
+                                               value="${product.img}"></td>
+                                    <td><input data-button="button${status.count}" type="text" name="description"
+                                               value="${product.description}"></td>
                                     <td>
-                                        <button class="btn btn-warning btn-sm">Sửa</button>
+                                        <button id="button${status.count}" class="btn btn-warning btn-sm" disabled>Lưu
+                                        </button>
                                 </form>
                                 <a href="/product?action=delete&id=${product.id}"
                                    class="btn btn-danger btn-sm">Xóa</a>
@@ -175,7 +181,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="productInventory" class="form-label">Số Lượng</label>
-                                <input type="number" class="form-control" id="productInventory" name="inventory" value="0">
+                                <input type="number" class="form-control" id="productInventory" name="inventory"
+                                       value="0">
                             </div>
                             <button type="submit" class="btn btn-primary">Lưu</button>
                         </form>
@@ -190,5 +197,17 @@
         crossorigin="anonymous"></script>
 <script src="/phuc/js/admin.js"></script>
 <script src="/phuc/js/product.js"></script>
+<script>
+    function handleInputChange(element) {
+        const buttonId = element.getAttribute('data-button');
+        const button = document.getElementById(buttonId);
+        button.style.backgroundColor = 'red';
+        button.disabled = false;
+    }
+
+    document.querySelectorAll('input[type="text"], select').forEach(input => {
+        input.addEventListener('input', (event) => handleInputChange(event.target));
+    });
+</script>
 </body>
 </html>

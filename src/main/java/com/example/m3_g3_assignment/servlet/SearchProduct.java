@@ -37,13 +37,13 @@ public class SearchProduct extends HttpServlet {
                                     "                            <div class=\"row\">\n" +
                                     "                                <div class=\"col-md-6\">\n" +
                                     "                                    <div class=\"box_main_3\">\n" +
-                                    "                                        <h6 class=\"number_text\">" + count + "</h6>\n" +
-                                    "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div>\n" +
+                                    "                                        <a href=\"/home?action=view&id=" + product.getId() + "\"><h6 class=\"number_text\">" + count + "</h6>\n" +
+                                    "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div></a>\n" +
                                     "                                    </div>\n" +
                                     "                                </div>\n" +
                                     "                                <div class=\"col-md-6\">\n" +
-                                    "                                    <h1 class=\"cycles_text\">" + product.getCategory() + " " + product.getName() + "</h1>\n" +
-                                    "                                    <p class=\"lorem_text\">" + product.getDescription() + "</p>\n" +
+                                    "                                    <a href=\"/home?action=view&id=" + product.getId() + "\"><h1 class=\"cycles_text\">" + product.getCategory() + " " + product.getName() + "</h1>\n" +
+                                    "                                    <p class=\"lorem_text\">" + product.getDescription() + "</p></a>\n" +
                                     "                                    <div class=\"btn_main\">\n" +
                                     "                                        <div class=\"buy_bt\"><a href=\"#\">Buy Now</a></div>\n" +
                                     "                                        <h4 class=\"price_text\">Price <span style=\" color: #f7c17b\">$</span> <span\n" +
@@ -57,8 +57,8 @@ public class SearchProduct extends HttpServlet {
                             out.println("<div class=\"product cycle_section_3 layout_padding\">\n" +
                                     "                            <div class=\"row\">\n" +
                                     "                                <div class=\"col-md-6\">\n" +
-                                    "                                    <h1 class=\"cycles_text\">" + product.getCategory() + " " + product.getName() + "</h1>\n" +
-                                    "                                    <p class=\"lorem_text\">" + product.getDescription() + "</p>\n" +
+                                    "                                    <a href=\"/home?action=view&id=" + product.getId() + "\"><h1 class=\"cycles_text\">" + product.getCategory() + " " + product.getName() + "</h1>\n" +
+                                    "                                    <p class=\"lorem_text\">" + product.getDescription() + "</p></a>\n" +
                                     "                                    <div class=\"btn_main\">\n" +
                                     "                                        <div class=\"buy_bt\"><a href=\"#\">Buy Now</a></div>\n" +
                                     "                                        <h4 class=\"price_text\">Price <span style=\" color: #f7c17b\">$</span> <span\n" +
@@ -67,8 +67,8 @@ public class SearchProduct extends HttpServlet {
                                     "                                </div>\n" +
                                     "                                <div class=\"col-md-6\">\n" +
                                     "                                    <div class=\"box_main_3\">\n" +
-                                    "                                        <h6 class=\"number_text\">" + count + "</h6>\n" +
-                                    "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div>\n" +
+                                    "                                        <a href=\"/home?action=view&id=" + product.getId() + "\"><h6 class=\"number_text\">" + count + "</h6>\n" +
+                                    "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div></a>\n" +
                                     "                                    </div>\n" +
                                     "                                </div>\n" +
                                     "                            </div>\n" +
@@ -88,13 +88,13 @@ public class SearchProduct extends HttpServlet {
                                         "                            <div class=\"row\">\n" +
                                         "                                <div class=\"col-md-6\">\n" +
                                         "                                    <div class=\"box_main_3\">\n" +
-                                        "                                        <h6 class=\"number_text\">" + count + "</h6>\n" +
-                                        "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div>\n" +
+                                        "                                        <a href=\"/home?action=view&id=" + product.getId() + "\"><h6 class=\"number_text\">" + count + "</h6>\n" +
+                                        "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div></a>\n" +
                                         "                                    </div>\n" +
                                         "                                </div>\n" +
                                         "                                <div class=\"col-md-6\">\n" +
-                                        "                                    <h1 class=\"cycles_text\">" + product.getCategory() + " " + product.getName() + "</h1>\n" +
-                                        "                                    <p class=\"lorem_text\">" + product.getDescription() + "</p>\n" +
+                                        "                                    <a href=\"/home?action=view&id=" + product.getId() + "\"><h1 class=\"cycles_text\">" + product.getCategory() + " " + product.getName() + "</h1>\n" +
+                                        "                                    <p class=\"lorem_text\">" + product.getDescription() + "</p></a>\n" +
                                         "                                    <div class=\"btn_main\">\n" +
                                         "                                        <div class=\"buy_bt\"><a href=\"#\">Buy Now</a></div>\n" +
                                         "                                        <h4 class=\"price_text\">Price <span style=\" color: #f7c17b\">$</span> <span\n" +
@@ -108,8 +108,8 @@ public class SearchProduct extends HttpServlet {
                                 out.println("<div class=\"product cycle_section_3 layout_padding\">\n" +
                                         "                            <div class=\"row\">\n" +
                                         "                                <div class=\"col-md-6\">\n" +
-                                        "                                    <h1 class=\"cycles_text\">" + product.getCategory() + " " + product.getName() + "</h1>\n" +
-                                        "                                    <p class=\"lorem_text\">" + product.getDescription() + "</p>\n" +
+                                        "                                    <a href=\"/home?action=view&id=" + product.getId() + "\"><h1 class=\"cycles_text\">" + product.getCategory() + " " + product.getName() + "</h1>\n" +
+                                        "                                    <p class=\"lorem_text\">" + product.getDescription() + "</p></a>\n" +
                                         "                                    <div class=\"btn_main\">\n" +
                                         "                                        <div class=\"buy_bt\"><a href=\"#\">Buy Now</a></div>\n" +
                                         "                                        <h4 class=\"price_text\">Price <span style=\" color: #f7c17b\">$</span> <span\n" +
@@ -118,8 +118,8 @@ public class SearchProduct extends HttpServlet {
                                         "                                </div>\n" +
                                         "                                <div class=\"col-md-6\">\n" +
                                         "                                    <div class=\"box_main_3\">\n" +
-                                        "                                        <h6 class=\"number_text\">" + count + "</h6>\n" +
-                                        "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div>\n" +
+                                        "                                        <a href=\"/home?action=view&id=" + product.getId() + "\"><h6 class=\"number_text\">" + count + "</h6>\n" +
+                                        "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div></a>\n" +
                                         "                                    </div>\n" +
                                         "                                </div>\n" +
                                         "                            </div>\n" +

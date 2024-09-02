@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet("/home")
-public class ProductServlet extends HttpServlet {
+public class HomeController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final ServiceProduct SERVICE_PRODUCT = new ServiceProductImpl();
 
@@ -26,18 +26,29 @@ public class ProductServlet extends HttpServlet {
         }
         try {
             switch (action) {
+                case "view":
+                    viewProduct(req, resp);
+                    break;
                 default:
                     productsList(req, resp);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    private void viewProduct(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        Product product = SERVICE_PRODUCT.getProduct(id);
+        List<Product> products = SERVICE_PRODUCT.getProductsNewLimit3();
+        req.setAttribute("product", product);
+        req.setAttribute("products", products);
+        req.getRequestDispatcher("/view.jsp").forward(req, resp);
     }
 
     private void productsList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLException {
-       List<Product> products = SERVICE_PRODUCT.getProductsNewLimit3();
+        List<Product> products = SERVICE_PRODUCT.getProductsNewLimit3();
         req.setAttribute("products", products);
-        req.getRequestDispatcher("/man/home.jsp").forward(req, resp);
+        req.getRequestDispatcher("/home.jsp").forward(req, resp);
     }
 }
