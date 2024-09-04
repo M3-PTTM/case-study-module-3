@@ -258,6 +258,24 @@
         <p class="copyright_text">Disrtributed By. <a href="https://themewagon.com">ThemeWagon </a></p>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var buyNow = document.querySelectorAll('.buy-now');
+        buyNow.forEach(function (button) {
+            button.addEventListener('click', function (event) {
+                event.preventDefault()
+                var id = this.getAttribute('data-id');
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "/home?action=add-to-cart&id=" + id, true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                    }
+                };
+                xhr.send();
+            });
+        });
+    });
+</script>
 <c:import url="/man/library/script.jsp"/>
 </body>
 </html>

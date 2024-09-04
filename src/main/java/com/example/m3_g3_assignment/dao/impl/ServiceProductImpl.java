@@ -22,7 +22,7 @@ public class ServiceProductImpl implements ServiceProduct {
     private static final String SELECT_PRODUCT = "select * from product where product_id = ?";
     private static final String UPDATE_PRODUCT = "update product set product_name = ?, product_price = ?, category_name = ?, product_img = ?, product_description = ?, product_inventory = ? where product_id = ?";
     private static final String DELETE_PRODUCT = "delete from product where product_id = ?";
-    private static final String INSERT_PRODUCT = "insert into product(product_name, product_price, category_name, product_img, product_description) values(?, ?, ?, ?, ?)";
+    private static final String INSERT_PRODUCT = "insert into product (product_name, product_price, category_name, product_img, product_description) values (?, ?, ?, ?, ?)";
 
     @Override
     public List<Product> getAllProducts() throws SQLException {
