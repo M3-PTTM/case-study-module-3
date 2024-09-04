@@ -28,7 +28,7 @@
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-box me-2"></i> Sản phẩm
             </a>
-            <a href="customers-servlet" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
+            <a href="customer.jsp" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
                 <i class="fas fa-customer-circle me-2"></i> Khách hàng
             </a>
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">

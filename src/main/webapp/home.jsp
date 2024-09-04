@@ -33,7 +33,7 @@
                             <li><a href="#">Logout</a></li>
                         </c:if>
                         <c:if test="${sessionScope.account == null}">
-                            <li><a href="#">Login</a></li>
+                            <li><a href="login.jsp">Login</a></li>
                         </c:if>
                         <li><a href="/home?action=cart"><img src="/man/images/trolly-icon.png"></a></li>
                         <li>
