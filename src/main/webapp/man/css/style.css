@@ -540,6 +540,7 @@ button {
 .buy_bt {
     width: 170px;
     float: left;
+    display: flex;
 }
 
 .buy_bt a {
