@@ -66,19 +66,3 @@ document.getElementById('addCustomerBtn').addEventListener('click', function() {
     var modal = new bootstrap.Modal(document.getElementById('customerFormModal'));
     modal.show();
 });
-
-function editCustomer(id, edit_username, edit_customer_name, edit_customer_email, edit_customer_phone, edit_customer_citizen, edit_customer_role) {
-
-    document.getElementById('editCustomerId').value = id;
-    document.getElementById('edit_username').value = edit_username;
-    document.getElementById('edit_customer_name').value = edit_customer_name;
-    document.getElementById('edit_customer_email').value = edit_customer_email;
-    document.getElementById('edit_customer_phone').value = edit_customer_phone;
-    document.getElementById('edit_customer_citizen').value = edit_customer_citizen;
-    document.getElementById('edit_customer_role').value = edit_customer_role;
-
-    const editModal = new bootstrap.Modal(document.getElementById('editCustomerFormModal'));
-    editModal.show();
-}
-
-

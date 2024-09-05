@@ -97,14 +97,8 @@
                 <td>${customer.customer_citizen}</td>
                 <td>${customer.customer_role}</td>
                 <td>
-                  <button class="btn btn-warning btn-sm"
-                          onclick="editCustomer('${customer.customer_id}', '${customer.username}', '${customer.customer_name}', '${customer.customer_email}', '${customer.customer_phone}', '${customer.customer_citizen}', '${customer.customer_role}')">
-                    Sửa</button>
-                  <form action="customers-servlet" method="post" style="display:inline-block;">
-                    <input type="hidden" name="action" value="delete">
-                    <input type="hidden" name="customer_id" value="${customer.customer_id}">
-                    <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
-                  </form>
+                  <button class="btn btn-warning btn-sm">Sửa</button>
+                  <button class="btn btn-danger btn-sm">Xóa</button>
                 </td>
               </tr>
             </c:forEach>
@@ -145,50 +139,6 @@
               <div class="mb-3">
                 <label for="customer_role" class="form-label">Vai trò</label>
                 <select id="customer_role" name="customer_role" class="form-select">
-                  <option value="CUSTOMER">Khách hàng</option>
-                </select>
-              </div>
-              <button type="submit" class="btn btn-primary">Thêm mới</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="editCustomerFormModal" class="modal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Thông tin khách hàng</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="editCustomerForm" action="customers-servlet" method="post">
-              <input type="hidden" id="editCustomerId" name="customer_id">
-              <input type="hidden" name="action" value="update">
-              <div class="mb-3">
-                <label for="username" class="form-label">Tên đăng nhập</label>
-                <input type="text" class="form-control" id="edit_username" name="username" required>
-              </div>
-              <div class="mb-3">
-                <label for="edit_customer_name" class="form-label">Họ và tên</label>
-                <input type="text" class="form-control" id="edit_customer_name" name="customer_name" required>
-              </div>
-              <div class="mb-3">
-                <label for="edit_customer_email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="edit_customer_email" name="customer_email" required>
-              </div>
-              <div class="mb-3">
-                <label for="edit_customer_phone" class="form-label">Số điện thoại</label>
-                <input type="text" class="form-control" id="edit_customer_phone" name="customer_phone" required>
-              </div>
-              <div class="mb-3">
-                <label for="edit_customer_citizen" class="form-label">Căn cước công dân</label>
-                <input type="text" class="form-control" id="edit_customer_citizen" name="customer_citizen" required>
-              </div>
-              <div class="mb-3">
-                <label for="edit_customer_role" class="form-label">Vai trò</label>
-                <select id="edit_customer_role" name="customer_role" class="form-select">
                   <option value="CUSTOMER">Khách hàng</option>
                 </select>
               </div>
