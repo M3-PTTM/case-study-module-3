@@ -1,30 +1,45 @@
 package com.example.m3_g3_assignment.model;
 
 public class Cart {
-    private Customer customer;
-    private Product product;
+    private int customerId;
+    private int productId;
+    private int quantity;
 
     public Cart() {
     }
 
-    public Cart(Customer customer, Product product) {
-        this.product = product;
-        this.customer = customer;
+    public Cart(int customerId, int productId) {
+        this.customerId = customerId;
+        this.productId = productId;
     }
 
-    public Product getProduct() {
-        return product;
+    public Cart(int customerId, int productId, int quantity) {
+        this.customerId = customerId;
+        this.productId = productId;
+        this.quantity = quantity;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

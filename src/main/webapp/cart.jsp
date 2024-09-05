@@ -2,7 +2,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
-<c:import url="/man/library/head.jsp"/>
+<c:import url="/man/vnpay_jsp/head.jsp"/>
 <body>
 <div class="header_section header_bg">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -116,43 +116,45 @@
     </div>
 </div>
 <div class="cycle_section layout_padding">
-    <div class="container">
+    <div class="container" id="content">
         <h1 class="cycle_taital">Cart</h1>
         <p class="cycle_text">It is a long established fact that a reader will be distracted by the </p>
-        <c:forEach var="entry" items="${map}" varStatus="status">
-            <c:if test="${entry.key.inventory>0}">
+        <c:forEach var="product" items="${productsCart}" varStatus="status">
+            <c:if test="${product.inventory>0}">
                 <c:choose>
                     <c:when test="${status.count%2!=0}">
-                        <div class="product cycle_section_3 layout_padding">
+                        <div class="product cycle_section_3 layout_padding" id="product${product.id}">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="box_main_3">
-                                        <a href="/home?action=view&id=${entry.key.id}"><h6
+                                        <a href="/home?action=view&id=${product.id}"><h6
                                                 class="number_text">${status.count}</h6>
-                                            <div class="image_2"><img src="/man/images/${entry.key.img}"></div>
+                                            <div class="image_2"><img src="/man/images/${product.img}"></div>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="/home?action=view&id=${entry.key.id}"><h1
-                                            class="cycles_text">${entry.key.category} ${entry.key.name}</h1>
-                                        <p class="lorem_text">${entry.key.description}</p></a>
+                                    <a href="/home?action=view&id=${product.id}"><h1
+                                            class="cycles_text">${product.category} ${product.name}</h1>
+                                        <p class="lorem_text">${product.description}</p></a>
                                     <div class="btn_main">
                                         <div class="buy_bt">
                                             <div class="quantity_selector">
                                                 <button class="quantity_button"
-                                                        onclick="decreaseQuantity(${status.count})">-
+                                                        onclick="decreaseQuantity(${product.id})">-
                                                 </button>
-                                                <input type="number" id="quantity${status.count}" value="1" min="1"
-                                                       max="${entry.key.inventory}" class="quantity_input"
+                                                <input type="number" id="quantity${product.id}"
+                                                       value="${product.quantity}"
+                                                       min="1"
+                                                       max="${product.inventory}" class="quantity_input"
                                                        onchange="updateTotalPrice()"/>
                                                 <button class="quantity_button"
-                                                        onclick="increaseQuantity(${status.count})">+
+                                                        onclick="increaseQuantity(${product.id})">+
                                                 </button>
                                             </div>
                                         </div>
                                         <h4 class="price_text">
-                                            <span style=" color: #325662">${entry.key.price}</span>
+                                            <span style=" color: #325662">${product.price}</span>
                                             <span style=" color: #f7c17b"> USD</span>
                                         </h4>
                                     </div>
@@ -161,37 +163,39 @@
                         </div>
                     </c:when>
                     <c:otherwise>
-                        <div class="product cycle_section_3 layout_padding">
+                        <div class="product cycle_section_3 layout_padding" id="product${product.id}">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <a href="/home?action=view&id=${entry.key.id}"><h1
-                                            class="cycles_text">${entry.key.category} ${entry.key.name}</h1>
-                                        <p class="lorem_text">${entry.key.description}</p></a>
+                                    <a href="/home?action=view&id=${product.id}"><h1
+                                            class="cycles_text">${product.category} ${product.name}</h1>
+                                        <p class="lorem_text">${product.description}</p></a>
                                     <div class="btn_main">
                                         <div class="buy_bt">
                                             <div class="quantity_selector">
                                                 <button class="quantity_button"
-                                                        onclick="decreaseQuantity(${status.count})">-
+                                                        onclick="decreaseQuantity(${product.id})">-
                                                 </button>
-                                                <input type="number" id="quantity${status.count}" value="1" min="1"
-                                                       max="${entry.key.inventory}" class="quantity_input"
+                                                <input type="number" id="quantity${product.id}"
+                                                       value="${product.quantity}"
+                                                       min="1"
+                                                       max="${product.inventory}" class="quantity_input"
                                                        onchange="updateTotalPrice()"/>
                                                 <button class="quantity_button"
-                                                        onclick="increaseQuantity(${status.count})">+
+                                                        onclick="increaseQuantity(${product.id})">+
                                                 </button>
                                             </div>
                                         </div>
                                         <h4 class="price_text">
-                                            <span style=" color: #325662">${entry.key.price}</span>
+                                            <span style=" color: #325662">${product.price}</span>
                                             <span style=" color: #f7c17b"> USD</span>
                                         </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="box_main_3">
-                                        <a href="/home?action=view&id=${entry.key.id}"><h6
+                                        <a href="/home?action=view&id=${product.id}"><h6
                                                 class="number_text">${status.count}</h6>
-                                            <div class="image_2"><img src="/man/images/${entry.key.img}"></div>
+                                            <div class="image_2"><img src="/man/images/${product.img}"></div>
                                         </a>
                                     </div>
                                 </div>
@@ -214,67 +218,155 @@
                         <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">Số Lượng</th>
                         <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">Thành Giá</th>
                     </tr>
-                    <c:forEach var="entry" items="${map}" varStatus="status">
-                        <tr>
-                            <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${entry.key.name}</th>
+                    <c:forEach var="product" items="${productsCart}" varStatus="status">
+                        <tr id="order${product.id}">
+                            <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${product.name}</th>
                             <th id="quantityCell${status.count}"
-                                style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${entry.value}</th>
+                                style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${product.quantity}</th>
                             <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;"><span
-                                    id="priceCell${status.count}">${entry.key.price*entry.value}</span> USD
+                                    id="priceCell${status.count}">${product.price*product.quantity}</span> USD
                             </th>
                         </tr>
                     </c:forEach>
-                    <tr>
-                        <th colspan="2" style="text-align: center; border: 1px solid #ddd;">Tổng giá:</th>
-                        <th style="text-align: center; border: 1px solid #ddd;"><span id="totalPrice">0</span> USD</th>
-                    </tr>
-                    <tr>
-                        <th colspan="3" style="text-align: center; border: 1px solid #ddd;">
-                            <button class="btn btn-danger" onclick="submitPayment()">Thanh Toán</button>
-                        </th>
-                    </tr>
+                    <form action="/vnpayajax" id="frmCreateOrder" method="post">
+                        <input type="hidden" id="bankCode" name="bankCode" value="">
+                        <input type="hidden" id="language" name="language" value="vn">
+                        <input id="amount" name="amount" type="hidden" value="">
+                        <tr>
+                            <th colspan="2" style="text-align: center; border: 1px solid #ddd;">Tổng giá:</th>
+                            <th style="text-align: center; border: 1px solid #ddd;"><span id="totalPrice">0</span> USD
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="3" style="text-align: center; border: 1px solid #ddd;">
+                                <button class="btn btn-danger">Thanh Toán</button>
+                            </th>
+                        </tr>
+                    </form>
                 </table>
             </div>
         </div>
     </div>
 </div>
+<link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet"/>
+<script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
 <script>
-    function decreaseQuantity(count) {
-        var quantityInput = document.getElementById('quantity' + count);
+    function decreaseQuantity(id) {
+        var quantityInput = document.getElementById('quantity' + id);
         var currentValue = parseInt(quantityInput.value);
         if (currentValue > 1) {
             quantityInput.value = currentValue - 1;
+            updateQuantity(id);
+        } else if (currentValue === 1) {
+            removeProduct(id);
         }
         updateTotalPrice();
     }
 
-    function increaseQuantity(count) {
-        var quantityInput = document.getElementById('quantity' + count);
+    function removeProduct(id) {
+        var productElement = document.getElementById('order' + id);
+        productElement.remove();
+        $.ajax({
+            url: "/cart",
+            type: "get",
+            data: {
+                id: id
+            },
+            success: function () {
+                location.reload(true);
+            },
+            error: function (xhr) {
+            }
+        });
+    }
+
+    function increaseQuantity(id) {
+        var quantityInput = document.getElementById('quantity' + id);
         var currentValue = parseInt(quantityInput.value);
         quantityInput.value = currentValue + 1;
+        updateQuantity(id);
         updateTotalPrice();
+    }
+
+    function updateQuantity(id) {
+        var quantityInput = document.getElementById('quantity' + id);
+        var currentValue = parseInt(quantityInput.value);
+        $.ajax({
+            url: "/cart",
+            type: "post",
+            data: {
+                id: id,
+                quantity: currentValue
+            },
+            success: function () {
+            },
+            error: function (xhr) {
+            }
+        });
     }
 
     function updateTotalPrice() {
         var totalPrice = 0;
-        <c:forEach var="entry" items="${map}" varStatus="status">
-        var quantity = document.getElementById('quantity${status.count}').value;
-        var price = ${entry.key.price};
+        <c:forEach var="product" items="${productsCart}" varStatus="status">
+        var quantity = document.getElementById('quantity${product.id}').value;
+        var price = ${product.price};
         totalPrice += price * quantity;
         document.querySelector(`#quantityCell${status.count}`).innerHTML = quantity;
         document.querySelector(`#priceCell${status.count}`).innerHTML = (price * quantity).toFixed(2);
         </c:forEach>
         document.getElementById('totalPrice').innerHTML = totalPrice.toFixed(2);
+        document.getElementById('amount').value = totalPrice.toFixed(2);
     }
 
     function submitPayment() {
-        // Chuyển hướng đến trang xác nhận thanh toán hoặc thực hiện các thao tác cần thiết.
-        alert('Đã thanh toán thành công!');
-        // Hoặc bạn có thể điều hướng tới trang thanh toán.
-        // window.location.href = '/checkout';
+        var arr = [];
+        <c:forEach var="product" items="${productsCart}" varStatus="status">
+        var quantity = document.getElementById('quantity${product.id}').value;
+        arr.push(quantity);
+        </c:forEach>
+        console.log(arr);
+        debugger;
+        $.ajax({
+            url: "/order",
+            type: "post",
+            data: {
+                arr: JSON.stringify(arr)
+            },
+            success: function (data) {
+                console.log("Success:", data);
+            },
+            error: function (xhr) {
+                console.log("Error:", xhr);
+            }
+        });
     }
 
     updateTotalPrice();
+</script>
+<script>
+    $("#frmCreateOrder").submit(function () {
+        var postData = $("#frmCreateOrder").serialize();
+        var submitUrl = $("#frmCreateOrder").attr("action");
+        $.ajax({
+            type: "POST",
+            url: submitUrl,
+            data: postData,
+            dataType: 'JSON',
+            success: function (x) {
+                if (x.code === '00') {
+                    if (window.vnpay) {
+                        vnpay.open({width: 768, height: 600, url: x.data});
+                    } else {
+                        location.href = x.data;
+                    }
+                    return false;
+                } else {
+                    alert(x.Message);
+                }
+            }
+        });
+        return false;
+    });
 </script>
 <style>
     .quantity_selector {

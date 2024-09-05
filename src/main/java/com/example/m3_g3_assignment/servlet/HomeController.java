@@ -15,12 +15,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @WebServlet("/home")
 public class HomeController extends HttpServlet {
@@ -60,21 +57,19 @@ public class HomeController extends HttpServlet {
 //        int customerId = customer.getCustomer_id();
         List<Product> products = SERVICE_PRODUCT.getProductsNewLimit3();
         int customerId = 1;
-        Map<Product, Integer> map = SERVICE_CART.getCart(customerId);
-        req.setAttribute("map", map);
+        List<Product> productsCart = SERVICE_CART.getAllProducts(customerId);
+        req.setAttribute("productsCart", productsCart);
         req.setAttribute("products", products);
         req.getRequestDispatcher("/cart.jsp").forward(req, resp);
     }
 
     private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
         int productId = Integer.parseInt(req.getParameter("id"));
-        Product product = SERVICE_PRODUCT.getProduct(productId);
 //        HttpSession session = req.getSession();
 //        Customer customer = (Customer) session.getAttribute("customer");
 //        int customerId = customer.getCustomer_id();
         int customerId = 1;
-        Customer customer = I_CUSTOMER_DAO.selectCustomer(customerId);
-        Cart cart = new Cart(customer, product);
+        Cart cart = new Cart(customerId, productId);
         SERVICE_CART.insertCart(cart);
     }
 
