@@ -28,7 +28,7 @@
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-box me-2"></i> Sản phẩm
             </a>
-            <a href="customers-servlet" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
+            <a href="customer.jsp" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
                 <i class="fas fa-customer-circle me-2"></i> Khách hàng
             </a>
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -141,12 +141,6 @@
                             <div class="mb-3">
                                 <label for="customer_citizen" class="form-label">Căn cước công dân</label>
                                 <input type="text" class="form-control" id="customer_citizen" name="customer_citizen" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="customer_role" class="form-label">Vai trò</label>
-                                <select id="customer_role" name="customer_role" class="form-select">
-                                    <option value="CUSTOMER">Khách hàng</option>
-                                </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Thêm mới</button>
                         </form>
