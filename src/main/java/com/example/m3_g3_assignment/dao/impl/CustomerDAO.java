@@ -134,25 +134,25 @@ public class CustomerDAO implements ICustomerDAO {
 
     @Override
     public Customer loginCustomer(String username, String password) throws SQLException {
+        Customer customer = null;
         try (Connection connection = JDBCConnection.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(ACCOUNT_CUSTOMER)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(ACCOUNT_CUSTOMER)) {
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    return new Customer(resultSet.getInt(1),
-                            resultSet.getString(2),
-                            resultSet.getString(3),
-                            resultSet.getString(4),
-                            resultSet.getString(5),
-                            resultSet.getString(6),
-                            resultSet.getString(7));
-                }
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                customer = new Customer();
+                customer.setCustomer_id(resultSet.getInt("customer_id"));
+                customer.setUsername(resultSet.getString("username"));
+                customer.setPassword(resultSet.getString("password"));
+                customer.setCustomer_name(resultSet.getString("customer_name"));
+                customer.setCustomer_email(resultSet.getString("customer_email"));
+                customer.setCustomer_phone(resultSet.getString("customer_phone"));
+                customer.setCustomer_citizen(resultSet.getString("customer_citizen"));
+                customer.setCustomer_role(resultSet.getString("customer_role"));
             }
-        } catch (SQLException e) {
-            printSQLException(e);
         }
-        return null;
+        return customer;
     }
 
     private void printSQLException(SQLException ex) {
