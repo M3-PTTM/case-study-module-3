@@ -10,18 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e35a623d-8631-49d1-95c2-2de2f23b17fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_28_2024_10_33_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_28_2024_10_33_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/IReviewDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/IReviewDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/ReviewDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/ReviewDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/model/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/man/library/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/man/library/head.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/man/library/script.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/man/library/script.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +101,7 @@
     &quot;Tomcat Server.index.jsp.executor&quot;: &quot;Run&quot;,
     &quot;Tomcat Server.welcome.jsp.executor&quot;: &quot;Run&quot;,
     &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tuan&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;graalvm-jdk-17&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/btnhom/M3_G3_Assignment&quot;,
@@ -303,11 +292,25 @@
       <workItem from="1725365554883" duration="44000" />
       <workItem from="1725414772920" duration="10054000" />
       <workItem from="1725431769420" duration="3550000" />
-      <workItem from="1725499022132" duration="385000" />
+      <workItem from="1725499022132" duration="3184000" />
+      <workItem from="1725503304152" duration="31000" />
+      <workItem from="1725521675768" duration="24000" />
+      <workItem from="1725521739994" duration="20000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
