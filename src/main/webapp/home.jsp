@@ -234,6 +234,9 @@
         <p class="copyright_text">Disrtributed By. <a href="https://themewagon.com">ThemeWagon </a></p>
     </div>
 </div>
+
+
+
 <c:import url="/man/library/script.jsp"/>
 </body>
 </html>

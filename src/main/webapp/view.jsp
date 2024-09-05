@@ -117,7 +117,7 @@
 </div>
 <div class="cycle_section layout_padding">
     <div id="content" class="container">
-        <h1 class="cycle_taital">Review</h1>
+        <h1 class="cycle_taital">Thông tin sản phẩm</h1>
         <p class="cycle_text">It is a long established fact that a reader will be distracted by the </p>
         <div class="product cycle_section_3 layout_padding">
             <div class="row">
@@ -132,6 +132,14 @@
                     <p class="lorem_text">${product.description}</p>
                     <div class="btn_main">
                         <div class="buy_bt"><a href="#">Buy Now</a></div>
+                        <%--   nút đánh giá--%>
+                        <!-- Button trigger modal -->
+                        <div class="buy_bt">
+                            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary" data-mdb-modal-init data-mdb-target="#staticBackdrop1">
+                                Review
+                            </button>
+                        </div>
+
                         <h4 class="price_text">Price <span style=" color: #f7c17b">$</span> <span
                                 style=" color: #325662">${product.price}</span></h4>
                     </div>
@@ -147,66 +155,65 @@
         </div>
     </div>
 </div>
+<%--Review here--%>
 <div class="client_section layout_padding">
     <div id="my_slider" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="client_main">
-                        <h1 class="client_taital">Says Customers</h1>
-                        <div class="client_section_2">
-                            <div class="client_left">
-                                <div><img src="/man/images/client-img.png" class="client_img"></div>
+            <%--div con cua review--%>
+            <c:forEach items="${reviewList}" var="s" varStatus="status">
+                <c:choose> <c:when test="${status.count==1}">
+
+                    <div class="carousel-item active">
+
+                        <div class="container">
+
+                            <div class="client_main">
+
+                                <h1 class="client_taital">${s.getCustomer_name()}</h1>
+                                <div class="client_section_2">
+                                    <div class="client_left">
+                                        <div><img src="/man/images/client-img.png" class="client_img"></div>
+                                    </div>
+                                    <div class="client_right">
+                                        <div class="quote_icon"><img src="/man/images/quote-icon.png"></div>
+                                        <p class="client_text">${s.getReview_content()}</p>
+                                        <h3 class="client_name">Channery</h3>
+                                    </div>
+                                </div>
+
                             </div>
-                            <div class="client_right">
-                                <div class="quote_icon"><img src="/man/images/quote-icon.png"></div>
-                                <p class="client_text">It is a long established fact that a reader will be distracted by
-                                    the readable content of a page when looking at its layout. The point of using Lorem
-                                    Ipsum is that it has a more-or-less normal distribution of letters</p>
-                                <h3 class="client_name">Channery</h3>
-                            </div>
+
                         </div>
+
                     </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="client_main">
-                        <h1 class="client_taital">Says Customers</h1>
-                        <div class="client_section_2">
-                            <div class="client_left">
-                                <div><img src="/man/images/client-img.png" class="client_img"></div>
+                </c:when>
+                    <c:otherwise>
+                        <div class="carousel-item">
+
+                            <div class="container">
+
+                                <div class="client_main">
+
+                                    <h1 class="client_taital">${s.getCustomer_name()}</h1>
+                                    <div class="client_section_2">
+                                        <div class="client_left">
+                                            <div><img src="/man/images/client-img.png" class="client_img"></div>
+                                        </div>
+                                        <div class="client_right">
+                                            <div class="quote_icon"><img src="/man/images/quote-icon.png"></div>
+                                            <p class="client_text">${s.getReview_content()}</p>
+                                            <h3 class="client_name">Channery</h3>
+                                        </div>
+                                    </div>
+
+                                </div>
+
                             </div>
-                            <div class="client_right">
-                                <div class="quote_icon"><img src="/man/images/quote-icon.png"></div>
-                                <p class="client_text">It is a long established fact that a reader will be distracted by
-                                    the readable content of a page when looking at its layout. The point of using Lorem
-                                    Ipsum is that it has a more-or-less normal distribution of letters</p>
-                                <h3 class="client_name">Channery</h3>
-                            </div>
+
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="client_main">
-                        <h1 class="client_taital">Says Customers</h1>
-                        <div class="client_section_2">
-                            <div class="client_left">
-                                <div><img src="/man/images/client-img.png" class="client_img"></div>
-                            </div>
-                            <div class="client_right">
-                                <div class="quote_icon"><img src="/man/images/quote-icon.png"></div>
-                                <p class="client_text">It is a long established fact that a reader will be distracted by
-                                    the readable content of a page when looking at its layout. The point of using Lorem
-                                    Ipsum is that it has a more-or-less normal distribution of letters</p>
-                                <h3 class="client_name">Channery</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
         </div>
         <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
             <i class="fa fa-angle-left"></i>
@@ -215,6 +222,8 @@
             <i class="fa fa-angle-right"></i>
         </a>
     </div>
+
+
 </div>
 <div class="footer_section layout_padding">
     <div class="container-fluid">
@@ -258,6 +267,38 @@
         <p class="copyright_text">Disrtributed By. <a href="https://themewagon.com">ThemeWagon </a></p>
     </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog d-flex justify-content-center">
+        <div class="modal-content w-75">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">Đánh giá sản phẩm</h5>
+                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form>
+                    <!-- tiêu đề input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="email" id="email1" class="form-control" />
+                        <label class="form-label" for="email1">Tiêu đề</label>
+                    </div>
+
+                    <!-- nội dung input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="password" id="password1" class="form-control" />
+                        <label class="form-label" for="password1">Nội dung</label>
+                    </div>
+
+                    <!-- đánh giá button -->
+                    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block">Đánh giá</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
 <c:import url="/man/library/script.jsp"/>
 </body>
 </html>
