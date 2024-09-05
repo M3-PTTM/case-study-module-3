@@ -10,6 +10,9 @@ public class Customer {
     private String customer_citizen;
     private String customer_role;
 
+    public Customer() {
+    }
+
     public Customer(int user_id, String username, String customer_name, String customer_email, String customer_phone, String customer_citizen, String customer_role) {
         this.customer_id = user_id;
         this.username = username;
