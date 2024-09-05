@@ -35,7 +35,15 @@ public class LoginController extends HttpServlet {
             req.getRequestDispatcher("login.jsp").forward(req, resp);
         } else {
             req.getSession().setAttribute("customer", customer);
-            resp.sendRedirect("index.jsp");
+            String role = customer.getCustomer_role();
+            System.out.println(role);
+            if ("ADMIN".equals(role)) {
+                resp.sendRedirect("dashboard.jsp");
+            } else if ("CUSTOMER".equals(role)) {
+                resp.sendRedirect("index.jsp");
+            } else {
+                resp.sendRedirect("login.jsp");
+            }
         }
     }
 }
