@@ -66,3 +66,58 @@ document.getElementById('addCustomerBtn').addEventListener('click', function() {
     var modal = new bootstrap.Modal(document.getElementById('customerFormModal'));
     modal.show();
 });
+
+function editCustomer(id, edit_username, edit_customer_name, edit_customer_email, edit_customer_phone, edit_customer_citizen, edit_customer_role) {
+
+    document.getElementById('editCustomerId').value = id;
+    document.getElementById('edit_username').value = edit_username;
+    document.getElementById('edit_customer_name').value = edit_customer_name;
+    document.getElementById('edit_customer_email').value = edit_customer_email;
+    document.getElementById('edit_customer_phone').value = edit_customer_phone;
+    document.getElementById('edit_customer_citizen').value = edit_customer_citizen;
+    document.getElementById('edit_customer_role').value = edit_customer_role;
+
+    const editModal = new bootstrap.Modal(document.getElementById('editCustomerFormModal'));
+    editModal.show();
+}
+
+document.getElementById("customerForm").addEventListener("submit", function(event) {
+    let isValid = true;
+
+    let username = document.getElementById("username").value.trim();
+    if (username === "") {
+        alert("Tên đăng nhập không được để trống.");
+        isValid = false;
+    }
+
+    let customer_name = document.getElementById("customer_name").value.trim();
+    if (customer_name === "") {
+        alert("Họ và tên không được để trống.");
+        isValid = false;
+    }
+
+    let email = document.getElementById("customer_email").value.trim();
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Email không hợp lệ.");
+        isValid = false;
+    }
+
+    let phone = document.getElementById("customer_phone").value.trim();
+    let phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(phone)) {
+        alert("Số điện thoại không hợp lệ. Số điện thoại phải có 10 chữ số.");
+        isValid = false;
+    }
+
+    let citizen = document.getElementById("customer_citizen").value.trim();
+    let citizenPattern = /^[0-9]{12}$/;
+    if (!citizenPattern.test(citizen)) {
+        alert("Căn cước công dân không hợp lệ. Căn cước công dân phải có 12 chữ số.");
+        isValid = false;
+    }
+
+    if (!isValid) {
+        event.preventDefault();
+    }
+});
