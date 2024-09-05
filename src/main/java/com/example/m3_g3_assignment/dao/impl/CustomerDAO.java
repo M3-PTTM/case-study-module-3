@@ -13,7 +13,7 @@ import java.util.List;
 
 public class CustomerDAO implements ICustomerDAO {
     private static final String INSERT_CUSTOMER_SQL =
-            "INSERT INTO customer (username, customer_name, customer_email, customer_phone, customer_citizen, customer_role) VALUES (?,?,?,?,?,?)";
+            "INSERT INTO customer (username, password, customer_name, customer_email, customer_phone, customer_citizen) VALUES (?,?,?,?,?,?)";
     private static final String SELECT_CUSTOMER_BY_ID =
             "SELECT username, customer_name, customer_email, customer_phone, customer_citizen, customer_role FROM customer WHERE customer_id = ?";
     private static final String SELECT_ALL_CUSTOMERS =
@@ -23,18 +23,20 @@ public class CustomerDAO implements ICustomerDAO {
     private static final String UPDATE_CUSTOMER_SQL =
             "UPDATE customer SET username = ?, customer_name = ?, customer_email = ?, customer_phone = ?, customer_citizen = ?, customer_role = ? WHERE customer_id = ?";
     private static final String EXISTS_CUSTOMER =
-            "SELECT COUNT(*) FROM customer WHERE username = ?";
+            "SELECT 1 FROM customer WHERE username = ?";
+    private static final String ACCOUNT_CUSTOMER =
+            "SELECT * FROM customer WHERE username = ? AND password = ?";
 
     @Override
     public void insertCustomer(Customer customer) throws SQLException {
         try (Connection connection = JDBCConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CUSTOMER_SQL)) {
             preparedStatement.setString(1, customer.getUsername());
-            preparedStatement.setString(2, customer.getCustomer_name());
-            preparedStatement.setString(3, customer.getCustomer_email());
-            preparedStatement.setString(4, customer.getCustomer_phone());
-            preparedStatement.setString(5, customer.getCustomer_citizen());
-            preparedStatement.setString(6, customer.getCustomer_role());
+            preparedStatement.setString(2, customer.getPassword());
+            preparedStatement.setString(3, customer.getCustomer_name());
+            preparedStatement.setString(4, customer.getCustomer_email());
+            preparedStatement.setString(5, customer.getCustomer_phone());
+            preparedStatement.setString(6, customer.getCustomer_citizen());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -62,7 +64,7 @@ public class CustomerDAO implements ICustomerDAO {
             preparedStatement.setString(3, customer.getCustomer_email());
             preparedStatement.setString(4, customer.getCustomer_phone());
             preparedStatement.setString(5, customer.getCustomer_citizen());
-            preparedStatement.setString(6, customer.getCustomer_role()); // Added role
+            preparedStatement.setString(6, customer.getCustomer_role());
             preparedStatement.setInt(7, customer.getCustomer_id());
             rowUpdated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -128,6 +130,29 @@ public class CustomerDAO implements ICustomerDAO {
             printSQLException(e);
         }
         return listCustomers;
+    }
+
+    @Override
+    public Customer loginCustomer(String username, String password) throws SQLException {
+        Customer customer = null;
+        try (Connection connection = JDBCConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(ACCOUNT_CUSTOMER)) {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                customer = new Customer();
+                customer.setCustomer_id(resultSet.getInt("customer_id"));
+                customer.setUsername(resultSet.getString("username"));
+                customer.setPassword(resultSet.getString("password"));
+                customer.setCustomer_name(resultSet.getString("customer_name"));
+                customer.setCustomer_email(resultSet.getString("customer_email"));
+                customer.setCustomer_phone(resultSet.getString("customer_phone"));
+                customer.setCustomer_citizen(resultSet.getString("customer_citizen"));
+                customer.setCustomer_role(resultSet.getString("customer_role"));
+            }
+        }
+        return customer;
     }
 
     private void printSQLException(SQLException ex) {
