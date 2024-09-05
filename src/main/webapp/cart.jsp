@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="home">Home</a>
+                    <a class="nav-link" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
@@ -29,14 +29,11 @@
             <div class="form-inline my-2 my-lg-0">
                 <div class="login_menu">
                     <ul>
-                        <c:if test="${sessionScope.customer != null}">
-                            <li>Hello ${sessionScope.customer.username}</li>
+                        <c:if test="${sessionScope.account != null}">
+                            <li><a href="#">Logout</a></li>
                         </c:if>
-                        <c:if test="${sessionScope.customer != null}">
-                            <li><a href="logout">Logout</a></li>
-                        </c:if>
-                        <c:if test="${sessionScope.customer == null}">
-                            <li><a href="login.jsp">Login</a></li>
+                        <c:if test="${sessionScope.account == null}">
+                            <li><a href="#">Login</a></li>
                         </c:if>
                         <li><a href="/home?action=cart"><img src="/man/images/trolly-icon.png"></a></li>
                         <li>
@@ -119,31 +116,45 @@
     </div>
 </div>
 <div class="cycle_section layout_padding">
-    <div id="content" class="container">
-        <h1 class="cycle_taital">Our Gear</h1>
+    <div class="container">
+        <h1 class="cycle_taital">Cart</h1>
         <p class="cycle_text">It is a long established fact that a reader will be distracted by the </p>
-        <c:forEach var="product" items="${products}" varStatus="status">
-            <c:if test="${product.inventory>0}">
+        <c:forEach var="entry" items="${map}" varStatus="status">
+            <c:if test="${entry.key.inventory>0}">
                 <c:choose>
                     <c:when test="${status.count%2!=0}">
                         <div class="product cycle_section_3 layout_padding">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="box_main_3">
-                                        <a href="/home?action=view&id=${product.id}"><h6
+                                        <a href="/home?action=view&id=${entry.key.id}"><h6
                                                 class="number_text">${status.count}</h6>
-                                            <div class="image_2"><img src="/man/images/${product.img}"></div>
+                                            <div class="image_2"><img src="/man/images/${entry.key.img}"></div>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="/home?action=view&id=${product.id}"><h1
-                                            class="cycles_text">${product.category} ${product.name}</h1>
-                                        <p class="lorem_text">${product.description}</p></a>
+                                    <a href="/home?action=view&id=${entry.key.id}"><h1
+                                            class="cycles_text">${entry.key.category} ${entry.key.name}</h1>
+                                        <p class="lorem_text">${entry.key.description}</p></a>
                                     <div class="btn_main">
-                                        <div class="buy_bt"><a href="#" class="buy-now" data-id="${product.id}">Buy Now</a></div>
-                                        <h4 class="price_text">Price <span style=" color: #f7c17b">$</span> <span
-                                                style=" color: #325662">${product.price}</span></h4>
+                                        <div class="buy_bt">
+                                            <div class="quantity_selector">
+                                                <button class="quantity_button"
+                                                        onclick="decreaseQuantity(${status.count})">-
+                                                </button>
+                                                <input type="number" id="quantity${status.count}" value="1" min="1"
+                                                       max="${entry.key.inventory}" class="quantity_input"
+                                                       onchange="updateTotalPrice()"/>
+                                                <button class="quantity_button"
+                                                        onclick="increaseQuantity(${status.count})">+
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <h4 class="price_text">
+                                            <span style=" color: #325662">${entry.key.price}</span>
+                                            <span style=" color: #f7c17b"> USD</span>
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
@@ -153,20 +164,34 @@
                         <div class="product cycle_section_3 layout_padding">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <a href="/home?action=view&id=${product.id}"><h1
-                                            class="cycles_text">${product.category} ${product.name}</h1>
-                                        <p class="lorem_text">${product.description}</p></a>
+                                    <a href="/home?action=view&id=${entry.key.id}"><h1
+                                            class="cycles_text">${entry.key.category} ${entry.key.name}</h1>
+                                        <p class="lorem_text">${entry.key.description}</p></a>
                                     <div class="btn_main">
-                                        <div class="buy_bt"><a href="#" class="buy-now" data-id="${product.id}">Buy Now</a></div>
-                                        <h4 class="price_text">Price <span style=" color: #f7c17b">$</span> <span
-                                                style=" color: #325662">${product.price}</span></h4>
+                                        <div class="buy_bt">
+                                            <div class="quantity_selector">
+                                                <button class="quantity_button"
+                                                        onclick="decreaseQuantity(${status.count})">-
+                                                </button>
+                                                <input type="number" id="quantity${status.count}" value="1" min="1"
+                                                       max="${entry.key.inventory}" class="quantity_input"
+                                                       onchange="updateTotalPrice()"/>
+                                                <button class="quantity_button"
+                                                        onclick="increaseQuantity(${status.count})">+
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <h4 class="price_text">
+                                            <span style=" color: #325662">${entry.key.price}</span>
+                                            <span style=" color: #f7c17b"> USD</span>
+                                        </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="box_main_3">
-                                        <a href="/home?action=view&id=${product.id}"><h6
+                                        <a href="/home?action=view&id=${entry.key.id}"><h6
                                                 class="number_text">${status.count}</h6>
-                                            <div class="image_2"><img src="/man/images/${product.img}"></div>
+                                            <div class="image_2"><img src="/man/images/${entry.key.img}"></div>
                                         </a>
                                     </div>
                                 </div>
@@ -177,24 +202,123 @@
             </c:if>
         </c:forEach>
     </div>
+</div>
+<div class="client_section layout_padding">
     <div class="container">
-        <div class="read_btn_main">
-            <div class="read_bt">
-                <button type="button" onclick="showMore()">Show More</button>
+        <div class="client_main">
+            <h1 class="client_taital">Payment</h1>
+            <div class="client_section_2">
+                <table style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+                    <tr>
+                        <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">Tên Sản Phẩm</th>
+                        <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">Số Lượng</th>
+                        <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">Thành Giá</th>
+                    </tr>
+                    <c:forEach var="entry" items="${map}" varStatus="status">
+                        <tr>
+                            <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${entry.key.name}</th>
+                            <th id="quantityCell${status.count}"
+                                style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${entry.value}</th>
+                            <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;"><span
+                                    id="priceCell${status.count}">${entry.key.price*entry.value}</span> USD
+                            </th>
+                        </tr>
+                    </c:forEach>
+                    <tr>
+                        <th colspan="2" style="text-align: center; border: 1px solid #ddd;">Tổng giá:</th>
+                        <th style="text-align: center; border: 1px solid #ddd;"><span id="totalPrice">0</span> USD</th>
+                    </tr>
+                    <tr>
+                        <th colspan="3" style="text-align: center; border: 1px solid #ddd;">
+                            <button class="btn btn-danger" onclick="submitPayment()">Thanh Toán</button>
+                        </th>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
 </div>
-<div class="about_section layout_padding">
-    <div class="container">
-        <h1 class="about_taital">About Our Military Equipment</h1>
-        <p class="about_text">It is a long established fact that a reader will be distracted by the readable content of
-            a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters
-        </p>>
-        <div class="read_bt_1"><a href="#">Read More</a></div>
-    </div>
-</div>
+<script>
+    function decreaseQuantity(count) {
+        var quantityInput = document.getElementById('quantity' + count);
+        var currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+        updateTotalPrice();
+    }
+
+    function increaseQuantity(count) {
+        var quantityInput = document.getElementById('quantity' + count);
+        var currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
+        updateTotalPrice();
+    }
+
+    function updateTotalPrice() {
+        var totalPrice = 0;
+        <c:forEach var="entry" items="${map}" varStatus="status">
+        var quantity = document.getElementById('quantity${status.count}').value;
+        var price = ${entry.key.price};
+        totalPrice += price * quantity;
+        document.querySelector(`#quantityCell${status.count}`).innerHTML = quantity;
+        document.querySelector(`#priceCell${status.count}`).innerHTML = (price * quantity).toFixed(2);
+        </c:forEach>
+        document.getElementById('totalPrice').innerHTML = totalPrice.toFixed(2);
+    }
+
+    function submitPayment() {
+        // Chuyển hướng đến trang xác nhận thanh toán hoặc thực hiện các thao tác cần thiết.
+        alert('Đã thanh toán thành công!');
+        // Hoặc bạn có thể điều hướng tới trang thanh toán.
+        // window.location.href = '/checkout';
+    }
+
+    updateTotalPrice();
+</script>
+<style>
+    .quantity_selector {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .quantity_button {
+        display: flex;
+        width: 34px;
+        height: 34px;
+        background-color: #325662;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .quantity_input {
+        width: 60px;
+        text-align: center;
+        margin: 0 10px;
+        font-size: 16px;
+    }
+
+    .quantity_input {
+        width: 60px;
+        text-align: center;
+        margin: 0 10px;
+        font-size: 16px;
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+    }
+
+    .quantity_input::-webkit-inner-spin-button,
+    .quantity_input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
 <div class="footer_section layout_padding">
     <div class="container-fluid">
         <div class="row">
@@ -237,51 +361,6 @@
         <p class="copyright_text">Disrtributed By. <a href="https://themewagon.com">ThemeWagon </a></p>
     </div>
 </div>
-<div id="notification" style="display: none; position: fixed; top: 10px; right: 10px; background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px;">
-    Sản phẩm đã được thêm vào giỏ hàng thành công!
-</div>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var buyNow = document.querySelectorAll('.buy-now');
-        buyNow.forEach(function (button) {
-            button.addEventListener('click', function (event) {
-                event.preventDefault()
-                var id = this.getAttribute('data-id');
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "/home?action=add-to-cart&id=" + id, true);
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        var notification = document.getElementById('notification');
-                        notification.style.display = 'block';
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                        setTimeout(function () {
-                            notification.style.display = 'none';
-                        }, 3000)
-                    }
-                };
-                xhr.send();
-            });
-        });
-    });
-</script>
-<script>
-    function showMore() {
-        var amount = document.getElementsByClassName("product").length;
-        $.ajax({
-            url: "/load",
-            type: "get",
-            data: {
-                exits: amount
-            },
-            success: function (data) {
-                var row = document.getElementById("content");
-                row.innerHTML += data;
-            },
-            error: function (xhr) {
-            }
-        });
-    }
-</script>
 <c:import url="/man/library/script.jsp"/>
 </body>
 </html>

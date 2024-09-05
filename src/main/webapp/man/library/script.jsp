@@ -28,25 +28,8 @@
         $("#navbarSupportedContent").toggleClass("nav-normal")
     })
 
-    function showMore() {
-        var amount = document.getElementsByClassName("product").length;
-        $.ajax({
-            url: "/load",
-            type: "get",
-            data: {
-                exits: amount
-            },
-            success: function (data) {
-                var row = document.getElementById("content");
-                row.innerHTML += data;
-            },
-            error: function (xhr) {
-            }
-        });
-    }
-
     function searchByNameOrModel(param) {
-        var keyword =param.value;
+        var keyword = param.value;
         $.ajax({
             url: "/search",
             type: "get",
@@ -62,3 +45,4 @@
         });
     }
 </script>
+

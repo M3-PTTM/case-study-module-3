@@ -34,7 +34,7 @@ public class LoadProduct extends HttpServlet {
                                 "                            <div class=\"row\">\n" +
                                 "                                <div class=\"col-md-6\">\n" +
                                 "                                    <div class=\"box_main_3\">\n" +
-                                "                                        <a href=\"/home?action=view&id=" + product.getId() + "\"><h6 class=\"number_text\">" + count + "</h6>\n" +
+                                "                                        <a href=\"/home?action=view&id=" + product.getId() + "\"><h6 class=\"number_text\">" + (count + 1) + "</h6>\n" +
                                 "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div></a>\n" +
                                 "                                    </div>\n" +
                                 "                                </div>\n" +
@@ -64,7 +64,7 @@ public class LoadProduct extends HttpServlet {
                                 "                                </div>\n" +
                                 "                                <div class=\"col-md-6\">\n" +
                                 "                                    <div class=\"box_main_3\">\n" +
-                                "                                        <a href=\"/home?action=view&id=" + product.getId() + "\"><h6 class=\"number_text\">" + count + "</h6>\n" +
+                                "                                        <a href=\"/home?action=view&id=" + product.getId() + "\"><h6 class=\"number_text\">" + (count + 1) + "</h6>\n" +
                                 "                                        <div class=\"image_2\"><img src=\"/man/images/" + product.getImg() + "\"></div></a>\n" +
                                 "                                    </div>\n" +
                                 "                                </div>\n" +
