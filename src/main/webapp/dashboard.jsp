@@ -24,7 +24,7 @@
       <a href="dashboard.jsp" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
         <i class="fas fa-tachometer-alt me-2"></i> Tổng quan
       </a>
-      <a href="product.jsp" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+      <a href="product" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
         <i class="fas fa-box me-2"></i> Sản phẩm
       </a>
       <a href="customers-servlet" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
