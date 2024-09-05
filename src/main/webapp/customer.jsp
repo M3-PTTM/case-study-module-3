@@ -142,12 +142,6 @@
                                 <label for="customer_citizen" class="form-label">Căn cước công dân</label>
                                 <input type="text" class="form-control" id="customer_citizen" name="customer_citizen" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="customer_role" class="form-label">Vai trò</label>
-                                <select id="customer_role" name="customer_role" class="form-select">
-                                    <option value="CUSTOMER">Khách hàng</option>
-                                </select>
-                            </div>
                             <button type="submit" class="btn btn-primary">Thêm mới</button>
                         </form>
                     </div>

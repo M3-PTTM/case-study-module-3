@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
   <meta charset="UTF-8" />
@@ -22,31 +23,36 @@
         </div>
       </div>
       <div class="col-md-6 right">
-        <form action="signup" method="post">
+        <form action="register" method="post">
           <div class="input-box">
             <header>Đăng ký</header>
+            <c:if test="${not empty errorMessage}">
+              <div class="alert alert-warning" role="alert">
+                  ${errorMessage}
+              </div>
+            </c:if>
             <div class="input-field">
-              <input type="text" class="input" id="username" required="" />
+              <input type="text" class="input" id="username" name="username" required="" />
               <label for="username">Tên đăng nhập</label>
             </div>
             <div class="input-field">
-              <input type="password" class="input" id="pass" required="" />
-              <label for="pass">Mật khẩu</label>
+              <input type="password" class="input" id="password" name="password" required="" />
+              <label for="password">Mật khẩu</label>
             </div>
             <div class="input-field">
-              <input type="text" class="input" id="customer_name" required="" />
+              <input type="text" class="input" id="customer_name" name="customer_name" required="" />
               <label for="customer_name">Họ và tên</label>
             </div>
             <div class="input-field">
-              <input type="email" class="input" id="customer_email" required="" />
+              <input type="email" class="input" id="customer_email" name="customer_email" required="" />
               <label for="customer_email">Email</label>
             </div>
             <div class="input-field">
-              <input type="text" class="input" id="customer_phone" required="" />
+              <input type="text" class="input" id="customer_phone" name="customer_phone" required="" />
               <label for="customer_phone">Số điện thoại</label>
             </div>
             <div class="input-field">
-              <input type="password" class="input" id="customer_citizen" required="" />
+              <input type="text" class="input" id="customer_citizen" name="customer_citizen" required="" />
               <label for="customer_citizen">Căn cước công dân</label>
             </div>
             <div class="input-field">

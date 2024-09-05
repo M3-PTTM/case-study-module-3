@@ -46,9 +46,6 @@ public class CustomerServlet extends HttpServlet {
             String customer_phone = request.getParameter("customer_phone");
             String customer_citizen = request.getParameter("customer_citizen");
             String customer_role = request.getParameter("customer_role");
-
-            // Lấy đối tượng khách hàng từ cơ sở dữ liệu và cập nhật thông tin
-            // (Giả sử bạn có CustomerDAO để thực hiện điều này
             Customer customer = null;
             try {
                 customer = customerDAO.selectCustomer(customer_id);
@@ -84,22 +81,6 @@ public class CustomerServlet extends HttpServlet {
             }
             response.sendRedirect("customers-servlet");
         }
-    }
-
-    private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String customer_name = request.getParameter("customer_name");
-        String customer_email = request.getParameter("customer_email");
-        String customer_phone = request.getParameter("customer_phone");
-        String customer_citizen = request.getParameter("customer_citizen");
-        String customer_role = request.getParameter("customer_role");
-        Customer customer = new Customer(username, customer_name, customer_email, customer_phone, customer_citizen, customer_role);
-        try {
-            customerDAO.updateCustomer(customer);
-        } catch (SQLException e) {
-            throw new ServletException(e);
-        }
-        response.sendRedirect("customers-servlet");
     }
 
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

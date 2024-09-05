@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
   <meta charset="UTF-8" />
@@ -22,16 +23,21 @@
         </div>
       </div>
       <div class="col-md-6 right">
-        <form action="signin" method="post">
+        <form action="login" method="post">
           <div class="input-box">
             <header>Đăng nhập</header>
+            <c:if test="${not empty errorMessage}">
+              <div class="alert alert-danger" role="alert">
+                  ${errorMessage}
+              </div>
+            </c:if>
             <div class="input-field">
-              <input type="text" class="input" id="username" required="" />
+              <input type="text" class="input" id="username" name="username" required="" />
               <label for="username">Tên đăng nhập</label>
             </div>
             <div class="input-field">
-              <input type="password" class="input" id="pass" required="" />
-              <label for="pass">Mật khẩu</label>
+              <input type="password" class="input" id="password" name="password" required="" />
+              <label for="password">Mật khẩu</label>
             </div>
             <div class="input-field">
               <input type="submit" class="submit" value="Đăng nhập" />
