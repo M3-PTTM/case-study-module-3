@@ -22,8 +22,14 @@ public class CustomerDAO implements ICustomerDAO {
             "DELETE FROM customer WHERE customer_id = ?";
     private static final String UPDATE_CUSTOMER_SQL =
             "UPDATE customer SET username = ?, customer_name = ?, customer_email = ?, customer_phone = ?, customer_citizen = ?, customer_role = ? WHERE customer_id = ?";
-    private static final String EXISTS_CUSTOMER =
+    private static final String EXISTS_USERNAME =
             "SELECT 1 FROM customer WHERE username = ?";
+    private static final String EXISTS_EMAIL =
+            "SELECT 1 FROM customer WHERE customer_email = ?";
+    private static final String EXISTS_PHONE =
+            "SELECT 1 FROM customer WHERE customer_phone = ?";
+    private static final String EXISTS_CITIZEN =
+            "SELECT 1 FROM customer WHERE customer_citizen = ?";
     private static final String ACCOUNT_CUSTOMER =
             "SELECT * FROM customer WHERE username = ? AND password = ?";
 
@@ -44,10 +50,43 @@ public class CustomerDAO implements ICustomerDAO {
     }
 
     @Override
-    public boolean existsCustomer(String username) throws SQLException {
+    public boolean existsUsername(String username) throws SQLException {
         try (Connection connection = JDBCConnection.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(EXISTS_CUSTOMER)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(EXISTS_USERNAME)) {
             preparedStatement.setString(1, username);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                return resultSet.next() && resultSet.getInt(1) > 0;
+            }
+        }
+    }
+
+    @Override
+    public boolean existsEmail(String customer_email) throws SQLException {
+        try (Connection connection = JDBCConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(EXISTS_EMAIL)) {
+            preparedStatement.setString(1, customer_email);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                return resultSet.next() && resultSet.getInt(1) > 0;
+            }
+        }
+    }
+
+    @Override
+    public boolean existsPhone(String customer_phone) throws SQLException {
+        try (Connection connection = JDBCConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(EXISTS_PHONE)) {
+            preparedStatement.setString(1, customer_phone);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                return resultSet.next() && resultSet.getInt(1) > 0;
+            }
+        }
+    }
+
+    @Override
+    public boolean existsCitizen(String customer_citizen) throws SQLException {
+        try (Connection connection = JDBCConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(EXISTS_CITIZEN)) {
+            preparedStatement.setString(1, customer_citizen);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 return resultSet.next() && resultSet.getInt(1) > 0;
             }

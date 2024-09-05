@@ -25,7 +25,7 @@
       <a href="dashboard.jsp" class="list-group-item list-group-item-action bg-transparent second-text fw-bold ">
         <i class="fas fa-tachometer-alt me-2"></i> Tổng quan
       </a>
-      <a href="product.jsp" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+      <a href="product" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
         <i class="fas fa-box me-2"></i> Sản phẩm
       </a>
       <a href="customers-servlet" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
@@ -59,8 +59,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a href="#" class="dropdown-item">Thông tin</a></li>
-              <li><a href="#" class="dropdown-item">Cài đặt</a></li>
-              <li><a href="#" class="dropdown-item">Đăng xuất</a></li>
+              <li><a href="login.jsp" class="dropdown-item">Đăng xuất</a></li>
             </ul>
           </li>
         </ul>
@@ -124,7 +123,7 @@
             <form id="customerForm" action="customers-servlet" method="post">
               <div class="mb-3">
                 <label for="username" class="form-label">Tên đăng nhập</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+                <input type="text" class="form-control" id="username" name="username" rquirede>
               </div>
               <div class="mb-3">
                 <label for="customer_name" class="form-label">Họ và tên</label>
