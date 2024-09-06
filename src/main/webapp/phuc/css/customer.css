@@ -1,0 +1,14 @@
+.is-invalid {
+    border-color: red;
+    background-color: #f8d7da;
+}
+
+.error-message {
+    font-size: 0.875em;
+    margin-left: 10px;
+}
+
+.error-icon {
+    color: #ffc107;
+    margin-left: 5px;
+}

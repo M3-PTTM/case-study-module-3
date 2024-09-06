@@ -3,6 +3,7 @@ package com.example.m3_g3_assignment.servlet;
 
 import com.example.m3_g3_assignment.dao.impl.CustomerDAO;
 import com.example.m3_g3_assignment.model.Customer;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,12 +33,49 @@ public class RegisterController extends HttpServlet {
         if (username == null || password == null || customer_name == null || customer_email == null ||
                 customer_phone == null || customer_citizen == null) {
             req.setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+            req.setAttribute("username", username);
+            req.setAttribute("customer_name", customer_name);
+            req.setAttribute("customer_email", customer_email);
+            req.setAttribute("customer_phone", customer_phone);
+            req.setAttribute("customer_citizen", customer_citizen);
             req.getRequestDispatcher("register.jsp").forward(req, resp);
             return;
         }
         try {
-            if (customerDAO.existsCustomer(username)) {
-                req.setAttribute("errorMessage", "Tên đăng nhập đã tồn tại");
+            if (customerDAO.existsUsername(username)) {
+                req.setAttribute("errorMessage", "Tên đăng nhập đã được sử dụng");
+                req.setAttribute("username", username);
+                req.setAttribute("customer_name", customer_name);
+                req.setAttribute("customer_email", customer_email);
+                req.setAttribute("customer_phone", customer_phone);
+                req.setAttribute("customer_citizen", customer_citizen);
+                req.getRequestDispatcher("register.jsp").forward(req, resp);
+                return;
+            } else if (customerDAO.existsEmail(customer_email)) {
+                req.setAttribute("errorMessage", "Email đã được sử dụng");
+                req.setAttribute("username", username);
+                req.setAttribute("customer_name", customer_name);
+                req.setAttribute("customer_email", customer_email);
+                req.setAttribute("customer_phone", customer_phone);
+                req.setAttribute("customer_citizen", customer_citizen);
+                req.getRequestDispatcher("register.jsp").forward(req, resp);
+                return;
+            } else if (customerDAO.existsPhone(customer_phone)) {
+                req.setAttribute("errorMessage", "Số điện thoại đã được sử dụng");
+                req.setAttribute("username", username);
+                req.setAttribute("customer_name", customer_name);
+                req.setAttribute("customer_email", customer_email);
+                req.setAttribute("customer_phone", customer_phone);
+                req.setAttribute("customer_citizen", customer_citizen);
+                req.getRequestDispatcher("register.jsp").forward(req, resp);
+                return;
+            } else if (customerDAO.existsCitizen(customer_citizen)) {
+                req.setAttribute("errorMessage", "CCCD đã sử dụng");
+                req.setAttribute("username", username);
+                req.setAttribute("customer_name", customer_name);
+                req.setAttribute("customer_email", customer_email);
+                req.setAttribute("customer_phone", customer_phone);
+                req.setAttribute("customer_citizen", customer_citizen);
                 req.getRequestDispatcher("register.jsp").forward(req, resp);
                 return;
             }

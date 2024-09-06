@@ -12,6 +12,7 @@
           crossorigin="anonymous"
   />
   <title>Đăng ký</title>
+  <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
 </head>
 <body>
 <div class="wrapper">
@@ -32,7 +33,7 @@
               </div>
             </c:if>
             <div class="input-field">
-              <input type="text" class="input" id="username" name="username" required="" />
+              <input type="text" class="input" id="username" name="username" value="${username != null ? username : ''}" required="" />
               <label for="username">Tên đăng nhập</label>
             </div>
             <div class="input-field">
@@ -40,26 +41,26 @@
               <label for="password">Mật khẩu</label>
             </div>
             <div class="input-field">
-              <input type="text" class="input" id="customer_name" name="customer_name" required="" />
+              <input type="text" class="input" id="customer_name" name="customer_name" value="${customer_name != null ? customer_name : ''}" required="" />
               <label for="customer_name">Họ và tên</label>
             </div>
             <div class="input-field">
-              <input type="email" class="input" id="customer_email" name="customer_email" required="" />
+              <input type="email" class="input" id="customer_email" name="customer_email" value="${customer_email != null ? customer_email : ''}" required="" />
               <label for="customer_email">Email</label>
             </div>
             <div class="input-field">
-              <input type="text" class="input" id="customer_phone" name="customer_phone" required="" />
+              <input type="text" class="input" id="customer_phone" name="customer_phone" value="${customer_phone != null ? customer_phone : ''}" required="" />
               <label for="customer_phone">Số điện thoại</label>
             </div>
             <div class="input-field">
-              <input type="text" class="input" id="customer_citizen" name="customer_citizen" required="" />
+              <input type="text" class="input" id="customer_citizen" name="customer_citizen" value="${customer_citizen != null ? customer_citizen : ''}" required="" />
               <label for="customer_citizen">Căn cước công dân</label>
             </div>
             <div class="input-field">
               <input type="submit" class="submit" value="Đăng ký" />
             </div>
             <div class="signin">
-              <span>Bạn đã có tài khoản? <a href="register.jsp">Đăng nhập</a></span>
+              <span>Bạn đã có tài khoản? <a href="login.jsp">Đăng nhập</a></span>
             </div>
           </div>
         </form>

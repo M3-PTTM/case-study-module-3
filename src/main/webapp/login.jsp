@@ -12,6 +12,7 @@
           crossorigin="anonymous"
   />
   <title>Đăng nhập</title>
+  <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
 </head>
 <body>
 <div class="wrapper">
@@ -32,7 +33,7 @@
               </div>
             </c:if>
             <div class="input-field">
-              <input type="text" class="input" id="username" name="username" required="" />
+              <input type="text" class="input" id="username" name="username" value="${username != null ? username : ''}" required="" />
               <label for="username">Tên đăng nhập</label>
             </div>
             <div class="input-field">
