@@ -82,23 +82,43 @@ function editCustomer(id, edit_username, edit_customer_name, edit_customer_email
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById("customerForm").addEventListener("submit", function(event) {
+    const customerForm = document.getElementById("customerForm");
+
+    // Thêm sự kiện input để xóa lỗi khi người dùng bắt đầu nhập lại
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            console.log(`Input event triggered on: ${input.id}`);  // Kiểm tra sự kiện input
+            clearError(input.id);  // Xóa lỗi khi người dùng nhập lại
+        });
+
+        input.addEventListener('focus', function() {
+            console.log(`Focus event triggered on: ${input.id}`);  // Kiểm tra sự kiện focus
+            clearError(input.id);  // Xóa lỗi khi người dùng focus vào trường nhập
+        });
+    });
+
+    customerForm.addEventListener("submit", function(event) {
         let isValid = true;
 
+        // Reset tất cả các lỗi trước khi kiểm tra lại
         resetValidation();
 
+        // Kiểm tra tên đăng nhập
         let username = document.getElementById("username").value.trim();
         if (username === "") {
             setError("username", "Tên đăng nhập không được để trống.");
             isValid = false;
         }
 
+        // Kiểm tra họ và tên
         let customer_name = document.getElementById("customer_name").value.trim();
         if (customer_name === "") {
             setError("customer_name", "Họ và tên không được để trống.");
             isValid = false;
         }
 
+        // Kiểm tra email
         let email = document.getElementById("customer_email").value.trim();
         let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(email)) {
@@ -106,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
 
+        // Kiểm tra số điện thoại
         let phone = document.getElementById("customer_phone").value.trim();
         let phonePattern = /^[0-9]{10}$/;
         if (!phonePattern.test(phone)) {
@@ -113,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
 
+        // Kiểm tra căn cước công dân
         let citizen = document.getElementById("customer_citizen").value.trim();
         let citizenPattern = /^[0-9]{12}$/;
         if (!citizenPattern.test(citizen)) {
@@ -120,25 +142,44 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
 
+        // Ngăn form submit nếu không hợp lệ
         if (!isValid) {
-            event.preventDefault();
-            return false;
+            event.preventDefault();  // Ngăn form submit nếu không hợp lệ
+            return false;  // Giữ modal mở
         }
 
+        // Nếu hợp lệ, modal sẽ đóng và form sẽ gửi
         var modalElement = document.getElementById('customerFormModal');
         var modal = bootstrap.Modal.getInstance(modalElement);  // Lấy instance của modal Bootstrap
-        modal.hide();
+        modal.hide();  // Đóng modal khi form hợp lệ
     });
 
+    // Hàm thêm lỗi vào input và hiển thị thông báo
     function setError(inputId, errorMessage) {
         let inputElement = document.getElementById(inputId);
         let errorElement = document.getElementById(inputId + "-error");
 
+        // Thêm class lỗi vào input
         inputElement.classList.add("is-invalid");
 
+        // Hiển thị thông báo lỗi
         errorElement.innerHTML = '<i class="fas fa-exclamation-triangle error-icon"></i>' + errorMessage;
     }
 
+    // Hàm xóa lỗi khi người dùng bắt đầu nhập lại
+    function clearError(inputId) {
+        let inputElement = document.getElementById(inputId);
+        let errorElement = document.getElementById(inputId + "-error");
+
+        // Kiểm tra xem hàm có được gọi không
+        console.log(`clearError called for: ${inputId}`);
+
+        // Xóa class lỗi và thông báo lỗi
+        inputElement.classList.remove("is-invalid");
+        errorElement.innerHTML = "";
+    }
+
+    // Hàm reset tất cả các lỗi
     function resetValidation() {
         let inputs = document.querySelectorAll(".is-invalid");
         inputs.forEach(function(input) {
@@ -151,3 +192,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
