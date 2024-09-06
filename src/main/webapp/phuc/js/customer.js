@@ -82,7 +82,22 @@ function editCustomer(id, edit_username, edit_customer_name, edit_customer_email
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById("customerForm").addEventListener("submit", function(event) {
+    const customerForm = document.getElementById("customerForm");
+
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            console.log(`Input event triggered on: ${input.id}`);
+            clearError(input.id);
+        });
+
+        input.addEventListener('focus', function() {
+            console.log(`Focus event triggered on: ${input.id}`);
+            clearError(input.id);
+        });
+    });
+
+    customerForm.addEventListener("submit", function(event) {
         let isValid = true;
 
         resetValidation();
@@ -126,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         var modalElement = document.getElementById('customerFormModal');
-        var modal = bootstrap.Modal.getInstance(modalElement);  // Lấy instance của modal Bootstrap
+        var modal = bootstrap.Modal.getInstance(modalElement);
         modal.hide();
     });
 
@@ -137,6 +152,16 @@ document.addEventListener('DOMContentLoaded', function() {
         inputElement.classList.add("is-invalid");
 
         errorElement.innerHTML = '<i class="fas fa-exclamation-triangle error-icon"></i>' + errorMessage;
+    }
+
+    function clearError(inputId) {
+        let inputElement = document.getElementById(inputId);
+        let errorElement = document.getElementById(inputId + "-error");
+
+        console.log(`clearError called for: ${inputId}`);
+
+        inputElement.classList.remove("is-invalid");
+        errorElement.innerHTML = "";
     }
 
     function resetValidation() {
@@ -151,3 +176,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
