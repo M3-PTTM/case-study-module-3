@@ -125,7 +125,7 @@
             <form id="customerForm" action="customers-servlet" method="post" novalidate>
               <div class="mb-3">
                 <label for="username" class="form-label">Tên đăng nhập</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+                <input type="text" class="form-control" id="username" name="username">
                 <span class="error-message text-danger" id="username-error"></span>
               </div>
               <div class="mb-3">
