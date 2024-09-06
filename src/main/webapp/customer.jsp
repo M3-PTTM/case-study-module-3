@@ -76,7 +76,7 @@
           <table class="table bg-white rounded shadow-sm table-hover">
             <thead>
             <tr>
-              <th scope="col">Mã khách hàng</th>
+              <th scope="col">Số thứ tự</th>
               <th scope="col">Tên đăng nhập</th>
               <th scope="col">Họ và tên</th>
               <th scope="col">Email</th>
@@ -87,9 +87,9 @@
             </tr>
             </thead>
             <tbody id="customerTable">
-            <c:forEach var="customer" items="${listCustomers}">
+            <c:forEach var="customer" items="${listCustomers}" varStatus="status">
               <tr>
-                <th scope="row">${customer.customer_id}</th>
+                <th scope="row">${status.count}</th>
                 <td>${customer.username}</td>
                 <td>${customer.customer_name}</td>
                 <td>${customer.customer_email}</td>

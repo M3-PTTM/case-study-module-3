@@ -14,7 +14,7 @@
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="/phuc/css/admin.css">
-    <title>War Machine</title>
+    <title>War Machine Admin</title>
     <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
     <style>
         input {
@@ -83,7 +83,7 @@
                     <table class="table bg-white rounded shadow-sm table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">Mã sản phẩm</th>
+                            <th scope="col">Số thứ tự</th>
                             <th scope="col">Tên sản phẩm</th>
                             <th scope="col">Giá tiền</th>
                             <th scope="col">Loại sản phẩm</th>
