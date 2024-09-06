@@ -13,6 +13,7 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
   <link rel="stylesheet" href="./phuc/css/admin.css">
+  <link rel="stylesheet" href="./phuc/css/customer.css">
   <title>GunShop Admin</title>
 </head>
 <body>
@@ -121,26 +122,31 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="customerForm" action="customers-servlet" method="post">
+            <form id="customerForm" action="customers-servlet" method="post" novalidate>
               <div class="mb-3">
                 <label for="username" class="form-label">Tên đăng nhập</label>
                 <input type="text" class="form-control" id="username" name="username" required>
+                <span class="error-message text-danger" id="username-error"></span>
               </div>
               <div class="mb-3">
                 <label for="customer_name" class="form-label">Họ và tên</label>
                 <input type="text" class="form-control" id="customer_name" name="customer_name" required>
+                <span class="error-message text-danger" id="customer_name-error"></span>
               </div>
               <div class="mb-3">
                 <label for="customer_email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="customer_email" name="customer_email" required>
+                <span class="error-message text-danger" id="customer_email-error"></span>
               </div>
               <div class="mb-3">
                 <label for="customer_phone" class="form-label">Số điện thoại</label>
                 <input type="text" class="form-control" id="customer_phone" name="customer_phone" required>
+                <span class="error-message text-danger" id="customer_phone-error"></span>
               </div>
               <div class="mb-3">
                 <label for="customer_citizen" class="form-label">Căn cước công dân</label>
                 <input type="text" class="form-control" id="customer_citizen" name="customer_citizen" required>
+                <span class="error-message text-danger" id="customer_citizen-error"></span>
               </div>
               <button type="submit" class="btn btn-primary">Thêm mới</button>
             </form>
@@ -199,6 +205,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+<!-- Thêm Bootstrap và jQuery vào trang -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <script src="./phuc/js/admin.js"></script>
 <script src="./phuc/js/customer.js"></script>
 </body>
