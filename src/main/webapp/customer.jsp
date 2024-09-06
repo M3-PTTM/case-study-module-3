@@ -14,7 +14,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
   <link rel="stylesheet" href="./phuc/css/admin.css">
   <link rel="stylesheet" href="./phuc/css/customer.css">
-  <title>GunShop Admin</title>
+  <title>War Machine Admin</title>
+  <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
 </head>
 <body>
 <div class="d-flex" id="wrapper">

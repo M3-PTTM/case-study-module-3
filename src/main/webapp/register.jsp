@@ -12,6 +12,7 @@
           crossorigin="anonymous"
   />
   <title>Đăng ký</title>
+  <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
 </head>
 <body>
 <div class="wrapper">
