@@ -115,19 +115,48 @@
         <p>&copy; VNPAY 2020</p>
     </footer>
 </div>
+
 <script>
     function result() {
         var vnp_TransactionStatus = "${param.vnp_TransactionStatus}";
+        var txnRef = "${param.vnp_TxnRef}";
+        var amount = "${param.vnp_Amount}";
+        var orderInfo = "${param.vnp_OrderInfo}"
+        var responseCode = "${param.vnp_ResponseCode}"
+        var transactionNo = "${param.vnp_TransactionNo}"
+        var bankCode = "${param.vnp_BankCode}"
+        var payDate = "${param.vnp_PayDate}";
+
+
         if (vnp_TransactionStatus === "00") {
             $.ajax({
                 url: "/order",
-                type: "post",
+                type: "POST",
                 data: {},
                 success: function (data) {
-                    console.log("Success:", data);
+                    console.log("Đơn hàng xử lý thành công:", data);
+                    $.ajax({
+                        url: "/mail",
+                        type: "POST",
+                        data: {
+                            vnp_TxnRef: txnRef,
+                            vnp_Amount: amount,
+                            vnp_OrderInfo: orderInfo,
+                            vnp_ResponseCode: responseCode,
+                            vnp_TransactionNo: transactionNo,
+                            vnp_BankCode: bankCode,
+                            vnp_PayDate: payDate
+                        },
+                        success: function (data) {
+                            console.log("Email gửi thành công");
+                        },
+                        error: function (xhr) {
+                            console.log("Lỗi khi gửi email:", xhr);
+                        }
+                    });
                 },
                 error: function (xhr) {
-                    console.log("Error:", xhr);
+                    console.log("Lỗi khi xử lý đơn hàng:", xhr);
                 }
             });
         }

@@ -3,12 +3,14 @@ package com.example.m3_g3_assignment.servlet;
 import com.example.m3_g3_assignment.dao.ServiceCart;
 import com.example.m3_g3_assignment.dao.impl.ServiceCartImpl;
 import com.example.m3_g3_assignment.model.Cart;
+import com.example.m3_g3_assignment.model.Customer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -20,7 +22,9 @@ public class OrderServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int customerId = 1;
+        HttpSession session = req.getSession();
+        Customer customer = (Customer) session.getAttribute("customer");
+        int customerId = customer.getCustomer_id();
         try {
             List<Cart> carts = SERVICE_CART.getAllCarts(customerId);
             SERVICE_CART.payment(carts);

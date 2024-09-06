@@ -1,5 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<c:if test="${sessionScope.customer == null}">
+    <c:redirect url="/home"/>
+</c:if>
 <!DOCTYPE html>
 <html lang="en">
 <c:import url="/man/vnpay_jsp/head.jsp"/>
@@ -14,26 +18,35 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/home">Home</a>
+                    <a class="nav-link" href="home">Trang Chủ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="#">Thông Tin</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">News</a>
+                    <a class="nav-link" href="#">Tin Mới</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                </li>
+                <c:choose>
+                    <c:when test="${sessionScope.customer.customer_role=='ADMIN'}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Quản Lý</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Liên Hệ</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
             <div class="form-inline my-2 my-lg-0">
                 <div class="login_menu">
                     <ul>
-                        <c:if test="${sessionScope.account != null}">
-                            <li><a href="#">Logout</a></li>
+                        <c:if test="${sessionScope.customer != null}">
+                            <li><a href="/logout">Đăng Xuất</a></li>
                         </c:if>
-                        <c:if test="${sessionScope.account == null}">
-                            <li><a href="#">Login</a></li>
+                        <c:if test="${sessionScope.customer == null}">
+                            <li><a href="/login.jsp">Đăng Nhập</a></li>
                         </c:if>
                         <li><a href="/home?action=cart"><img src="/man/images/trolly-icon.png"></a></li>
                         <li>
@@ -46,8 +59,8 @@
                                 </button>
                             </form>
                         </li>
-                        <c:if test="${sessionScope.account != null}">
-                            <li><a href="#">Welcome ${sessionScope.account.name}</a></li>
+                        <c:if test="${sessionScope.customer != null}">
+                            <li><a href="#">Xin Chào ${sessionScope.customer.username}</a></li>
                         </c:if>
                     </ul>
                 </div>
@@ -69,15 +82,16 @@
                                     <div class="row">
                                         <div class="col-md-7">
                                             <a href="/home?action=view&id=${product.id}">
-                                                <div class="best_text">New</div>
+                                                <div class="best_text">Mới</div>
                                                 <div class="image_1"><img src="/man/images/${product.img}"></div>
                                             </a>
                                         </div>
                                         <div class="col-md-5">
-                                            <a href="/home?action=view&id=${product.id}"><h1 class="banner_taital">New
-                                                Model</h1>
+                                            <a href="/home?action=view&id=${product.id}"><h1 class="banner_taital">Mô
+                                                Hình Mới</h1>
                                                 <p class="banner_text">${product.description}</p></a>
-                                            <div class="contact_bt"><a href="#">Buy Now</a></div>
+                                            <div class="contact_bt"><a href="#" class="buy-now" data-id="${product.id}">Giỏ
+                                                Hàng</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -89,15 +103,16 @@
                                     <div class="row">
                                         <div class="col-md-7">
                                             <a href="/home?action=view&id=${product.id}">
-                                                <div class="best_text">New</div>
+                                                <div class="best_text">Mới</div>
                                                 <div class="image_1"><img src="/man/images/${product.img}"></div>
                                             </a>
                                         </div>
                                         <div class="col-md-5">
-                                            <a href="/home?action=view&id=${product.id}"><h1 class="banner_taital">New
-                                                Model</h1>
+                                            <a href="/home?action=view&id=${product.id}"><h1 class="banner_taital">Mô
+                                                Hình Mới</h1>
                                                 <p class="banner_text">${product.description}</p></a>
-                                            <div class="contact_bt"><a href="#">Buy Now</a></div>
+                                            <div class="contact_bt"><a href="#" class="buy-now" data-id="${product.id}">Giỏ
+                                                Hàng</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -117,8 +132,8 @@
 </div>
 <div class="cycle_section layout_padding">
     <div class="container" id="content">
-        <h1 class="cycle_taital">Cart</h1>
-        <p class="cycle_text">It is a long established fact that a reader will be distracted by the </p>
+        <h1 class="cycle_taital">Giỏ Hàng</h1>
+        <p class="cycle_text">Một thực tế đã được xác lập từ lâu là độc giả sẽ bị phân tâm bởi</p>
         <c:forEach var="product" items="${productsCart}" varStatus="status">
             <c:if test="${product.inventory>0}">
                 <c:choose>
@@ -127,8 +142,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="box_main_3">
-                                        <a href="/home?action=view&id=${product.id}"><h6
-                                                class="number_text">${status.count}</h6>
+                                        <a href="/home?action=view&id=${product.id}">
+                                            <h6 class="number_text"></h6>
                                             <div class="image_2"><img src="/man/images/${product.img}"></div>
                                         </a>
                                     </div>
@@ -154,8 +169,9 @@
                                             </div>
                                         </div>
                                         <h4 class="price_text">
-                                            <span style=" color: #325662">${product.price}</span>
-                                            <span style=" color: #f7c17b"> USD</span>
+                                            <span style=" color: #325662"><fmt:formatNumber
+                                                    value="${product.price}" pattern="###,###"/></span>
+                                            <span style=" color: #f7c17b"> VND</span>
                                         </h4>
                                     </div>
                                 </div>
@@ -186,15 +202,16 @@
                                             </div>
                                         </div>
                                         <h4 class="price_text">
-                                            <span style=" color: #325662">${product.price}</span>
-                                            <span style=" color: #f7c17b"> USD</span>
+                                            <span style=" color: #325662"><fmt:formatNumber
+                                                    value="${product.price}" pattern="###,###"/></span>
+                                            <span style=" color: #f7c17b"> VND</span>
                                         </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="box_main_3">
-                                        <a href="/home?action=view&id=${product.id}"><h6
-                                                class="number_text">${status.count}</h6>
+                                        <a href="/home?action=view&id=${product.id}">
+                                            <h6 class="number_text"></h6>
                                             <div class="image_2"><img src="/man/images/${product.img}"></div>
                                         </a>
                                     </div>
@@ -210,7 +227,7 @@
 <div class="client_section layout_padding">
     <div class="container">
         <div class="client_main">
-            <h1 class="client_taital">Payment</h1>
+            <h1 class="client_taital">Hóa Đơn</h1>
             <div class="client_section_2">
                 <table style="width: 100%; table-layout: fixed; border-collapse: collapse;">
                     <tr>
@@ -224,7 +241,8 @@
                             <th id="quantityCell${status.count}"
                                 style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${product.quantity}</th>
                             <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;"><span
-                                    id="priceCell${status.count}">${product.price*product.quantity}</span> USD
+                                    id="priceCell${status.count}"><fmt:formatNumber
+                                    value="${product.price*product.quantity}" pattern="###,###"/></span> VND
                             </th>
                         </tr>
                     </c:forEach>
@@ -234,7 +252,7 @@
                         <input id="amount" name="amount" type="hidden" value="">
                         <tr>
                             <th colspan="2" style="text-align: center; border: 1px solid #ddd;">Tổng giá:</th>
-                            <th style="text-align: center; border: 1px solid #ddd;"><span id="totalPrice">0</span> USD
+                            <th style="text-align: center; border: 1px solid #ddd;"><span id="totalPrice">0</span> VND
                             </th>
                         </tr>
                         <tr>
@@ -248,8 +266,13 @@
         </div>
     </div>
 </div>
+<div id="notification"
+     style="display: none; position: fixed; top: 10px; right: 10px; background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px;">
+    Sản phẩm đã được thêm vào giỏ hàng thành công!
+</div>
 <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet"/>
 <script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
+<c:import url="/man/library/add_product.jsp"/>
 <script>
     function decreaseQuantity(id) {
         var quantityInput = document.getElementById('quantity' + id);
@@ -291,6 +314,7 @@
     function updateQuantity(id) {
         var quantityInput = document.getElementById('quantity' + id);
         var currentValue = parseInt(quantityInput.value);
+        console.log(currentValue);
         $.ajax({
             url: "/cart",
             type: "post",
