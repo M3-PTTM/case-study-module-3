@@ -27,7 +27,8 @@ dependencies {
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
   implementation group: 'jstl', name: 'jstl', version: '1.2'
   implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
-  implementation 'org.mindrot:jbcrypt:0.4'
+  implementation 'com.google.code.gson:gson:2.8.9'
+  implementation 'com.sun.mail:javax.mail:1.6.2'
 }
 
 test {

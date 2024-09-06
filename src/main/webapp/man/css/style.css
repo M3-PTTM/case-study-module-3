@@ -469,7 +469,7 @@ button {
     height: 50px;
     font-size: 18px;
     color: #ffffff;
-    background-color: #325662;
+    /*background-color: #325662;*/
     border-radius: 100px;
     text-align: center;
     padding: 10px 0px;
@@ -515,7 +515,7 @@ button {
     position: absolute;
     width: 180px;
     height: 1px;
-    background-color: #325662;
+    /*background-color: #325662;*/
     left: 0px;
     right: initial;
     margin: 0 auto;

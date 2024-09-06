@@ -1,8 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<c:if test="${sessionScope.customer == null}">
+    <c:redirect url="/home"/>
+</c:if>
 <!DOCTYPE html>
 <html lang="en">
-<c:import url="/man/library/head.jsp"/>
+<c:import url="/man/vnpay_jsp/head.jsp"/>
 <body>
 <div class="header_section header_bg">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -14,26 +18,35 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/home">Home</a>
+                    <a class="nav-link" href="home">Trang Chủ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="#">Thông Tin</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">News</a>
+                    <a class="nav-link" href="#">Tin Mới</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                </li>
+                <c:choose>
+                    <c:when test="${sessionScope.customer.customer_role=='ADMIN'}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Quản Lý</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Liên Hệ</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
             <div class="form-inline my-2 my-lg-0">
                 <div class="login_menu">
                     <ul>
-                        <c:if test="${sessionScope.account != null}">
-                            <li><a href="#">Logout</a></li>
+                        <c:if test="${sessionScope.customer != null}">
+                            <li><a href="/logout">Đăng Xuất</a></li>
                         </c:if>
-                        <c:if test="${sessionScope.account == null}">
-                            <li><a href="#">Login</a></li>
+                        <c:if test="${sessionScope.customer == null}">
+                            <li><a href="/login.jsp">Đăng Nhập</a></li>
                         </c:if>
                         <li><a href="/home?action=cart"><img src="/man/images/trolly-icon.png"></a></li>
                         <li>
@@ -46,8 +59,8 @@
                                 </button>
                             </form>
                         </li>
-                        <c:if test="${sessionScope.account != null}">
-                            <li><a href="#">Welcome ${sessionScope.account.name}</a></li>
+                        <c:if test="${sessionScope.customer != null}">
+                            <li><a href="#">Xin Chào ${sessionScope.customer.username}</a></li>
                         </c:if>
                     </ul>
                 </div>
@@ -69,15 +82,16 @@
                                     <div class="row">
                                         <div class="col-md-7">
                                             <a href="/home?action=view&id=${product.id}">
-                                                <div class="best_text">New</div>
+                                                <div class="best_text">Mới</div>
                                                 <div class="image_1"><img src="/man/images/${product.img}"></div>
                                             </a>
                                         </div>
                                         <div class="col-md-5">
-                                            <a href="/home?action=view&id=${product.id}"><h1 class="banner_taital">New
-                                                Model</h1>
+                                            <a href="/home?action=view&id=${product.id}"><h1 class="banner_taital">Mô
+                                                Hình Mới</h1>
                                                 <p class="banner_text">${product.description}</p></a>
-                                            <div class="contact_bt"><a href="#">Buy Now</a></div>
+                                            <div class="contact_bt"><a href="#" class="buy-now" data-id="${product.id}">Giỏ
+                                                Hàng</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -89,15 +103,16 @@
                                     <div class="row">
                                         <div class="col-md-7">
                                             <a href="/home?action=view&id=${product.id}">
-                                                <div class="best_text">New</div>
+                                                <div class="best_text">Mới</div>
                                                 <div class="image_1"><img src="/man/images/${product.img}"></div>
                                             </a>
                                         </div>
                                         <div class="col-md-5">
-                                            <a href="/home?action=view&id=${product.id}"><h1 class="banner_taital">New
-                                                Model</h1>
+                                            <a href="/home?action=view&id=${product.id}"><h1 class="banner_taital">Mô
+                                                Hình Mới</h1>
                                                 <p class="banner_text">${product.description}</p></a>
-                                            <div class="contact_bt"><a href="#">Buy Now</a></div>
+                                            <div class="contact_bt"><a href="#" class="buy-now" data-id="${product.id}">Giỏ
+                                                Hàng</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -116,44 +131,47 @@
     </div>
 </div>
 <div class="cycle_section layout_padding">
-    <div class="container">
-        <h1 class="cycle_taital">Cart</h1>
-        <p class="cycle_text">It is a long established fact that a reader will be distracted by the </p>
-        <c:forEach var="entry" items="${map}" varStatus="status">
-            <c:if test="${entry.key.inventory>0}">
+    <div class="container" id="content">
+        <h1 class="cycle_taital">Giỏ Hàng</h1>
+        <p class="cycle_text">Một thực tế đã được xác lập từ lâu là độc giả sẽ bị phân tâm bởi</p>
+        <c:forEach var="product" items="${productsCart}" varStatus="status">
+            <c:if test="${product.inventory>0}">
                 <c:choose>
                     <c:when test="${status.count%2!=0}">
-                        <div class="product cycle_section_3 layout_padding">
+                        <div class="product cycle_section_3 layout_padding" id="product${product.id}">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="box_main_3">
-                                        <a href="/home?action=view&id=${entry.key.id}"><h6
-                                                class="number_text">${status.count}</h6>
-                                            <div class="image_2"><img src="/man/images/${entry.key.img}"></div>
+                                        <a href="/home?action=view&id=${product.id}">
+                                            <h6 class="number_text"></h6>
+                                            <div class="image_2"><img src="/man/images/${product.img}"></div>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="/home?action=view&id=${entry.key.id}"><h1
-                                            class="cycles_text">${entry.key.category} ${entry.key.name}</h1>
-                                        <p class="lorem_text">${entry.key.description}</p></a>
+                                    <a href="/home?action=view&id=${product.id}"><h1
+                                            class="cycles_text">${product.category} ${product.name}</h1>
+                                        <p class="lorem_text">${product.description}</p></a>
                                     <div class="btn_main">
                                         <div class="buy_bt">
                                             <div class="quantity_selector">
                                                 <button class="quantity_button"
-                                                        onclick="decreaseQuantity(${status.count})">-
+                                                        onclick="decreaseQuantity(${product.id})">-
                                                 </button>
-                                                <input type="number" id="quantity${status.count}" value="1" min="1"
-                                                       max="${entry.key.inventory}" class="quantity_input"
+                                                <input type="number" id="quantity${product.id}"
+                                                       value="${product.quantity}"
+                                                       min="1"
+                                                       max="${product.inventory}" class="quantity_input"
                                                        onchange="updateTotalPrice()"/>
                                                 <button class="quantity_button"
-                                                        onclick="increaseQuantity(${status.count})">+
+                                                        onclick="increaseQuantity(${product.id})">+
                                                 </button>
                                             </div>
                                         </div>
                                         <h4 class="price_text">
-                                            <span style=" color: #325662">${entry.key.price}</span>
-                                            <span style=" color: #f7c17b"> USD</span>
+                                            <span style=" color: #325662"><fmt:formatNumber
+                                                    value="${product.price}" pattern="###,###"/></span>
+                                            <span style=" color: #f7c17b"> VND</span>
                                         </h4>
                                     </div>
                                 </div>
@@ -161,37 +179,40 @@
                         </div>
                     </c:when>
                     <c:otherwise>
-                        <div class="product cycle_section_3 layout_padding">
+                        <div class="product cycle_section_3 layout_padding" id="product${product.id}">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <a href="/home?action=view&id=${entry.key.id}"><h1
-                                            class="cycles_text">${entry.key.category} ${entry.key.name}</h1>
-                                        <p class="lorem_text">${entry.key.description}</p></a>
+                                    <a href="/home?action=view&id=${product.id}"><h1
+                                            class="cycles_text">${product.category} ${product.name}</h1>
+                                        <p class="lorem_text">${product.description}</p></a>
                                     <div class="btn_main">
                                         <div class="buy_bt">
                                             <div class="quantity_selector">
                                                 <button class="quantity_button"
-                                                        onclick="decreaseQuantity(${status.count})">-
+                                                        onclick="decreaseQuantity(${product.id})">-
                                                 </button>
-                                                <input type="number" id="quantity${status.count}" value="1" min="1"
-                                                       max="${entry.key.inventory}" class="quantity_input"
+                                                <input type="number" id="quantity${product.id}"
+                                                       value="${product.quantity}"
+                                                       min="1"
+                                                       max="${product.inventory}" class="quantity_input"
                                                        onchange="updateTotalPrice()"/>
                                                 <button class="quantity_button"
-                                                        onclick="increaseQuantity(${status.count})">+
+                                                        onclick="increaseQuantity(${product.id})">+
                                                 </button>
                                             </div>
                                         </div>
                                         <h4 class="price_text">
-                                            <span style=" color: #325662">${entry.key.price}</span>
-                                            <span style=" color: #f7c17b"> USD</span>
+                                            <span style=" color: #325662"><fmt:formatNumber
+                                                    value="${product.price}" pattern="###,###"/></span>
+                                            <span style=" color: #f7c17b"> VND</span>
                                         </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="box_main_3">
-                                        <a href="/home?action=view&id=${entry.key.id}"><h6
-                                                class="number_text">${status.count}</h6>
-                                            <div class="image_2"><img src="/man/images/${entry.key.img}"></div>
+                                        <a href="/home?action=view&id=${product.id}">
+                                            <h6 class="number_text"></h6>
+                                            <div class="image_2"><img src="/man/images/${product.img}"></div>
                                         </a>
                                     </div>
                                 </div>
@@ -206,7 +227,7 @@
 <div class="client_section layout_padding">
     <div class="container">
         <div class="client_main">
-            <h1 class="client_taital">Payment</h1>
+            <h1 class="client_taital">Hóa Đơn</h1>
             <div class="client_section_2">
                 <table style="width: 100%; table-layout: fixed; border-collapse: collapse;">
                     <tr>
@@ -214,67 +235,162 @@
                         <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">Số Lượng</th>
                         <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">Thành Giá</th>
                     </tr>
-                    <c:forEach var="entry" items="${map}" varStatus="status">
-                        <tr>
-                            <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${entry.key.name}</th>
+                    <c:forEach var="product" items="${productsCart}" varStatus="status">
+                        <tr id="order${product.id}">
+                            <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${product.name}</th>
                             <th id="quantityCell${status.count}"
-                                style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${entry.value}</th>
+                                style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${product.quantity}</th>
                             <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;"><span
-                                    id="priceCell${status.count}">${entry.key.price*entry.value}</span> USD
+                                    id="priceCell${status.count}"><fmt:formatNumber
+                                    value="${product.price*product.quantity}" pattern="###,###"/></span> VND
                             </th>
                         </tr>
                     </c:forEach>
-                    <tr>
-                        <th colspan="2" style="text-align: center; border: 1px solid #ddd;">Tổng giá:</th>
-                        <th style="text-align: center; border: 1px solid #ddd;"><span id="totalPrice">0</span> USD</th>
-                    </tr>
-                    <tr>
-                        <th colspan="3" style="text-align: center; border: 1px solid #ddd;">
-                            <button class="btn btn-danger" onclick="submitPayment()">Thanh Toán</button>
-                        </th>
-                    </tr>
+                    <form action="/vnpayajax" id="frmCreateOrder" method="post">
+                        <input type="hidden" id="bankCode" name="bankCode" value="">
+                        <input type="hidden" id="language" name="language" value="vn">
+                        <input id="amount" name="amount" type="hidden" value="">
+                        <tr>
+                            <th colspan="2" style="text-align: center; border: 1px solid #ddd;">Tổng giá:</th>
+                            <th style="text-align: center; border: 1px solid #ddd;"><span id="totalPrice">0</span> VND
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="3" style="text-align: center; border: 1px solid #ddd;">
+                                <button class="btn btn-danger">Thanh Toán</button>
+                            </th>
+                        </tr>
+                    </form>
                 </table>
             </div>
         </div>
     </div>
 </div>
+<div id="notification"
+     style="display: none; position: fixed; top: 10px; right: 10px; background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px;">
+    Sản phẩm đã được thêm vào giỏ hàng thành công!
+</div>
+<link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet"/>
+<script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
+<c:import url="/man/library/add_product.jsp"/>
 <script>
-    function decreaseQuantity(count) {
-        var quantityInput = document.getElementById('quantity' + count);
+    function decreaseQuantity(id) {
+        var quantityInput = document.getElementById('quantity' + id);
         var currentValue = parseInt(quantityInput.value);
         if (currentValue > 1) {
             quantityInput.value = currentValue - 1;
+            updateQuantity(id);
+        } else if (currentValue === 1) {
+            removeProduct(id);
         }
         updateTotalPrice();
     }
 
-    function increaseQuantity(count) {
-        var quantityInput = document.getElementById('quantity' + count);
+    function removeProduct(id) {
+        var productElement = document.getElementById('order' + id);
+        productElement.remove();
+        $.ajax({
+            url: "/cart",
+            type: "get",
+            data: {
+                id: id
+            },
+            success: function () {
+                location.reload(true);
+            },
+            error: function (xhr) {
+            }
+        });
+    }
+
+    function increaseQuantity(id) {
+        var quantityInput = document.getElementById('quantity' + id);
         var currentValue = parseInt(quantityInput.value);
         quantityInput.value = currentValue + 1;
+        updateQuantity(id);
         updateTotalPrice();
+    }
+
+    function updateQuantity(id) {
+        var quantityInput = document.getElementById('quantity' + id);
+        var currentValue = parseInt(quantityInput.value);
+        console.log(currentValue);
+        $.ajax({
+            url: "/cart",
+            type: "post",
+            data: {
+                id: id,
+                quantity: currentValue
+            },
+            success: function () {
+            },
+            error: function (xhr) {
+            }
+        });
     }
 
     function updateTotalPrice() {
         var totalPrice = 0;
-        <c:forEach var="entry" items="${map}" varStatus="status">
-        var quantity = document.getElementById('quantity${status.count}').value;
-        var price = ${entry.key.price};
+        <c:forEach var="product" items="${productsCart}" varStatus="status">
+        var quantity = document.getElementById('quantity${product.id}').value;
+        var price = ${product.price};
         totalPrice += price * quantity;
         document.querySelector(`#quantityCell${status.count}`).innerHTML = quantity;
         document.querySelector(`#priceCell${status.count}`).innerHTML = (price * quantity).toFixed(2);
         </c:forEach>
         document.getElementById('totalPrice').innerHTML = totalPrice.toFixed(2);
+        document.getElementById('amount').value = totalPrice.toFixed(2);
     }
 
     function submitPayment() {
-        // Chuyển hướng đến trang xác nhận thanh toán hoặc thực hiện các thao tác cần thiết.
-        alert('Đã thanh toán thành công!');
-        // Hoặc bạn có thể điều hướng tới trang thanh toán.
-        // window.location.href = '/checkout';
+        var arr = [];
+        <c:forEach var="product" items="${productsCart}" varStatus="status">
+        var quantity = document.getElementById('quantity${product.id}').value;
+        arr.push(quantity);
+        </c:forEach>
+        console.log(arr);
+        debugger;
+        $.ajax({
+            url: "/order",
+            type: "post",
+            data: {
+                arr: JSON.stringify(arr)
+            },
+            success: function (data) {
+                console.log("Success:", data);
+            },
+            error: function (xhr) {
+                console.log("Error:", xhr);
+            }
+        });
     }
 
     updateTotalPrice();
+</script>
+<script>
+    $("#frmCreateOrder").submit(function () {
+        var postData = $("#frmCreateOrder").serialize();
+        var submitUrl = $("#frmCreateOrder").attr("action");
+        $.ajax({
+            type: "POST",
+            url: submitUrl,
+            data: postData,
+            dataType: 'JSON',
+            success: function (x) {
+                if (x.code === '00') {
+                    if (window.vnpay) {
+                        vnpay.open({width: 768, height: 600, url: x.data});
+                    } else {
+                        location.href = x.data;
+                    }
+                    return false;
+                } else {
+                    alert(x.Message);
+                }
+            }
+        });
+        return false;
+    });
 </script>
 <style>
     .quantity_selector {

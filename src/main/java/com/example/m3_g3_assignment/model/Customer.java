@@ -13,6 +13,11 @@ public class Customer {
     public Customer() {
     }
 
+    public Customer(int customer_id, String customer_name) {
+        this.customer_id = customer_id;
+        this.customer_name = customer_name;
+    }
+
     public Customer(int user_id, String username, String customer_name, String customer_email, String customer_phone, String customer_citizen, String customer_role) {
         this.customer_id = user_id;
         this.username = username;
