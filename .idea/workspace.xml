@@ -9,11 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfdaf0fe-3cd5-4964-be0d-7ca3321e2b63" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e35a623d-8631-49d1-95c2-2de2f23b17fb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3775f034-8ced-4f7d-88f4-6d1d33d936f9/storage_v2/_src_/schema/study_case.5lu84w.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_6_2024_10_25_AM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/phuc/css/customer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/41dfde9a-ba39-4b51-8966-0263649c644d/storage_v2/_src_/schema/study_case.5lu84w.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3775f034-8ced-4f7d-88f4-6d1d33d936f9/storage_v2/_src_/schema/study_case.5lu84w.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/41dfde9a-ba39-4b51-8966-0263649c644d/storage_v2/_src_/schema/study_case.5lu84w.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/ICustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/ICustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/CustomerDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/phuc/js/customer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phuc/js/customer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +38,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -42,6 +55,21 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Jsp File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -49,19 +77,77 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2kxpQj6t8Q9ViR40vh1sDWeLdR2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Gradle.Download Sources.executor": "Run",
+    "JavaScript Debug.admin.html.executor": "Run",
+    "JavaScript Debug.customer.html (1).executor": "Run",
+    "JavaScript Debug.customer.html.executor": "Run",
+    "JavaScript Debug.dashboard.html.executor": "Run",
+    "JavaScript Debug.login.htm.executor": "Run",
+    "JavaScript Debug.login.html.executor": "Run",
+    "JavaScript Debug.orders.html.executor": "Run",
+    "JavaScript Debug.product.html.executor": "Run",
+    "JavaScript Debug.register.html.executor": "Run",
+    "JavaScript Debug.review.html.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TomEE Server.TomEE 9.0.93.executor": "Run",
+    "TomEE Server.Unnamed.executor": "Run",
     "Tomcat Server.Tomcat 9.0.93.executor": "Run",
+    "Tomcat Server.Tomcat 9.executor": "Run",
+    "Tomcat Server.customer.jsp (1).executor": "Run",
+    "Tomcat Server.customer.jsp (2).executor": "Run",
     "Tomcat Server.customer.jsp.executor": "Run",
-    "git-widget-placeholder": "phuc",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "Tomcat Server.hello.jsp.executor": "Run",
+    "Tomcat Server.index.jsp.executor": "Run",
+    "Tomcat Server.welcome.jsp.executor": "Run",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "Merging man",
+    "jdk.selected.JAVA_MODULE": "graalvm-jdk-17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/case/M3_G3_Assignment/src/main/webapp",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\case\M3_G3_Assignment\src\main\webapp" />
+      <recent name="D:\case\M3_G3_Assignment\src\main\webapp\man" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\case\M3_G3_Assignment\src\main\webapp\man\library" />
+      <recent name="D:\case\M3_G3_Assignment\src\main\webapp\man\vnpay_jsp" />
+      <recent name="D:\case\M3_G3_Assignment\src\main\webapp\man" />
+      <recent name="D:\case\M3_G3_Assignment\src\main\webapp" />
+      <recent name="D:\case\M3_G3_Assignment\src\main\java\com\example\m3_g3_assignment\servlet" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.93" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.93" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Gradle : com.example : M3_G3_Assignment-1.0-SNAPSHOT.war">
@@ -71,7 +157,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="49c5e50e-5829-47b0-a789-486a7ad95918" />
+        <option name="BASE_DIRECTORY_NAME" value="08535938-bc06-4b93-8802-73c1c75f65f4" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -79,7 +165,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="60842" />
+        <option name="DEBUG_PORT" value="54388" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -149,7 +235,114 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e35a623d-8631-49d1-95c2-2de2f23b17fb" name="Changes" comment="" />
+      <created>1724235072081</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1724235072081</updated>
+      <workItem from="1724235073111" duration="1000" />
+      <workItem from="1724289424952" duration="604000" />
+      <workItem from="1724313996466" duration="4134000" />
+      <workItem from="1724377788251" duration="28162000" />
+      <workItem from="1724466473015" duration="7144000" />
+      <workItem from="1724502766467" duration="11424000" />
+      <workItem from="1724554279239" duration="4544000" />
+      <workItem from="1724574008400" duration="4086000" />
+      <workItem from="1724634681119" duration="11603000" />
+      <workItem from="1724675713815" duration="10151000" />
+      <workItem from="1724730094246" duration="1619000" />
+      <workItem from="1724743540741" duration="896000" />
+      <workItem from="1724744535200" duration="229000" />
+      <workItem from="1724744949723" duration="147000" />
+      <workItem from="1724746787963" duration="45000" />
+      <workItem from="1724746934091" duration="5879000" />
+      <workItem from="1724819513840" duration="19624000" />
+      <workItem from="1724852912113" duration="6314000" />
+      <workItem from="1724859450739" duration="170000" />
+      <workItem from="1724859656655" duration="102000" />
+      <workItem from="1724897413562" duration="18000" />
+      <workItem from="1724898338074" duration="2102000" />
+      <workItem from="1724900478031" duration="20088000" />
+      <workItem from="1724936440864" duration="6856000" />
+      <workItem from="1724979929237" duration="11843000" />
+      <workItem from="1725105471377" duration="147000" />
+      <workItem from="1725116938089" duration="2711000" />
+      <workItem from="1725153697412" duration="1600000" />
+      <workItem from="1725155365304" duration="56000" />
+      <workItem from="1725155429903" duration="7000000" />
+      <workItem from="1725167751946" duration="579000" />
+      <workItem from="1725168762792" duration="3541000" />
+      <workItem from="1725172354525" duration="19000" />
+      <workItem from="1725172382941" duration="70000" />
+      <workItem from="1725172473624" duration="6959000" />
+      <workItem from="1725180440610" duration="82000" />
+      <workItem from="1725185028953" duration="155000" />
+      <workItem from="1725185685182" duration="223000" />
+      <workItem from="1725187790702" duration="6109000" />
+      <workItem from="1725194063002" duration="2050000" />
+      <workItem from="1725240703650" duration="108000" />
+      <workItem from="1725243570702" duration="4428000" />
+      <workItem from="1725248152392" duration="21000" />
+      <workItem from="1725248780346" duration="5323000" />
+      <workItem from="1725255354515" duration="4750000" />
+      <workItem from="1725276014481" duration="3083000" />
+      <workItem from="1725286251950" duration="17000" />
+      <workItem from="1725286927902" duration="2219000" />
+      <workItem from="1725290477492" duration="117000" />
+      <workItem from="1725290718244" duration="25000" />
+      <workItem from="1725290951225" duration="2000" />
+      <workItem from="1725290983108" duration="2000" />
+      <workItem from="1725290990910" duration="3000" />
+      <workItem from="1725291012274" duration="48000" />
+      <workItem from="1725291076550" duration="58000" />
+      <workItem from="1725291325256" duration="53000" />
+      <workItem from="1725292654256" duration="22000" />
+      <workItem from="1725292849232" duration="11000" />
+      <workItem from="1725292875683" duration="6000" />
+      <workItem from="1725342102042" duration="9479000" />
+      <workItem from="1725358948605" duration="7735000" />
+      <workItem from="1725396815121" duration="5977000" />
+      <workItem from="1725405050447" duration="209000" />
+      <workItem from="1725411047579" duration="1463000" />
+      <workItem from="1725412706497" duration="7591000" />
+      <workItem from="1725422667118" duration="3674000" />
+      <workItem from="1725437472650" duration="7225000" />
+      <workItem from="1725489041068" duration="129000" />
+      <workItem from="1725489547644" duration="180000" />
+      <workItem from="1725490162677" duration="977000" />
+      <workItem from="1725491259462" duration="10000" />
+      <workItem from="1725491283517" duration="751000" />
+      <workItem from="1725496514722" duration="33000" />
+      <workItem from="1725497257684" duration="11004000" />
+      <workItem from="1725526564084" duration="5229000" />
+      <workItem from="1725571474960" duration="8534000" />
+      <workItem from="1725582267091" duration="3884000" />
+      <workItem from="1725586293983" duration="961000" />
+      <workItem from="1725588133631" duration="1403000" />
+      <workItem from="1725590772570" duration="3709000" />
+      <workItem from="1725594706641" duration="664000" />
+      <workItem from="1725595818693" duration="791000" />
+      <workItem from="1725597175133" duration="342000" />
+      <workItem from="1725598093946" duration="154000" />
+      <workItem from="1725603763227" duration="3010000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

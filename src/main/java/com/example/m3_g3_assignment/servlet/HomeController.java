@@ -18,16 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @WebServlet("/home")
 public class HomeController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final ServiceProduct SERVICE_PRODUCT = new ServiceProductImpl();
     private static final ServiceCart SERVICE_CART = new ServiceCartImpl();
-    private static final ICustomerDAO I_CUSTOMER_DAO = new CustomerDAO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -55,27 +52,32 @@ public class HomeController extends HttpServlet {
     }
 
     private void showCart(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
-//        HttpSession session = req.getSession();
-//        Customer customer = (Customer) session.getAttribute("customer");
-//        int customerId = customer.getCustomer_id();
-        List<Product> products = SERVICE_PRODUCT.getProductsNewLimit3();
-        int customerId = 1;
-        Map<Product, Integer> map = SERVICE_CART.getCart(customerId);
-        req.setAttribute("map", map);
-        req.setAttribute("products", products);
-        req.getRequestDispatcher("/cart.jsp").forward(req, resp);
+        HttpSession session = req.getSession();
+        Customer customer = (Customer) session.getAttribute("customer");
+        if (customer == null) {
+            resp.sendRedirect("/login.jsp");
+        } else {
+            int customerId = customer.getCustomer_id();
+            List<Product> products = SERVICE_PRODUCT.getProductsNewLimit3();
+            List<Product> productsCart = SERVICE_CART.getAllProducts(customerId);
+            req.setAttribute("productsCart", productsCart);
+            req.setAttribute("products", products);
+            req.getRequestDispatcher("/cart.jsp").forward(req, resp);
+        }
     }
 
-    private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
-        int productId = Integer.parseInt(req.getParameter("id"));
-        Product product = SERVICE_PRODUCT.getProduct(productId);
-//        HttpSession session = req.getSession();
-//        Customer customer = (Customer) session.getAttribute("customer");
-//        int customerId = customer.getCustomer_id();
-        int customerId = 1;
-        Customer customer = I_CUSTOMER_DAO.selectCustomer(customerId);
-        Cart cart = new Cart(customer, product);
-        SERVICE_CART.insertCart(cart);
+    private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
+        HttpSession session = req.getSession();
+        Customer customer = (Customer) session.getAttribute("customer");
+        System.out.println(customer);
+        if (customer == null) {
+            resp.sendRedirect("");
+        } else {
+            int customerId = customer.getCustomer_id();
+            int productId = Integer.parseInt(req.getParameter("id"));
+            Cart cart = new Cart(customerId, productId);
+            SERVICE_CART.insertCart(cart);
+        }
     }
 
     private void viewProduct(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {

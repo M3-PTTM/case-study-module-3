@@ -10,8 +10,15 @@ public class Product {
     private String img;
     private String description;
     private int inventory;
+    private int quantity;
 
     public Product() {
+    }
+
+    public Product(int id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
     }
 
     public Product(String name, double price, String category, String img, String description) {
@@ -31,6 +38,16 @@ public class Product {
         this.inventory = inventory;
     }
 
+    public Product(String name, double price, String category, String img, String description, int inventory, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.img = img;
+        this.description = description;
+        this.inventory = inventory;
+        this.quantity = quantity;
+    }
+
     public Product(int id, String name, double price, String category, String img, String description) {
         this.id = id;
         this.name = name;
@@ -48,6 +65,17 @@ public class Product {
         this.img = img;
         this.description = description;
         this.inventory = inventory;
+    }
+
+    public Product(int id, String name, double price, String category, String img, String description, int inventory, int quantity) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.img = img;
+        this.description = description;
+        this.inventory = inventory;
+        this.quantity = quantity;
     }
 
     public int getId() {
@@ -106,6 +134,14 @@ public class Product {
         this.inventory = inventory;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -117,5 +153,13 @@ public class Product {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", quantity=" + quantity +
+                '}';
     }
 }
