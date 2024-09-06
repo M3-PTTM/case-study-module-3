@@ -81,43 +81,73 @@ function editCustomer(id, edit_username, edit_customer_name, edit_customer_email
     editModal.show();
 }
 
-document.getElementById("customerForm").addEventListener("submit", function(event) {
-    let isValid = true;
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("customerForm").addEventListener("submit", function(event) {
+        let isValid = true;
 
-    let username = document.getElementById("username").value.trim();
-    if (username === "") {
-        alert("Tên đăng nhập không được để trống.");
-        isValid = false;
+        resetValidation();
+
+        let username = document.getElementById("username").value.trim();
+        if (username === "") {
+            setError("username", "Tên đăng nhập không được để trống.");
+            isValid = false;
+        }
+
+        let customer_name = document.getElementById("customer_name").value.trim();
+        if (customer_name === "") {
+            setError("customer_name", "Họ và tên không được để trống.");
+            isValid = false;
+        }
+
+        let email = document.getElementById("customer_email").value.trim();
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            setError("customer_email", "Email không hợp lệ.");
+            isValid = false;
+        }
+
+        let phone = document.getElementById("customer_phone").value.trim();
+        let phonePattern = /^[0-9]{10}$/;
+        if (!phonePattern.test(phone)) {
+            setError("customer_phone", "Số điện thoại không hợp lệ. Số điện thoại phải có 10 chữ số.");
+            isValid = false;
+        }
+
+        let citizen = document.getElementById("customer_citizen").value.trim();
+        let citizenPattern = /^[0-9]{12}$/;
+        if (!citizenPattern.test(citizen)) {
+            setError("customer_citizen", "Căn cước công dân không hợp lệ. Phải có 12 chữ số.");
+            isValid = false;
+        }
+
+        if (!isValid) {
+            event.preventDefault();
+            return false;
+        }
+
+        var modalElement = document.getElementById('customerFormModal');
+        var modal = bootstrap.Modal.getInstance(modalElement);  // Lấy instance của modal Bootstrap
+        modal.hide();
+    });
+
+    function setError(inputId, errorMessage) {
+        let inputElement = document.getElementById(inputId);
+        let errorElement = document.getElementById(inputId + "-error");
+
+        inputElement.classList.add("is-invalid");
+
+        errorElement.innerHTML = '<i class="fas fa-exclamation-triangle error-icon"></i>' + errorMessage;
     }
 
-    let customer_name = document.getElementById("customer_name").value.trim();
-    if (customer_name === "") {
-        alert("Họ và tên không được để trống.");
-        isValid = false;
-    }
+    function resetValidation() {
+        let inputs = document.querySelectorAll(".is-invalid");
+        inputs.forEach(function(input) {
+            input.classList.remove("is-invalid");
+        });
 
-    let email = document.getElementById("customer_email").value.trim();
-    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        alert("Email không hợp lệ.");
-        isValid = false;
-    }
-
-    let phone = document.getElementById("customer_phone").value.trim();
-    let phonePattern = /^[0-9]{10}$/;
-    if (!phonePattern.test(phone)) {
-        alert("Số điện thoại không hợp lệ. Số điện thoại phải có 10 chữ số.");
-        isValid = false;
-    }
-
-    let citizen = document.getElementById("customer_citizen").value.trim();
-    let citizenPattern = /^[0-9]{12}$/;
-    if (!citizenPattern.test(citizen)) {
-        alert("Căn cước công dân không hợp lệ. Căn cước công dân phải có 12 chữ số.");
-        isValid = false;
-    }
-
-    if (!isValid) {
-        event.preventDefault();
+        let errors = document.querySelectorAll(".error-message");
+        errors.forEach(function(error) {
+            error.innerHTML = "";
+        });
     }
 });
