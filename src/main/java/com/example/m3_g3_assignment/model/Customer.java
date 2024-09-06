@@ -23,9 +23,18 @@ public class Customer {
         this.customer_role = customer_role;
     }
 
-
     public Customer(String username, String customer_name, String customer_email, String customer_phone, String customer_citizen, String customer_role) {
         this.username = username;
+        this.customer_name = customer_name;
+        this.customer_email = customer_email;
+        this.customer_phone = customer_phone;
+        this.customer_citizen = customer_citizen;
+        this.customer_role = customer_role;
+    }
+
+    public Customer(String username, String password, String customer_name, String customer_email, String customer_phone, String customer_citizen, String customer_role) {
+        this.username = username;
+        this.password = password;
         this.customer_name = customer_name;
         this.customer_email = customer_email;
         this.customer_phone = customer_phone;

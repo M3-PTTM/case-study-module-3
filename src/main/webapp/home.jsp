@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/home">Home</a>
+                    <a class="nav-link" href="home">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
@@ -29,11 +29,14 @@
             <div class="form-inline my-2 my-lg-0">
                 <div class="login_menu">
                     <ul>
-                        <c:if test="${sessionScope.account != null}">
-                            <li><a href="#">Logout</a></li>
+                        <c:if test="${sessionScope.customer != null}">
+                            <li>Hello ${sessionScope.customer.username}</li>
                         </c:if>
-                        <c:if test="${sessionScope.account == null}">
-                            <li><a href="#">Login</a></li>
+                        <c:if test="${sessionScope.customer != null}">
+                            <li><a href="logout">Logout</a></li>
+                        </c:if>
+                        <c:if test="${sessionScope.customer == null}">
+                            <li><a href="login.jsp">Login</a></li>
                         </c:if>
                         <li><a href="/home?action=cart"><img src="/man/images/trolly-icon.png"></a></li>
                         <li>
