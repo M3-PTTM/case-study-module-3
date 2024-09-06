@@ -32,7 +32,7 @@
               </div>
             </c:if>
             <div class="input-field">
-              <input type="text" class="input" id="username" name="username" required="" />
+              <input type="text" class="input" id="username" name="username" value="${username != null ? username : ''}" required="" />
               <label for="username">Tên đăng nhập</label>
             </div>
             <div class="input-field">

@@ -14,7 +14,7 @@
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="/phuc/css/admin.css">
-    <title>War Machine</title>
+    <title>War Machine Admin</title>
     <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
     <style>
         input {
@@ -67,8 +67,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a href="#" class="dropdown-item">Thông tin</a></li>
-                            <li><a href="#" class="dropdown-item">Cài đặt</a></li>
-                            <li><a href="#" class="dropdown-item">Đăng xuất</a></li>
+                            <li><a href="login.jsp" class="dropdown-item">Đăng xuất</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -84,7 +83,7 @@
                     <table class="table bg-white rounded shadow-sm table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">Mã sản phẩm</th>
+                            <th scope="col">Số thứ tự</th>
                             <th scope="col">Tên sản phẩm</th>
                             <th scope="col">Giá tiền</th>
                             <th scope="col">Loại sản phẩm</th>

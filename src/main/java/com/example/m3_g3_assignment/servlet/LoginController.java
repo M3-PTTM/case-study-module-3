@@ -32,6 +32,7 @@ public class LoginController extends HttpServlet {
         }
         if (customer == null) {
             req.setAttribute("errorMessage", "Tên đăng nhập hoặc mật khẩu không chính xác");
+            req.setAttribute("username", username);
             req.getRequestDispatcher("login.jsp").forward(req, resp);
         } else {
             req.getSession().setAttribute("customer", customer);
