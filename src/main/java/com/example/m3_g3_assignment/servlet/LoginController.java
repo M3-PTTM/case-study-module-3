@@ -37,7 +37,6 @@ public class LoginController extends HttpServlet {
         } else {
             req.getSession().setAttribute("customer", customer);
             String role = customer.getCustomer_role();
-            System.out.println(role);
             if ("ADMIN".equals(role)) {
                 resp.sendRedirect("dashboard.jsp");
             } else if ("CUSTOMER".equals(role)) {
