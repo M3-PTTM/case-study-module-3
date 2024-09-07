@@ -1,6 +1,5 @@
 package com.example.m3_g3_assignment.servlet;
 
-
 import com.example.m3_g3_assignment.dao.impl.CustomerDAO;
 import com.example.m3_g3_assignment.model.Customer;
 
