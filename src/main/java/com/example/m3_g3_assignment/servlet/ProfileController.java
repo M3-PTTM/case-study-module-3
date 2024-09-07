@@ -53,6 +53,23 @@ public class ProfileController extends HttpServlet {
         Customer customer = (Customer) session.getAttribute("customer");
 
         if (customer != null) {
+            try {
+                if (customerDAO.isValueTaken("customer_email", email) && !email.equals(customer.getCustomer_email())) {
+                    req.setAttribute("errorMessage", "Email đã tồn tại");
+                    RequestDispatcher dispatcher = req.getRequestDispatcher("/profile.jsp");
+                    dispatcher.forward(req, resp);
+                    return;
+                }
+                if (customerDAO.isValueTaken("customer_phone", phone) && !phone.equals(customer.getCustomer_phone())) {
+                    req.setAttribute("errorMessage", "Số điện thoại đã tồn tại");
+                    RequestDispatcher dispatcher = req.getRequestDispatcher("/profile.jsp");
+                    dispatcher.forward(req, resp);
+                    return;
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
             int customerId = customer.getCustomer_id();
 
             Customer customerToUpdate = new Customer();
@@ -70,7 +87,9 @@ public class ProfileController extends HttpServlet {
             customerToUpdate.setCustomer_role(role);
 
             if (password == null || password.isEmpty()) {
-                password = customer.getPassword();
+                customerToUpdate.setPassword(customer.getPassword());
+            } else {
+                customerToUpdate.setPassword(password);
             }
 
             try {

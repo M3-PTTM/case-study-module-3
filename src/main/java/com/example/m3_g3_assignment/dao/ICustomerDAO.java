@@ -16,4 +16,5 @@ public interface ICustomerDAO {
     Customer selectCustomer(int customer_id) throws SQLException;
     List<Customer> selectAllCustomers() throws SQLException;
     Customer loginCustomer(String username, String password) throws SQLException;
+    boolean isValueTaken(String column, String value) throws SQLException;
 }

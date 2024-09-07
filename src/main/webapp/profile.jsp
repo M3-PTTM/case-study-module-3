@@ -14,9 +14,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<c:if test="${not empty errorMessage}">
+    <div class="alert alert-danger">${errorMessage}</div>
+</c:if>
 <div class="container">
     <h2>Thông Tin Người Dùng</h2>
-    <form action="profile" method="post">
+    <form action="profile" method="post" onsubmit="return validateProfileForm()">
         <div class="mb-3">
             <label for="username" class="form-label">Tên đăng nhập</label>
             <input type="text" class="form-control" id="username" name="username" value="${customer.username}" readonly>
@@ -47,6 +50,39 @@
         <button type="submit" class="btn btn-primary">Cập nhật</button>
     </form>
 </div>
+<script>
+    function validateProfileForm() {
+        let name = document.getElementById('customer_name').value.trim();
+        let email = document.getElementById('email').value.trim();
+        let phone = document.getElementById('phone').value.trim();
+        let citizen = document.getElementById('citizen').value.trim();
+
+        if (name === "") {
+            alert("Họ và tên không được để trống");
+            return false;
+        }
+
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email)) {
+            alert("Email không hợp lệ");
+            return false;
+        }
+
+        const phonePattern = /^[0-9]{10}$/;
+        if (!phonePattern.test(phone)) {
+            alert("Số điện thoại phải có 10 chữ số");
+            return false;
+        }
+
+        const citizenPattern = /^[0-9]{12}$/;
+        if (!citizenPattern.test(citizen)) {
+            alert("Căn cước công dân phải có 12 chữ số");
+            return false;
+        }
+
+        return true;
+    }
+</script>
 </body>
 </html>
 
