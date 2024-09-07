@@ -38,6 +38,9 @@
             <input type="text" class="form-control" id="citizen" name="customer_citizen" value="${customer.customer_citizen}" readonly>
         </div>
         <div class="mb-3">
+            <input type="hidden" name="customer_role" value="${customer.customer_role}">
+        </div>
+        <div class="mb-3">
             <label for="password" class="form-label">Mật khẩu mới</label>
             <input type="password" class="form-control" id="password" name="password">
         </div>

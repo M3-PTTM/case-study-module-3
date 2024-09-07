@@ -43,12 +43,11 @@ public class ProfileController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String name = req.getParameter("customer_name");
-        String email = req.getParameter("customer_email");  // Kiểm tra giá trị email
+        String email = req.getParameter("customer_email");
         String phone = req.getParameter("customer_phone");
         String citizen = req.getParameter("customer_citizen");
         String password = req.getParameter("password");
-
-        System.out.println("Email: " + email);  // Thêm logging để kiểm tra giá trị email
+        String role = req.getParameter("customer_role");  // Thêm đoạn này để lấy giá trị role từ form
 
         HttpSession session = req.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
@@ -60,10 +59,16 @@ public class ProfileController extends HttpServlet {
             customerToUpdate.setCustomer_id(customerId);
             customerToUpdate.setUsername(username);
             customerToUpdate.setCustomer_name(name);
-            customerToUpdate.setCustomer_email(email);  // Gán giá trị email
+            customerToUpdate.setCustomer_email(email);
             customerToUpdate.setCustomer_phone(phone);
             customerToUpdate.setCustomer_citizen(citizen);
             customerToUpdate.setPassword(password);
+
+            // Kiểm tra và giữ lại role hiện tại nếu không thay đổi
+            if (role == null || role.isEmpty()) {
+                role = customer.getCustomer_role();  // Giữ nguyên vai trò nếu không có vai trò mới
+            }
+            customerToUpdate.setCustomer_role(role);
 
             if (password == null || password.isEmpty()) {
                 password = customer.getPassword();  // Giữ nguyên mật khẩu nếu không có mật khẩu mới
@@ -88,5 +93,4 @@ public class ProfileController extends HttpServlet {
             resp.sendRedirect("login.jsp");
         }
     }
-
 }
