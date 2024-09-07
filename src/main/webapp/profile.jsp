@@ -17,38 +17,39 @@
 <c:if test="${not empty errorMessage}">
     <div class="alert alert-danger">${errorMessage}</div>
 </c:if>
-<div class="container">
-    <h2>Thông Tin Người Dùng</h2>
-    <form action="profile" method="post" onsubmit="return validateProfileForm()">
-        <div class="mb-3">
-            <label for="username" class="form-label">Tên đăng nhập</label>
-            <input type="text" class="form-control" id="username" name="username" value="${customer.username}" readonly>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center mb-4">Thông Tin Người Dùng</h2>
+            <form action="profile" method="post" onsubmit="return validateProfileForm()">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Tên đăng nhập</label>
+                    <input type="text" class="form-control" id="username" name="username" value="${customer.username}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="customer_name" class="form-label">Họ tên</label>
+                    <input type="text" class="form-control" id="customer_name" name="customer_name" value="${customer.customer_name}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="customer_email" value="${customer.customer_email}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-control" id="phone" name="customer_phone" value="${customer.customer_phone}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="citizen" class="form-label">Căn cước công dân</label>
+                    <input type="text" class="form-control" id="citizen" name="customer_citizen" value="${customer.customer_citizen}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mật khẩu mới</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="customer_name" class="form-label">Họ tên</label>
-            <input type="text" class="form-control" id="customer_name" name="customer_name" value="${customer.customer_name}" required>
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="customer_email" value="${customer.customer_email}" required>
-        </div>
-        <div class="mb-3">
-            <label for="phone" class="form-label">Số điện thoại</label>
-            <input type="text" class="form-control" id="phone" name="customer_phone" value="${customer.customer_phone}" required>
-        </div>
-        <div class="mb-3">
-            <label for="citizen" class="form-label">Căn cước công dân</label>
-            <input type="text" class="form-control" id="citizen" name="customer_citizen" value="${customer.customer_citizen}" readonly>
-        </div>
-        <div class="mb-3">
-            <input type="hidden" name="customer_role" value="${customer.customer_role}">
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Mật khẩu mới</label>
-            <input type="password" class="form-control" id="password" name="password">
-        </div>
-        <button type="submit" class="btn btn-primary">Cập nhật</button>
-    </form>
+    </div>
 </div>
 <script>
     function validateProfileForm() {
@@ -83,6 +84,7 @@
         return true;
     }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
