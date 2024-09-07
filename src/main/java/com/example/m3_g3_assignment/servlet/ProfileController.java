@@ -47,7 +47,7 @@ public class ProfileController extends HttpServlet {
         String phone = req.getParameter("customer_phone");
         String citizen = req.getParameter("customer_citizen");
         String password = req.getParameter("password");
-        String role = req.getParameter("customer_role");  // Thêm đoạn này để lấy giá trị role từ form
+        String role = req.getParameter("customer_role");
 
         HttpSession session = req.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
@@ -64,14 +64,13 @@ public class ProfileController extends HttpServlet {
             customerToUpdate.setCustomer_citizen(citizen);
             customerToUpdate.setPassword(password);
 
-            // Kiểm tra và giữ lại role hiện tại nếu không thay đổi
             if (role == null || role.isEmpty()) {
-                role = customer.getCustomer_role();  // Giữ nguyên vai trò nếu không có vai trò mới
+                role = customer.getCustomer_role();
             }
             customerToUpdate.setCustomer_role(role);
 
             if (password == null || password.isEmpty()) {
-                password = customer.getPassword();  // Giữ nguyên mật khẩu nếu không có mật khẩu mới
+                password = customer.getPassword();
             }
 
             try {
@@ -79,7 +78,8 @@ public class ProfileController extends HttpServlet {
                 if (rowUpdated) {
                     Customer updatedCustomer = customerDAO.selectCustomer(customerId);
                     session.setAttribute("customer", updatedCustomer);
-                    resp.sendRedirect("profile");
+                    session.setAttribute("successMessage", "Đã cập nhật thành công!");
+                    resp.sendRedirect("home");
                 } else {
                     req.setAttribute("errorMessage", "Không thể cập nhật thông tin");
                     RequestDispatcher dispatcher = req.getRequestDispatcher("/profile.jsp");
