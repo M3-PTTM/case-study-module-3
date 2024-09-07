@@ -57,7 +57,7 @@
                             </form>
                         </li>
                         <c:if test="${sessionScope.customer != null}">
-                            <li><a href="#">Xin Chào ${sessionScope.customer.username}</a></li>
+                            <li><a href="/profile">Xin Chào ${sessionScope.customer.username}</a></li>
                         </c:if>
                     </ul>
                 </div>
