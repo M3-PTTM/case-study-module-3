@@ -16,26 +16,26 @@
 <body>
 <div class="container">
     <h2>Thông Tin Người Dùng</h2>
-    <form action="updateProfile" method="post">
+    <form action="profile" method="post">
         <div class="mb-3">
             <label for="username" class="form-label">Tên đăng nhập</label>
-            <input type="text" class="form-control" id="username" name="username" value="${customer.username}" disabled>
+            <input type="text" class="form-control" id="username" name="username" value="${customer.username}" readonly>
         </div>
         <div class="mb-3">
             <label for="customer_name" class="form-label">Họ tên</label>
-            <input type="text" class="form-control" id="customer_name" name="customer_name" value="${customer.customer_name}">
+            <input type="text" class="form-control" id="customer_name" name="customer_name" value="${customer.customer_name}" required>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" value="${customer.customer_email}">
+            <input type="email" class="form-control" id="email" name="customer_email" value="${customer.customer_email}" required>
         </div>
         <div class="mb-3">
             <label for="phone" class="form-label">Số điện thoại</label>
-            <input type="text" class="form-control" id="phone" name="phone" value="${customer.customer_phone}">
+            <input type="text" class="form-control" id="phone" name="customer_phone" value="${customer.customer_phone}" required>
         </div>
         <div class="mb-3">
             <label for="citizen" class="form-label">Căn cước công dân</label>
-            <input type="text" class="form-control" id="citizen" name="citizen" value="${customer.customer_citizen}" readonly>
+            <input type="text" class="form-control" id="citizen" name="customer_citizen" value="${customer.customer_citizen}" readonly>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Mật khẩu mới</label>

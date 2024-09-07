@@ -41,11 +41,14 @@ public class ProfileController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String username = req.getParameter("username");
         String name = req.getParameter("customer_name");
-        String email = req.getParameter("email");
-        String phone = req.getParameter("phone");
-        String citizen = req.getParameter("citizen");
+        String email = req.getParameter("customer_email");  // Kiểm tra giá trị email
+        String phone = req.getParameter("customer_phone");
+        String citizen = req.getParameter("customer_citizen");
         String password = req.getParameter("password");
+
+        System.out.println("Email: " + email);  // Thêm logging để kiểm tra giá trị email
 
         HttpSession session = req.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
@@ -55,16 +58,23 @@ public class ProfileController extends HttpServlet {
 
             Customer customerToUpdate = new Customer();
             customerToUpdate.setCustomer_id(customerId);
+            customerToUpdate.setUsername(username);
             customerToUpdate.setCustomer_name(name);
-            customerToUpdate.setCustomer_email(email);
+            customerToUpdate.setCustomer_email(email);  // Gán giá trị email
             customerToUpdate.setCustomer_phone(phone);
             customerToUpdate.setCustomer_citizen(citizen);
             customerToUpdate.setPassword(password);
 
+            if (password == null || password.isEmpty()) {
+                password = customer.getPassword();  // Giữ nguyên mật khẩu nếu không có mật khẩu mới
+            }
+
             try {
                 boolean rowUpdated = customerDAO.updateCustomer(customerToUpdate);
                 if (rowUpdated) {
-                    resp.sendRedirect("profile.jsp");
+                    Customer updatedCustomer = customerDAO.selectCustomer(customerId);
+                    session.setAttribute("customer", updatedCustomer);
+                    resp.sendRedirect("profile");
                 } else {
                     req.setAttribute("errorMessage", "Không thể cập nhật thông tin");
                     RequestDispatcher dispatcher = req.getRequestDispatcher("/profile.jsp");
@@ -78,4 +88,5 @@ public class ProfileController extends HttpServlet {
             resp.sendRedirect("login.jsp");
         }
     }
+
 }
