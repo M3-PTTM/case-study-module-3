@@ -40,7 +40,7 @@
                             <input type="submit" class="submit" value="Xác nhận"/>
                         </div>
                         <div class="input-field">
-                            <p>Thời gian còn lại <span id="countdown">${timeRemaining}</span> giây</p>
+                            <p>Thời gian còn lại <span id="countdown"></span> giây</p>
                         </div>
                     </div>
                 </form>
@@ -50,10 +50,17 @@
     </div>
 </div>
 <script>
-    let countdownTime = ${timeRemaining != null ? timeRemaining : 60};
+    let countdownTime;
     let countdownElement = null;
+
     window.onload = function () {
         countdownElement = document.getElementById("countdown");
+        let storedTimeRemaining = sessionStorage.getItem("timeRemaining");
+        if (storedTimeRemaining) {
+            countdownTime = parseInt(storedTimeRemaining, 10);
+        } else {
+            countdownTime = 60;
+        }
         startCountdown();
     }
 
@@ -63,14 +70,20 @@
                 clearInterval(countdownInterval);
                 document.getElementById("otpForm").style.display = "none";
                 document.getElementById("expiredMessage").style.display = "block";
+                resetCountdown();
                 setTimeout(function () {
                     window.location.href = "forgotpassword.jsp";
                 }, 3000);
             } else {
                 countdownElement.innerText = countdownTime;
+                sessionStorage.setItem("timeRemaining", countdownTime);
                 countdownTime--;
             }
         }, 1000);
+    }
+
+    function resetCountdown() {
+        sessionStorage.removeItem("timeRemaining");
     }
 </script>
 </body>
