@@ -14,9 +14,17 @@ public class ConfirmController extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         String otp = req.getParameter("otp");
         String otpSession = (String) req.getSession().getAttribute("otp");
-        if (otpSession != null && otpSession.equals(otp)) {
-            resp.sendRedirect("resetpassword.jsp");
+        Long timeOTP = (Long) req.getSession().getAttribute("timeOTP");
+        if (timeOTP == null || System.currentTimeMillis() > timeOTP) {
+            req.setAttribute("errorMessage", "Mã OTP đã hết hạn");
+            req.getRequestDispatcher("forgotpassword.jsp").forward(req, resp);
+            return;
+        }
+        if (otp != null && otp.equals(otpSession)) {
+            req.getRequestDispatcher("resetpassword.jsp").forward(req, resp);
         } else {
+            long timeRemaining = (timeOTP - System.currentTimeMillis()) / 1000;
+            req.setAttribute("timeRemaining", timeRemaining);
             req.setAttribute("errorMessage", "Mã OTP không hợp lệ");
             req.getRequestDispatcher("confirmOTP.jsp").forward(req, resp);
         }
