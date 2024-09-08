@@ -18,8 +18,8 @@ public class Customer {
         this.customer_name = customer_name;
     }
 
-    public Customer(int user_id, String username, String customer_name, String customer_email, String customer_phone, String customer_citizen, String customer_role) {
-        this.customer_id = user_id;
+    public Customer(int customer_id, String username, String customer_name, String customer_email, String customer_phone, String customer_citizen, String customer_role) {
+        this.customer_id = customer_id;
         this.username = username;
         this.customer_name = customer_name;
         this.customer_email = customer_email;

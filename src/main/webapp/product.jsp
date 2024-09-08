@@ -39,7 +39,8 @@
             <a href="/product" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
                 <i class="fas fa-box me-2"></i> Sản phẩm
             </a>
-            <a href="customers-servlet" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <a href="customers-servlet"
+               class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-user-circle me-2"></i> Khách hàng
             </a>
             <a href="/orders" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -87,7 +88,7 @@
                     <table class="table bg-white rounded shadow-sm table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">Mã sản phẩm</th>
+                            <th scope="col">Số thứ tự</th>
                             <th scope="col">Tên sản phẩm</th>
                             <th scope="col">Giá tiền</th>
                             <th scope="col">Loại sản phẩm</th>

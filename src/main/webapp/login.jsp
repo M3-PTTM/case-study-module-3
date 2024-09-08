@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./phuc/css/login-register.css" />
+  <link rel="stylesheet" href="/phuc/css/login-register.css" />
   <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -12,6 +12,7 @@
           crossorigin="anonymous"
   />
   <title>Đăng nhập</title>
+  <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
 </head>
 <body>
 <div class="wrapper">
@@ -31,8 +32,11 @@
                   ${errorMessage}
               </div>
             </c:if>
+            <c:if test="${not empty successMessage}">
+              <p style="color: green;">${successMessage}</p>
+            </c:if>
             <div class="input-field">
-              <input type="text" class="input" id="username" name="username" required="" />
+              <input type="text" class="input" id="username" name="username" value="${username != null ? username : ''}" required="" />
               <label for="username">Tên đăng nhập</label>
             </div>
             <div class="input-field">
@@ -41,6 +45,9 @@
             </div>
             <div class="input-field">
               <input type="submit" class="submit" value="Đăng nhập" />
+            </div>
+            <div class="forgot">
+              <span><a href="forgotpassword.jsp">Quên mật khẩu ?</a></span>
             </div>
             <div class="signin">
               <span>Bạn chưa có tài khoản? <a href="register.jsp">Đăng ký</a></span>

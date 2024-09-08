@@ -132,6 +132,7 @@
         <p>&copy; VNPAY 2020</p>
     </footer>
 </div>
+
 <script>
     function result() {
         var transactionStatus = "${param.vnp_TransactionStatus}";

@@ -338,6 +338,9 @@
         </c:forEach>
     }
 </script>
+<link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet"/>
+<script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
+<c:import url="/man/library/add_product.jsp"/>
 <script>
     function decreaseQuantity(id) {
         var quantityInput = document.getElementById('quantity' + id);
