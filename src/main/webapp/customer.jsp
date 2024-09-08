@@ -1,5 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<c:if test="${sessionScope.customer == null || sessionScope.customer.customer_role != 'ADMIN'}">
+    <c:redirect url="/home"/>
+</c:if>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +16,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="./phuc/css/admin.css">
-    <link rel="stylesheet" href="./phuc/css/customer.css">
-    <title>GunShop Admin</title>
+    <link rel="stylesheet" href="/phuc/css/admin.css">
+    <link rel="stylesheet" href="/phuc/css/customer.css">
+    <title>Khách hàng</title>
+    <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
 </head>
 <body>
 <div class="d-flex" id="wrapper">
@@ -26,13 +31,13 @@
             <a href="dashboard.jsp" class="list-group-item list-group-item-action bg-transparent second-text fw-bold ">
                 <i class="fas fa-tachometer-alt me-2"></i> Tổng quan
             </a>
-            <a href="product.jsp" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <a href="product" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-box me-2"></i> Sản phẩm
             </a>
-            <a href="customers-servlet" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
+            <a href="/customers-servlet" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
                 <i class="fas fa-user-circle me-2"></i> Khách hàng
             </a>
-            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <a href="/orders" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-shopping-cart me-2"></i> Đơn hàng
             </a>
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -77,7 +82,7 @@
                     <table class="table bg-white rounded shadow-sm table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">Mã khách hàng</th>
+                            <th scope="col">Số thứ tự</th>
                             <th scope="col">Tên đăng nhập</th>
                             <th scope="col">Họ và tên</th>
                             <th scope="col">Email</th>
@@ -88,9 +93,9 @@
                         </tr>
                         </thead>
                         <tbody id="customerTable">
-                        <c:forEach var="customer" items="${listCustomers}">
+                        <c:forEach var="customer" items="${listCustomers}" varStatus="status">
                             <tr>
-                                <th scope="row">${customer.customer_id}</th>
+                                <th scope="row">${status.count}</th>
                                 <td>${customer.username}</td>
                                 <td>${customer.customer_name}</td>
                                 <td>${customer.customer_email}</td>
@@ -190,6 +195,7 @@
                                 <label for="edit_customer_role" class="form-label">Vai trò</label>
                                 <select id="edit_customer_role" name="customer_role" class="form-select">
                                     <option value="CUSTOMER">Khách hàng</option>
+                                    <option value="CUSTOMER-VIP">Khách hàng VIP</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Lưu</button>

@@ -87,7 +87,7 @@
                     <table class="table bg-white rounded shadow-sm table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">Mã sản phẩm</th>
+                            <th scope="col">Số thứ tự</th>
                             <th scope="col">Tên sản phẩm</th>
                             <th scope="col">Giá tiền</th>
                             <th scope="col">Loại sản phẩm</th>
