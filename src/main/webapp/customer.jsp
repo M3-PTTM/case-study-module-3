@@ -95,15 +95,16 @@
                         </thead>
                         <tbody id="customerTable">
                         <c:forEach var="customer" items="${listCustomers}">
-                                <tr>
-                                    <th scope="row">${customer.customer_id}</th>
-                                    <td>${customer.username}</td>
-                                    <td>${customer.customer_name}</td>
-                                    <td>${customer.customer_email}</td>
-                                    <td>${customer.customer_phone}</td>
-                                    <td>${customer.customer_citizen}</td>
-                                    <td>${customer.customer_role}</td>
-                                    <td>
+                            <tr>
+                                <th scope="row">${customer.customer_id}</th>
+                                <td>${customer.username}</td>
+                                <td>${customer.customer_name}</td>
+                                <td>${customer.customer_email}</td>
+                                <td>${customer.customer_phone}</td>
+                                <td>${customer.customer_citizen}</td>
+                                <td>${customer.customer_role}</td>
+                                <td>
+                                    <c:if test="${customer.customer_role == 'CUSTOMER'}">
                                         <button class="btn btn-warning btn-sm"
                                                 onclick="editCustomer('${customer.customer_id}', '${customer.username}', '${customer.customer_name}', '${customer.customer_email}', '${customer.customer_phone}', '${customer.customer_citizen}', '${customer.customer_role}')">
                                             Sửa
@@ -111,12 +112,11 @@
                                         <form action="customers-servlet" method="post" style="display:inline-block;">
                                             <input type="hidden" name="action" value="delete">
                                             <input type="hidden" name="customer_id" value="${customer.customer_id}">
-                                            <c:if test="${customer.customer_role == 'CUSTOMER'}">
                                             <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
-                                            </c:if>
                                         </form>
-                                    </td>
-                                </tr>
+                                    </c:if>
+                                </td>
+                            </tr>
                         </c:forEach>
                         </tbody>
                     </table>
@@ -139,22 +139,26 @@
                             </div>
                             <div class="mb-3">
                                 <label for="customer_name" class="form-label">Họ và tên</label>
-                                <input type="text" class="form-control" id="customer_name" name="customer_name" required>
+                                <input type="text" class="form-control" id="customer_name" name="customer_name"
+                                       required>
                                 <span class="error-message text-danger" id="customer_name-error"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="customer_email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="customer_email" name="customer_email" required>
+                                <input type="email" class="form-control" id="customer_email" name="customer_email"
+                                       required>
                                 <span class="error-message text-danger" id="customer_email-error"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="customer_phone" class="form-label">Số điện thoại</label>
-                                <input type="text" class="form-control" id="customer_phone" name="customer_phone" required>
+                                <input type="text" class="form-control" id="customer_phone" name="customer_phone"
+                                       required>
                                 <span class="error-message text-danger" id="customer_phone-error"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="customer_citizen" class="form-label">Căn cước công dân</label>
-                                <input type="text" class="form-control" id="customer_citizen" name="customer_citizen" required>
+                                <input type="text" class="form-control" id="customer_citizen" name="customer_citizen"
+                                       required>
                                 <span class="error-message text-danger" id="customer_citizen-error"></span>
                             </div>
                             <button type="submit" class="btn btn-primary">Thêm mới</button>
@@ -180,19 +184,23 @@
                             </div>
                             <div class="mb-3">
                                 <label for="edit_customer_name" class="form-label">Họ và tên</label>
-                                <input type="text" class="form-control" id="edit_customer_name" name="customer_name" required>
+                                <input type="text" class="form-control" id="edit_customer_name" name="customer_name"
+                                       required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit_customer_email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="edit_customer_email" name="customer_email" required>
+                                <input type="email" class="form-control" id="edit_customer_email" name="customer_email"
+                                       required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit_customer_phone" class="form-label">Số điện thoại</label>
-                                <input type="text" class="form-control" id="edit_customer_phone" name="customer_phone" required>
+                                <input type="text" class="form-control" id="edit_customer_phone" name="customer_phone"
+                                       required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit_customer_citizen" class="form-label">Căn cước công dân</label>
-                                <input type="text" class="form-control" id="edit_customer_citizen" name="customer_citizen" required>
+                                <input type="text" class="form-control" id="edit_customer_citizen"
+                                       name="customer_citizen" required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit_customer_role" class="form-label">Vai trò</label>

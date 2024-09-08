@@ -21,6 +21,7 @@ public class ConfirmController extends HttpServlet {
             return;
         }
         if (otp != null && otp.equals(otpSession)) {
+            resp.getWriter().write("<script>sessionStorage.removeItem('timeRemaining');</script>");
             req.getRequestDispatcher("resetpassword.jsp").forward(req, resp);
         } else {
             long timeRemaining = (timeOTP - System.currentTimeMillis()) / 1000;

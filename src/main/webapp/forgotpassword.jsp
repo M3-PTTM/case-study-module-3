@@ -46,5 +46,8 @@
         </div>
     </div>
 </div>
+<script>
+    sessionStorage.removeItem("timeRemaining");
+</script>
 </body>
 </html>
