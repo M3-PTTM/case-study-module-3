@@ -30,12 +30,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="M3_G3_Assignment" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -94,7 +89,6 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;TomEE Server.TomEE 9.0.93.executor&quot;: &quot;Run&quot;,
     &quot;TomEE Server.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Tomcat Server.Tomcat 9.0.91.executor&quot;: &quot;Run&quot;,
     &quot;Tomcat Server.Tomcat 9.0.93.executor&quot;: &quot;Run&quot;,
     &quot;Tomcat Server.Tomcat 9.executor&quot;: &quot;Run&quot;,
     &quot;Tomcat Server.customer.jsp (1).executor&quot;: &quot;Run&quot;,
@@ -104,10 +98,10 @@
     &quot;Tomcat Server.index.jsp.executor&quot;: &quot;Run&quot;,
     &quot;Tomcat Server.welcome.jsp.executor&quot;: &quot;Run&quot;,
     &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;phuc&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;man&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;graalvm-jdk-17&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/case/M3_G3_Assignment/src/main/webapp&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/case/M3_G3_Assignment - Sao chép&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -119,11 +113,6 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
-    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -140,7 +129,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.93" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.93" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Gradle : com.example : M3_G3_Assignment-1.0-SNAPSHOT.war">
@@ -329,12 +318,11 @@
       <workItem from="1725597175133" duration="342000" />
       <workItem from="1725598093946" duration="154000" />
       <workItem from="1725603763227" duration="3010000" />
-      <workItem from="1725675748161" duration="3648000" />
-      <workItem from="1725698621304" duration="3023000" />
-      <workItem from="1725712852337" duration="3297000" />
-      <workItem from="1725717798590" duration="325000" />
-      <workItem from="1725718144548" duration="3412000" />
-      <workItem from="1725760265937" duration="6341000" />
+      <workItem from="1725612182317" duration="237000" />
+      <workItem from="1725625930952" duration="289000" />
+      <workItem from="1725707480267" duration="2812000" />
+      <workItem from="1725717016427" duration="11084000" />
+      <workItem from="1725741099067" duration="2858000" />
     </task>
     <servers />
   </component>

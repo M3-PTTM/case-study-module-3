@@ -6,12 +6,14 @@ import com.example.m3_g3_assignment.model.Customer;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeUtility;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -70,11 +72,14 @@ public class ForgotController extends HttpServlet {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(fromEmail));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(customer_email));
-            message.setSubject("Mã OTP của bạn");
+            String subject = MimeUtility.encodeText("Mã OTP của bạn", "UTF-8", "B");
+            message.setSubject(subject);
             message.setText("Mã OTP: " + otp);
             Transport.send(message);
         } catch (MessagingException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
+        } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
     }
