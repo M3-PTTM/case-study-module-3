@@ -21,7 +21,7 @@ public class SendMail extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
         String fromEmail = "phamvanmantestsendmail@gmail.com";
-        String password = "phxskmuerqmvuzkq";
+        String password = "vompcqfobctohcxf";
         HttpSession reqSessions = req.getSession();
         Customer customer = (Customer) reqSessions.getAttribute("customer");
         if (customer != null) {
