@@ -162,12 +162,15 @@
                                                        value="${product.quantity}"
                                                        min="1"
                                                        max="${product.inventory}" class="quantity_input"
-                                                       onchange="updateTotalPrice()"/>
+                                                       onchange="updateTotalPrice()" data-min="1"
+                                                       data-max="${product.inventory}"/>
                                                 <button class="quantity_button"
                                                         onclick="increaseQuantity(${product.id})">+
                                                 </button>
                                             </div>
                                         </div>
+                                        <div class="buy_bt align-items-center pl-3">Sẳn
+                                            có: ${product.inventory}</div>
                                         <h4 class="price_text">
                                             <span style=" color: #325662"><fmt:formatNumber
                                                     value="${product.price}" pattern="###,###"/></span>
@@ -195,12 +198,15 @@
                                                        value="${product.quantity}"
                                                        min="1"
                                                        max="${product.inventory}" class="quantity_input"
-                                                       onchange="updateTotalPrice()"/>
+                                                       onchange="updateTotalPrice()" data-min="1"
+                                                       data-max="${product.inventory}"/>
                                                 <button class="quantity_button"
                                                         onclick="increaseQuantity(${product.id})">+
                                                 </button>
                                             </div>
                                         </div>
+                                        <div class="buy_bt align-items-center pl-3">Sẳn
+                                            có: ${product.inventory}</div>
                                         <h4 class="price_text">
                                             <span style=" color: #325662"><fmt:formatNumber
                                                     value="${product.price}" pattern="###,###"/></span>
@@ -235,16 +241,18 @@
                         <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">Số Lượng</th>
                         <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">Thành Giá</th>
                     </tr>
-                    <c:forEach var="product" items="${productsCart}" varStatus="status">
-                        <tr id="order${product.id}">
-                            <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${product.name}</th>
-                            <th id="quantityCell${status.count}"
-                                style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${product.quantity}</th>
-                            <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;"><span
-                                    id="priceCell${status.count}"><fmt:formatNumber
-                                    value="${product.price*product.quantity}" pattern="###,###"/></span> VND
-                            </th>
-                        </tr>
+                    <c:forEach var="product" items="${productsCart}">
+                        <c:if test="${product.inventory>0}">
+                            <tr id="order${product.id}">
+                                <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${product.name}</th>
+                                <th id="quantityCell${product.id}"
+                                    style="width: 33.33%; text-align: center; border: 1px solid #ddd;">${product.quantity}</th>
+                                <th style="width: 33.33%; text-align: center; border: 1px solid #ddd;"><span
+                                        id="priceCell${product.id}"><fmt:formatNumber
+                                        value="${product.price*product.quantity}" pattern="###,###"/></span> VND
+                                </th>
+                            </tr>
+                        </c:if>
                     </c:forEach>
                     <form action="/vnpayajax" id="frmCreateOrder" method="post">
                         <input type="hidden" id="bankCode" name="bankCode" value="">
@@ -270,6 +278,66 @@
      style="display: none; position: fixed; top: 10px; right: 10px; background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px;">
     Sản phẩm đã được thêm vào giỏ hàng thành công!
 </div>
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+        intent="WELCOME"
+        chat-title="Liên-Hệ"
+        agent-id="8d2fb5cb-8310-4459-9162-d9bb468e135d"
+        language-code="vi"
+></df-messenger>
+<link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet"/>
+<script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
+<c:import url="/man/library/add_product_cart.jsp"/>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const inputs = document.querySelectorAll('input[type="number"]');
+        inputs.forEach(input => {
+            const min = parseFloat(input.getAttribute('min'));
+            const max = parseFloat(input.getAttribute('max'));
+            let value = parseFloat(input.value);
+            if (value > max) {
+                input.value = max;
+            } else if (value < min) {
+                input.value = min;
+            }
+            input.addEventListener('input', function () {
+                value = parseFloat(input.value);
+                if (isNaN(value)) {
+                    input.value = min;
+                } else if (value > max) {
+                    input.value = max;
+                } else if (value < min) {
+                    input.value = min;
+                }
+            });
+        });
+        reloadQuantity();
+        updateTotalPrice();
+    });
+
+    function reloadQuantity() {
+        <c:forEach var="product" items="${productsCart}">
+        var id = ${product.id};
+        console.log(id);
+        var quantityInput = document.getElementById('quantity' + id);
+        console.log(quantityInput);
+        var currentValue = parseInt(quantityInput.value);
+        console.log(currentValue);
+        $.ajax({
+            url: "/cart",
+            type: "post",
+            data: {
+                id: id,
+                quantity: currentValue
+            },
+            success: function () {
+            },
+            error: function (xhr) {
+            }
+        });
+        </c:forEach>
+    }
+</script>
 <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet"/>
 <script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
 <c:import url="/man/library/add_product.jsp"/>
@@ -306,9 +374,12 @@
     function increaseQuantity(id) {
         var quantityInput = document.getElementById('quantity' + id);
         var currentValue = parseInt(quantityInput.value);
-        quantityInput.value = currentValue + 1;
-        updateQuantity(id);
-        updateTotalPrice();
+        const maxValue = quantityInput.getAttribute('max');
+        if (currentValue < maxValue) {
+            quantityInput.value = currentValue + 1;
+            updateQuantity(id);
+            updateTotalPrice();
+        }
     }
 
     function updateQuantity(id) {
@@ -331,38 +402,19 @@
 
     function updateTotalPrice() {
         var totalPrice = 0;
-        <c:forEach var="product" items="${productsCart}" varStatus="status">
+        <c:forEach var="product" items="${productsCart}">
         var quantity = document.getElementById('quantity${product.id}').value;
         var price = ${product.price};
         totalPrice += price * quantity;
-        document.querySelector(`#quantityCell${status.count}`).innerHTML = quantity;
-        document.querySelector(`#priceCell${status.count}`).innerHTML = (price * quantity).toFixed(2);
-        </c:forEach>
-        document.getElementById('totalPrice').innerHTML = totalPrice.toFixed(2);
-        document.getElementById('amount').value = totalPrice.toFixed(2);
-    }
-
-    function submitPayment() {
-        var arr = [];
-        <c:forEach var="product" items="${productsCart}" varStatus="status">
-        var quantity = document.getElementById('quantity${product.id}').value;
-        arr.push(quantity);
-        </c:forEach>
-        console.log(arr);
-        debugger;
-        $.ajax({
-            url: "/order",
-            type: "post",
-            data: {
-                arr: JSON.stringify(arr)
-            },
-            success: function (data) {
-                console.log("Success:", data);
-            },
-            error: function (xhr) {
-                console.log("Error:", xhr);
-            }
+        var formatter = new Intl.NumberFormat('vi-VN', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
         });
+        document.querySelector(`#quantityCell${product.id}`).innerHTML = quantity;
+        document.querySelector(`#priceCell${product.id}`).innerHTML = formatter.format(price * quantity);
+        </c:forEach>
+        document.getElementById('totalPrice').innerHTML = formatter.format(totalPrice);
+        document.getElementById('amount').value = totalPrice.toFixed(2);
     }
 
     updateTotalPrice();
@@ -441,9 +493,10 @@
             <div class="col-lg-8 col-sm-12 padding_0">
                 <div class="map_main">
                     <div class="map-responsive">
-                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France"
-                                width="600" height="400" frameborder="0" style="border:0; width: 100%;"
-                                allowfullscreen=""></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.749168916386!2d108.20956419999999!3d16.078500899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219a486b7f699%3A0xae6269b629a63e82!2zQ29kZUd5bSDEkMOgIE7hurVuZw!5e0!3m2!1svi!2s!4v1725580014381!5m2!1svi!2s"
+                                width="600" height="450" style="border:0; width: 100%;" allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>

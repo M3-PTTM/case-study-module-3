@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceOrderImpl implements ServiceOrder {
-    private static final String SELECT_ORDER = "select product.product_id, product.product_price, product.product_name, customer.customer_name, customer.customer_id, orders.quantity, orders.order_code from orders join customer on customer.customer_id = orders.customer_id join product on product.product_id = orders.product_id";
+    private static final String SELECT_ORDER = "select product.product_id, product.product_price, product.product_name, customer.customer_name, customer.customer_id, orders.quantity, orders.order_code from orders join customer on customer.customer_id = orders.customer_id join product on product.product_id = orders.product_id order by orders.order_code desc";
     private static final String DELETE_ORDER = "delete from orders where  customer_id = ? and  product_id= ? ";
 
     @Override
@@ -30,7 +30,8 @@ public class ServiceOrderImpl implements ServiceOrder {
                         resultSet.getString("customer_name"));
                 int quantity = resultSet.getInt("quantity");
                 String orderCode = resultSet.getString("order_code");
-                Order order = new Order(product, customer, quantity, orderCode);
+                String result = orderCode.replaceAll("[-\\s:]+", "");
+                Order order = new Order(product, customer, quantity, result);
                 orders.add(order);
             }
         }

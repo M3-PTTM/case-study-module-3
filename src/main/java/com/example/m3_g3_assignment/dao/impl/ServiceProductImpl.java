@@ -14,15 +14,15 @@ import java.util.List;
 import java.util.Map;
 
 public class ServiceProductImpl implements ServiceProduct {
-    private static final String SELECT_ALL_PRODUCTS = "select * from product";
+    private static final String SELECT_ALL_PRODUCTS = "select * from product order by product_id desc";
     private static final String SELECT_PRODUCT_LIMIT_3 = "select * from product limit 3";
     private static final String SELECT_PRODUCT_NEXT_LIMIT_3 = "select * from product order by product_id desc limit ?,3";
-    private static final String SELECT_PRODUCT_NEW_LIMIT_3 = "select * from product order by product_id desc limit 3";
+    private static final String SELECT_PRODUCT_NEW_LIMIT_3 = "select * from product where product_inventory > 0 order by product_id desc limit 3";
     private static final String SELECT_PRODUCT_BY_NAME_OR_MODEL = "select * from product where product_name like ? or category_name like ?";
     private static final String SELECT_PRODUCT = "select * from product where product_id = ?";
     private static final String UPDATE_PRODUCT = "update product set product_name = ?, product_price = ?, category_name = ?, product_img = ?, product_description = ?, product_inventory = ? where product_id = ?";
     private static final String DELETE_PRODUCT = "delete from product where product_id = ?";
-    private static final String INSERT_PRODUCT = "insert into product (product_name, product_price, category_name, product_img, product_description) values (?, ?, ?, ?, ?)";
+    private static final String INSERT_PRODUCT = "insert into product (product_name, product_price, category_name, product_img, product_description, product_inventory) values (?, ?, ?, ?, ?, ?)";
 
     @Override
     public List<Product> getAllProducts() throws SQLException {
@@ -156,6 +156,7 @@ public class ServiceProductImpl implements ServiceProduct {
             preparedStatement.setString(3, product.getCategory());
             preparedStatement.setString(4, product.getImg());
             preparedStatement.setString(5, product.getDescription());
+            preparedStatement.setInt(6,product.getInventory());
             preparedStatement.executeUpdate();
         }
     }

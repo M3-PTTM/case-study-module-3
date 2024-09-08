@@ -59,7 +59,9 @@ public class ProductController extends HttpServlet {
     private void updateProduct(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         String name = req.getParameter("name");
-        double price = Double.parseDouble(req.getParameter("price"));
+        String paramPrice = req.getParameter("price");
+        String formattedPrice = paramPrice.replaceAll("[. VND]", "");
+        double price = Double.parseDouble(formattedPrice);
         String category = req.getParameter("category");
         String image = req.getParameter("img");
         String description = req.getParameter("description");

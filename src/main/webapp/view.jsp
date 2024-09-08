@@ -234,15 +234,23 @@
      style="display: none; position: fixed; top: 10px; right: 10px; background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px;">
     Sản phẩm đã được thêm vào giỏ hàng thành công!
 </div>
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+        intent="WELCOME"
+        chat-title="Liên-Hệ"
+        agent-id="8d2fb5cb-8310-4459-9162-d9bb468e135d"
+        language-code="vi"
+></df-messenger>
 <div class="footer_section layout_padding">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8 col-sm-12 padding_0">
                 <div class="map_main">
                     <div class="map-responsive">
-                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France"
-                                width="600" height="400" frameborder="0" style="border:0; width: 100%;"
-                                allowfullscreen=""></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.749168916386!2d108.20956419999999!3d16.078500899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219a486b7f699%3A0xae6269b629a63e82!2zQ29kZUd5bSDEkMOgIE7hurVuZw!5e0!3m2!1svi!2s!4v1725580014381!5m2!1svi!2s"
+                                width="600" height="450" style="border:0; width: 100%;" allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>

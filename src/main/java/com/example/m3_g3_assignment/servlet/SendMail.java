@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Properties;
 
 @WebServlet("/mail")
@@ -44,15 +49,27 @@ public class SendMail extends HttpServlet {
                 String subject = MimeUtility.encodeText("Hóa Đơn Thanh Toán", "UTF-8", "B");
                 msg.setSubject(subject);
                 MimeBodyPart messageBodyPart = new MimeBodyPart();
-                String content = "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!\n\n";
+                String content = "";
                 content += "Mã giao dịch: " + req.getParameter("vnp_TxnRef") + "\n";
-                content += "Số tiền: " + req.getParameter("vnp_Amount") + "\n";
-                content += "Mô tả giao dịch: " + req.getParameter("vnp_OrderInfo") + "\n";
-                content += "Mã lỗi thanh toán: " + req.getParameter("vnp_ResponseCode") + "\n";
+                String amountParam = req.getParameter("vnp_Amount");
+                double amount = Double.parseDouble(amountParam) / 100;
+                NumberFormat formatter = NumberFormat.getInstance(new Locale("vi", "VN"));
+                formatter.setMinimumFractionDigits(0);
+                String formattedAmount = formatter.format(amount);
+                content += "Số tiền: " + formattedAmount + " VND\n";
+                String orderInfo = req.getParameter("vnp_OrderInfo");
+                String formattedOrderInfo = orderInfo.replaceAll("Thanh toan don hang:", "");
+                content += "Thanh toán đơn hàng: " + formattedOrderInfo + "\n";
                 content += "Mã giao dịch tại CTT VNPAY-QR: " + req.getParameter("vnp_TransactionNo") + "\n";
                 content += "Mã ngân hàng thanh toán: " + req.getParameter("vnp_BankCode") + "\n";
-                content += "Thời gian thanh toán: " + req.getParameter("vnp_PayDate") + "\n";
-                content += "Trạng thái giao dịch: Thành công\n";
+                String payDateParam = req.getParameter("vnp_PayDate");
+                SimpleDateFormat inputFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+                SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                Date payDate = inputFormat.parse(payDateParam);
+                String formattedPayDate = outputFormat.format(payDate);
+                content += "Thời gian thanh toán: " + formattedPayDate + "\n";
+                content += "Trạng thái giao dịch: Thành công\n\n";
+                content += "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!\n";
                 messageBodyPart.setContent(content, "text/plain; charset=UTF-8");
                 Multipart multipart = new MimeMultipart();
                 multipart.addBodyPart(messageBodyPart);
@@ -61,6 +78,8 @@ public class SendMail extends HttpServlet {
                 System.out.println("Email đã được gửi thành công đến " + toEmail);
             } catch (MessagingException e) {
                 e.printStackTrace();
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
             }
         } else {
             System.out.println("Không tìm thấy thông tin khách hàng.");
