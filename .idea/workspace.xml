@@ -10,37 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e35a623d-8631-49d1-95c2-2de2f23b17fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/ServiceOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/ServiceOrderImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/model/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/SendMail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/man/library/add_product.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/man/library/add_product_cart.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/orders.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/ServiceCartImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/ServiceCartImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/ServiceProductImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/impl/ServiceProductImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/LoadCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/LoadCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/LoadProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/LoadProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/OrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/OrderServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/SearchProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/servlet/SearchProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/customer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/man/assets/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/man/assets/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/man/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/man/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/man/vnpay_jsp/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/man/vnpay_jsp/head.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/man/vnpay_jsp/vnpay_return.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/man/vnpay_jsp/vnpay_return.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +129,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.93" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.93" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Gradle : com.example : M3_G3_Assignment-1.0-SNAPSHOT.war">
