@@ -18,7 +18,7 @@ public class ServiceCartImpl implements ServiceCart {
     private static final String SELECT_CART = "select * from cart where customer_id = ?";
     private static final ServiceProduct SERVICE_PRODUCT = new ServiceProductImpl();
     private static final String DELETE_CART = "delete from cart where customer_id = ? and product_id = ?";
-    private static final String INSERT_ORDERS = "insert into orders values (?,?,?)";
+    private static final String INSERT_ORDERS = "insert into orders(customer_id, product_id, quantity) values (?,?,?)";
     private static final String UPDATE_CART = "update cart set quantity = ? where customer_id = ? and product_id = ?";
 
     @Override

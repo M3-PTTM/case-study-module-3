@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="java.net.URLEncoder" %>
 <%@page import="java.nio.charset.StandardCharsets" %>
 <%@page import="com.example.m3_g3_assignment.vnpay.Config" %>
@@ -10,6 +11,10 @@
 <%@page import="java.util.Enumeration" %>
 <%@page import="java.util.Map" %>
 <%@page import="java.util.HashMap" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Locale" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,19 +63,24 @@
             <label><%=request.getParameter("vnp_TxnRef")%>
             </label>
         </div>
+        <%
+            String amountParam = request.getParameter("vnp_Amount");
+            double amount = Double.parseDouble(amountParam) / 100;
+            NumberFormat formatter = NumberFormat.getInstance(new Locale("vi", "VN"));
+            formatter.setMinimumFractionDigits(0);
+            String formattedAmount = formatter.format(amount);
+        %>
         <div class="form-group">
             <label>Số tiền:</label>
-            <label><%=request.getParameter("vnp_Amount")%>
-            </label>
+            <label><%= formattedAmount %> VND</label>
         </div>
+        <%
+            String orderInfoParam = request.getParameter("vnp_OrderInfo");
+            String formattedOrderInfo = orderInfoParam.replaceAll("Thanh toan don hang:", "");
+        %>
         <div class="form-group">
-            <label>Mô tả giao dịch:</label>
-            <label><%=request.getParameter("vnp_OrderInfo")%>
-            </label>
-        </div>
-        <div class="form-group">
-            <label>Mã lỗi thanh toán:</label>
-            <label><%=request.getParameter("vnp_ResponseCode")%>
+            <label>Thanh toán đơn hàng:</label>
+            <label><%= formattedOrderInfo %>
             </label>
         </div>
         <div class="form-group">
@@ -83,9 +93,16 @@
             <label><%=request.getParameter("vnp_BankCode")%>
             </label>
         </div>
+        <%
+            String payDateParam = request.getParameter("vnp_PayDate");
+            SimpleDateFormat inputFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+            SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date payDate = inputFormat.parse(payDateParam);
+            String formattedPayDate = outputFormat.format(payDate);
+        %>
         <div class="form-group">
             <label>Thời gian thanh toán:</label>
-            <label><%=request.getParameter("vnp_PayDate")%>
+            <label><%= formattedPayDate %>
             </label>
         </div>
         <div class="form-group">
@@ -117,17 +134,43 @@
 </div>
 <script>
     function result() {
-        var vnp_TransactionStatus = "${param.vnp_TransactionStatus}";
-        if (vnp_TransactionStatus === "00") {
+        var transactionStatus = "${param.vnp_TransactionStatus}";
+        var txnRef = "${param.vnp_TxnRef}";
+        var amount = "${param.vnp_Amount}";
+        var orderInfo = "${param.vnp_OrderInfo}"
+        var responseCode = "${param.vnp_ResponseCode}"
+        var transactionNo = "${param.vnp_TransactionNo}"
+        var bankCode = "${param.vnp_BankCode}"
+        var payDate = "${param.vnp_PayDate}";
+        if (transactionStatus === "00") {
             $.ajax({
                 url: "/order",
-                type: "post",
+                type: "POST",
                 data: {},
                 success: function (data) {
-                    console.log("Success:", data);
+                    console.log("Đơn hàng xử lý thành công:", data);
+                    $.ajax({
+                        url: "/mail",
+                        type: "POST",
+                        data: {
+                            vnp_TxnRef: txnRef,
+                            vnp_Amount: amount,
+                            vnp_OrderInfo: orderInfo,
+                            vnp_ResponseCode: responseCode,
+                            vnp_TransactionNo: transactionNo,
+                            vnp_BankCode: bankCode,
+                            vnp_PayDate: payDate
+                        },
+                        success: function (data) {
+                            console.log("Email gửi thành công");
+                        },
+                        error: function (xhr) {
+                            console.log("Lỗi khi gửi email:", xhr);
+                        }
+                    });
                 },
                 error: function (xhr) {
-                    console.log("Error:", xhr);
+                    console.log("Lỗi khi xử lý đơn hàng:", xhr);
                 }
             });
         }

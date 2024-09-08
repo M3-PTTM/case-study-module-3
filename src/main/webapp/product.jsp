@@ -1,6 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<c:if test="${sessionScope.customer == null || sessionScope.customer.customer_role != 'ADMIN'}">
+    <c:redirect url="/home"/>
+</c:if>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,7 +17,7 @@
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="/phuc/css/admin.css">
-    <title>War Machine</title>
+    <title>Sản Phẩm</title>
     <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
     <style>
         input {
@@ -27,19 +30,19 @@
 <div class="d-flex" id="wrapper">
     <div class="bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold border-bottom">
-            <img src="/man/images/logo.png">
+            <a href="/home"><img src="/man/images/logo.png"></a>
         </div>
         <div class="list-group list-group-flush my-3">
             <a href="dashboard.jsp" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-tachometer-alt me-2"></i> Tổng quan
             </a>
-            <a href="product.jsp" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
+            <a href="/product" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
                 <i class="fas fa-box me-2"></i> Sản phẩm
             </a>
             <a href="customers-servlet" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-user-circle me-2"></i> Khách hàng
             </a>
-            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <a href="/orders" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-shopping-cart me-2"></i> Đơn hàng
             </a>
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -104,7 +107,7 @@
                                     <td><input data-button="button${status.count}" type="text" name="name"
                                                value="${product.name}"></td>
                                     <td><input data-button="button${status.count}" type="text" name="price"
-                                               value="<fmt:formatNumber value="${product.price}" pattern="###,###"/>">USD</input>
+                                               value="<fmt:formatNumber value="${product.price}" pattern="###,### VND"/>">
                                     </td>
                                     <td><select name="category" onchange="handleInputChange(this)"
                                                 data-button="button${status.count}">

@@ -1,4 +1,8 @@
 <head>
+<%--    <link href="/man/assets/bootstrap.min.css" rel="stylesheet"/>--%>
+<%--    <!-- Custom styles for this template -->--%>
+<%--    <link href="/man/assets/jumbotron-narrow.css" rel="stylesheet">--%>
+    <script src="/man/assets/jquery-1.11.3.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,8 +25,4 @@
     <link rel="stylesoeet" href="/man/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
           media="screen">
-    <link href="/man/assets/bootstrap.min.css" rel="stylesheet"/>
-    <!-- Custom styles for this template -->
-    <link href="/man/assets/jumbotron-narrow.css" rel="stylesheet">
-    <script src="/man/assets/jquery-1.11.3.min.js"></script>
 </head>
