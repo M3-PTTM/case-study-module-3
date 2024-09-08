@@ -4,9 +4,7 @@ import com.example.m3_g3_assignment.dao.impl.CustomerDAO;
 import com.example.m3_g3_assignment.model.Customer;
 
 import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeUtility;
+import javax.mail.internet.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,10 +36,13 @@ public class ForgotController extends HttpServlet {
                 req.getRequestDispatcher("forgotpassword.jsp").forward(req, resp);
                 return;
             }
+            String customer_name = customer.getCustomer_name();
             String otp = generateOTP();
             req.getSession().setAttribute("otp", otp);
+            long timeOTP = System.currentTimeMillis() + 60 * 1000;
+            req.getSession().setAttribute("timeOTP", timeOTP);
             req.getSession().setAttribute("customer_email", customer_email);
-            sendOTPEmail(customer_email, otp);
+            sendOTPEmail(customer_name, customer_email, otp);
             resp.sendRedirect("confirmOTP.jsp");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -52,7 +53,7 @@ public class ForgotController extends HttpServlet {
         return String.format("%06d", (int) (Math.random() * 999999));
     }
 
-    private void sendOTPEmail(String customer_email, String otp) {
+    private void sendOTPEmail(String customer_name, String customer_email, String otp) {
         final String fromEmail = "phamvanmantestsendmail@gmail.com";
         final String password = "vompcqfobctohcxf";
 
@@ -72,9 +73,17 @@ public class ForgotController extends HttpServlet {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(fromEmail));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(customer_email));
-            String subject = MimeUtility.encodeText("Mã OTP của bạn", "UTF-8", "B");
+            String subject = MimeUtility.encodeText("Mã OTP để khôi phục mật khẩu", "UTF-8", "B");
             message.setSubject(subject);
-            message.setText("Mã OTP: " + otp);
+            MimeBodyPart messageBodyPart = new MimeBodyPart();
+            String content = "";
+            content += "Xin chào: " + customer_name + "\n\n" +
+                    "Mã OTP của bạn là: " + otp + "\n" +
+                    "Vui lòng nhập mã này để khôi phục mật khẩu. Mã sẽ hết hạn sau 1 phút.";
+            messageBodyPart.setContent(content, "text/plain; charset=UTF-8");
+            Multipart multipart = new MimeMultipart();
+            multipart.addBodyPart(messageBodyPart);
+            message.setContent(multipart);
             Transport.send(message);
         } catch (MessagingException e) {
             e.printStackTrace();
