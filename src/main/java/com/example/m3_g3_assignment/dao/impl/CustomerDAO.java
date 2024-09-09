@@ -39,6 +39,7 @@ public class CustomerDAO implements ICustomerDAO {
             "SELECT * FROM customer WHERE customer_email = ?";
     private static final String UPDATE_PASSWORD =
             "UPDATE customer SET password = ? WHERE customer_email = ?";
+    private static final String REPLACE_CUSTOMER = "replace into customer (username, customer_name) values (?,?)";
 
     @Override
     public void insertCustomer(Customer customer) throws SQLException {
@@ -188,6 +189,15 @@ public class CustomerDAO implements ICustomerDAO {
             printSQLException(e);
         }
         return listCustomers;
+    }
+
+    @Override
+    public void replaceCustomer(Customer customer) throws SQLException {
+        try (Connection connection = JDBCConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(REPLACE_CUSTOMER)) {
+            preparedStatement.setString(1, customer.getUsername());
+            preparedStatement.setString(2, customer.getCustomer_name());
+            preparedStatement.executeUpdate();
+        }
     }
 
     @Override

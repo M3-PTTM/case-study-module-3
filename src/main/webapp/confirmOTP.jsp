@@ -55,7 +55,6 @@
 <script>
     let countdownTime;
     let countdownElement = null;
-
     window.onload = function () {
         countdownElement = document.getElementById("countdown");
         let storedTimeRemaining = sessionStorage.getItem("timeRemaining");
