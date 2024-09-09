@@ -264,6 +264,13 @@
      style="display: none; position: fixed; top: 10px; right: 10px; background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px;">
     Sản phẩm đã được thêm vào giỏ hàng thành công!
 </div>
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+        intent="WELCOME"
+        chat-title="Liên-Hệ"
+        agent-id="8d2fb5cb-8310-4459-9162-d9bb468e135d"
+        language-code="vi"
+></df-messenger>
 <c:import url="/man/library/add_product.jsp"/>
 <script>
     function showMore() {

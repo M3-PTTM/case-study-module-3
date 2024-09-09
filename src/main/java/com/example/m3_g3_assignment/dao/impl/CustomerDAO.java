@@ -13,11 +13,14 @@ import java.util.List;
 
 public class CustomerDAO implements ICustomerDAO {
     private static final String INSERT_CUSTOMER_SQL =
-            "INSERT INTO customer (username, password, customer_name, customer_email, customer_phone, customer_citizen) VALUES (?,?,?,?,?,?)";
+            "INSERT INTO customer (username, password, customer_name, customer_email, customer_phone, customer_citizen) " +
+                    "VALUES (?,?,?,?,?,?)";
     private static final String SELECT_CUSTOMER_BY_ID =
-            "SELECT username, customer_name, customer_email, customer_phone, customer_citizen, customer_role FROM customer WHERE customer_id = ?";
+            "SELECT username, customer_name, customer_email, customer_phone, customer_citizen, customer_role " +
+                    "FROM customer WHERE customer_id = ?";
     private static final String SELECT_ALL_CUSTOMERS =
-            "SELECT customer_id, username, customer_name, customer_email, customer_phone, customer_citizen, customer_role FROM customer WHERE customer_role = 'CUSTOMER'";
+            "SELECT customer_id, username, customer_name, customer_email, customer_phone, customer_citizen, customer_role " +
+                    "FROM customer";
     private static final String DELETE_CUSTOMER_SQL =
             "DELETE FROM customer WHERE customer_id = ?";
     private static final String UPDATE_CUSTOMER_SQL =
@@ -32,6 +35,11 @@ public class CustomerDAO implements ICustomerDAO {
             "SELECT 1 FROM customer WHERE customer_citizen = ?";
     private static final String ACCOUNT_CUSTOMER =
             "SELECT * FROM customer WHERE username = ? AND password = ?";
+    private static final String FIND_CUSTOMER_EMAIL =
+            "SELECT * FROM customer WHERE customer_email = ?";
+    private static final String UPDATE_PASSWORD =
+            "UPDATE customer SET password = ? WHERE customer_email = ?";
+    private static final String REPLACE_CUSTOMER = "replace into customer (username, customer_name) values (?,?)";
 
     @Override
     public void insertCustomer(Customer customer) throws SQLException {
@@ -43,6 +51,18 @@ public class CustomerDAO implements ICustomerDAO {
             preparedStatement.setString(4, customer.getCustomer_email());
             preparedStatement.setString(5, customer.getCustomer_phone());
             preparedStatement.setString(6, customer.getCustomer_citizen());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+    }
+
+    @Override
+    public void updatePassword(String customer_email, String newPassword) throws SQLException {
+        try (Connection connection = JDBCConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PASSWORD)) {
+            preparedStatement.setString(1, newPassword);
+            preparedStatement.setString(2, customer_email);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -172,6 +192,15 @@ public class CustomerDAO implements ICustomerDAO {
     }
 
     @Override
+    public void replaceCustomer(Customer customer) throws SQLException {
+        try (Connection connection = JDBCConnection.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(REPLACE_CUSTOMER)) {
+            preparedStatement.setString(1, customer.getUsername());
+            preparedStatement.setString(2, customer.getCustomer_name());
+            preparedStatement.executeUpdate();
+        }
+    }
+
+    @Override
     public Customer loginCustomer(String username, String password) throws SQLException {
         Customer customer = null;
         try (Connection connection = JDBCConnection.getConnection();
@@ -190,6 +219,28 @@ public class CustomerDAO implements ICustomerDAO {
                 customer.setCustomer_citizen(resultSet.getString("customer_citizen"));
                 customer.setCustomer_role(resultSet.getString("customer_role"));
             }
+        }
+        return customer;
+    }
+
+    @Override
+    public Customer findCustomerByEmail(String customer_email) throws SQLException {
+        Customer customer = null;
+        try (Connection connection = JDBCConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_CUSTOMER_EMAIL)) {
+            preparedStatement.setString(1, customer_email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                int customer_id = resultSet.getInt("customer_id");
+                String username = resultSet.getString("username");
+                String customer_name = resultSet.getString("customer_name");
+                String customer_phone = resultSet.getString("customer_phone");
+                String customer_citizen = resultSet.getString("customer_citizen");
+                String customer_role = resultSet.getString("customer_role");
+                customer = new Customer(customer_id, username, customer_name, customer_email, customer_phone, customer_citizen, customer_role);
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
         }
         return customer;
     }

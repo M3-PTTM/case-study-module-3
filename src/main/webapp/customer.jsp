@@ -1,5 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<c:if test="${sessionScope.customer == null || sessionScope.customer.customer_role != 'ADMIN'}">
+    <c:redirect url="/home"/>
+</c:if>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,27 +16,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="./phuc/css/admin.css">
-    <link rel="stylesheet" href="./phuc/css/customer.css">
-    <title>GunShop Admin</title>
+    <link rel="stylesheet" href="/phuc/css/admin.css">
+    <link rel="stylesheet" href="/phuc/css/customer.css">
+    <title>Khách hàng</title>
+    <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
 </head>
 <body>
 <div class="d-flex" id="wrapper">
     <div class="bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold border-bottom">
-            <img src="/man/images/logo.png">
+            <a href="/home"><img src="/man/images/logo.png"></a>
         </div>
         <div class="list-group list-group-flush my-3">
             <a href="dashboard.jsp" class="list-group-item list-group-item-action bg-transparent second-text fw-bold ">
                 <i class="fas fa-tachometer-alt me-2"></i> Tổng quan
             </a>
-            <a href="product.jsp" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <a href="/product" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-box me-2"></i> Sản phẩm
             </a>
-            <a href="customers-servlet" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
+            <a href="/customers-servlet"
+               class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
                 <i class="fas fa-user-circle me-2"></i> Khách hàng
             </a>
-            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <a href="/orders" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-shopping-cart me-2"></i> Đơn hàng
             </a>
             <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -77,7 +83,7 @@
                     <table class="table bg-white rounded shadow-sm table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">Mã khách hàng</th>
+                            <th scope="col">Số thứ tự</th>
                             <th scope="col">Tên đăng nhập</th>
                             <th scope="col">Họ và tên</th>
                             <th scope="col">Email</th>
@@ -98,14 +104,17 @@
                                 <td>${customer.customer_citizen}</td>
                                 <td>${customer.customer_role}</td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm"
-                                            onclick="editCustomer('${customer.customer_id}', '${customer.username}', '${customer.customer_name}', '${customer.customer_email}', '${customer.customer_phone}', '${customer.customer_citizen}', '${customer.customer_role}')">
-                                        Sửa</button>
-                                    <form action="customers-servlet" method="post" style="display:inline-block;">
-                                        <input type="hidden" name="action" value="delete">
-                                        <input type="hidden" name="customer_id" value="${customer.customer_id}">
-                                        <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
-                                    </form>
+                                    <c:if test="${customer.customer_role == 'CUSTOMER' || customer.customer_role == 'CUSTOMER-VIP'}">
+                                        <button class="btn btn-warning btn-sm"
+                                                onclick="editCustomer('${customer.customer_id}', '${customer.username}', '${customer.customer_name}', '${customer.customer_email}', '${customer.customer_phone}', '${customer.customer_citizen}', '${customer.customer_role}')">
+                                            Sửa
+                                        </button>
+                                        <form action="customers-servlet" method="post" style="display:inline-block;">
+                                            <input type="hidden" name="action" value="delete">
+                                            <input type="hidden" name="customer_id" value="${customer.customer_id}">
+                                            <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                                        </form>
+                                    </c:if>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -130,22 +139,26 @@
                             </div>
                             <div class="mb-3">
                                 <label for="customer_name" class="form-label">Họ và tên</label>
-                                <input type="text" class="form-control" id="customer_name" name="customer_name" required>
+                                <input type="text" class="form-control" id="customer_name" name="customer_name"
+                                       required>
                                 <span class="error-message text-danger" id="customer_name-error"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="customer_email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="customer_email" name="customer_email" required>
+                                <input type="email" class="form-control" id="customer_email" name="customer_email"
+                                       required>
                                 <span class="error-message text-danger" id="customer_email-error"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="customer_phone" class="form-label">Số điện thoại</label>
-                                <input type="text" class="form-control" id="customer_phone" name="customer_phone" required>
+                                <input type="text" class="form-control" id="customer_phone" name="customer_phone"
+                                       required>
                                 <span class="error-message text-danger" id="customer_phone-error"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="customer_citizen" class="form-label">Căn cước công dân</label>
-                                <input type="text" class="form-control" id="customer_citizen" name="customer_citizen" required>
+                                <input type="text" class="form-control" id="customer_citizen" name="customer_citizen"
+                                       required>
                                 <span class="error-message text-danger" id="customer_citizen-error"></span>
                             </div>
                             <button type="submit" class="btn btn-primary">Thêm mới</button>
@@ -154,7 +167,6 @@
                 </div>
             </div>
         </div>
-
         <div id="editCustomerFormModal" class="modal" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -172,24 +184,29 @@
                             </div>
                             <div class="mb-3">
                                 <label for="edit_customer_name" class="form-label">Họ và tên</label>
-                                <input type="text" class="form-control" id="edit_customer_name" name="customer_name" required>
+                                <input type="text" class="form-control" id="edit_customer_name" name="customer_name"
+                                       required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit_customer_email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="edit_customer_email" name="customer_email" required>
+                                <input type="email" class="form-control" id="edit_customer_email" name="customer_email"
+                                       required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit_customer_phone" class="form-label">Số điện thoại</label>
-                                <input type="text" class="form-control" id="edit_customer_phone" name="customer_phone" required>
+                                <input type="text" class="form-control" id="edit_customer_phone" name="customer_phone"
+                                       required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit_customer_citizen" class="form-label">Căn cước công dân</label>
-                                <input type="text" class="form-control" id="edit_customer_citizen" name="customer_citizen" required>
+                                <input type="text" class="form-control" id="edit_customer_citizen"
+                                       name="customer_citizen" required>
                             </div>
                             <div class="mb-3">
                                 <label for="edit_customer_role" class="form-label">Vai trò</label>
                                 <select id="edit_customer_role" name="customer_role" class="form-select">
                                     <option value="CUSTOMER">Khách hàng</option>
+                                    <option value="CUSTOMER-VIP">Khách hàng VIP</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Lưu</button>
@@ -200,8 +217,6 @@
         </div>
     </div>
 </div>
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
