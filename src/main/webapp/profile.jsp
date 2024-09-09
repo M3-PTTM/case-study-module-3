@@ -12,6 +12,7 @@
 <head>
     <title>Thông Tin Người Dùng</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./phuc/css/profile.css">
 </head>
 <body>
 <c:if test="${not empty errorMessage}">
@@ -28,15 +29,26 @@
                 </div>
                 <div class="mb-3">
                     <label for="customer_name" class="form-label">Họ tên</label>
-                    <input type="text" class="form-control" id="customer_name" name="customer_name" value="${customer.customer_name}" required>
+                    <input type="text" class="form-control" id="customer_name" name="customer_name" value="${customer.customer_name}">
+                    <div class="invalid-feedback">
+                        Họ và tên không được để trống.
+                    </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="customer_email" value="${customer.customer_email}" required>
+                    <input type="email" class="form-control" id="email" name="customer_email" value="${customer.customer_email}">
+                    <div class="invalid-feedback">
+                        Email không hợp lệ.
+                    </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="phone" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-control" id="phone" name="customer_phone" value="${customer.customer_phone}" required>
+                    <input type="text" class="form-control" id="phone" name="customer_phone" value="${customer.customer_phone}">
+                    <div class="invalid-feedback">
+                        Số điện thoại không hợp lệ. Số điện thoại phải có 10 chữ số.
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="citizen" class="form-label">Căn cước công dân</label>
@@ -53,35 +65,37 @@
 </div>
 <script>
     function validateProfileForm() {
-        let name = document.getElementById('customer_name').value.trim();
-        let email = document.getElementById('email').value.trim();
-        let phone = document.getElementById('phone').value.trim();
-        let citizen = document.getElementById('citizen').value.trim();
+        let valid = true;
+        let name = document.getElementById('customer_name');
+        let email = document.getElementById('email');
+        let phone = document.getElementById('phone');
 
-        if (name === "") {
-            alert("Họ và tên không được để trống");
-            return false;
+        // Clear previous validation styles
+        name.classList.remove('is-invalid');
+        email.classList.remove('is-invalid');
+        phone.classList.remove('is-invalid');
+
+        // Validate Name
+        if (name.value.trim() === "") {
+            name.classList.add('is-invalid');
+            valid = false;
         }
 
+        // Validate Email
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        if (!emailPattern.test(email)) {
-            alert("Email không hợp lệ");
-            return false;
+        if (!emailPattern.test(email.value.trim())) {
+            email.classList.add('is-invalid');
+            valid = false;
         }
 
+        // Validate Phone
         const phonePattern = /^[0-9]{10}$/;
-        if (!phonePattern.test(phone)) {
-            alert("Số điện thoại phải có 10 chữ số");
-            return false;
+        if (!phonePattern.test(phone.value.trim())) {
+            phone.classList.add('is-invalid');
+            valid = false;
         }
 
-        const citizenPattern = /^[0-9]{12}$/;
-        if (!citizenPattern.test(citizen)) {
-            alert("Căn cước công dân phải có 12 chữ số");
-            return false;
-        }
-
-        return true;
+        return valid; // Form will not be submitted if any field is invalid
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

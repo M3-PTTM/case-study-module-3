@@ -10,6 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e35a623d-8631-49d1-95c2-2de2f23b17fb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/phuc/css/profile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profile.jsp" afterDir="false" />
     </list>
@@ -108,7 +109,7 @@
     &quot;git-widget-placeholder&quot;: &quot;tien&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;graalvm-jdk-17&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/case/M3_G3_Assignment/src/main/webapp&quot;,
+    &quot;last_opened_file_path&quot;: &quot;T:/9yin/UIVH501/gui_language.package&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -333,6 +334,8 @@
       <workItem from="1725668399548" duration="12586000" />
       <workItem from="1725697654311" duration="5011000" />
       <workItem from="1725742557177" duration="3873000" />
+      <workItem from="1725777619461" duration="227000" />
+      <workItem from="1725844051967" duration="2429000" />
     </task>
     <servers />
   </component>
