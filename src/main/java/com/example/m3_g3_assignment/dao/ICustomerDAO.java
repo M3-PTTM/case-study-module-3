@@ -15,7 +15,7 @@ public interface ICustomerDAO {
     boolean existsCitizen(String customer_citizen) throws SQLException;
     boolean updateCustomer(Customer customer) throws SQLException;
     boolean deleteCustomer(int customer_id) throws SQLException;
-    boolean isValueTaken(String column, String value) throws SQLException
+    boolean isValueTaken(String column, String value) throws SQLException;
     Customer selectCustomer(int customer_id) throws SQLException;
     Customer loginCustomer(String username, String password) throws SQLException;
     Customer findCustomerByEmail(String customer_email) throws SQLException;
