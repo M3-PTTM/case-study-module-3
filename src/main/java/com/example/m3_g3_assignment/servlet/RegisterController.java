@@ -83,6 +83,8 @@ public class RegisterController extends HttpServlet {
             resp.sendRedirect("login.jsp");
         } catch (Exception e) {
             e.printStackTrace();
+            req.setAttribute("errorMessage", "Đã có lỗi xảy ra. Vui lòng thử lại sau.");
+            req.getRequestDispatcher("register.jsp").forward(req, resp);
         }
     }
 }
