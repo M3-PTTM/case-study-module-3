@@ -260,4 +260,17 @@ public class CustomerDAO implements ICustomerDAO {
             }
         }
     }
+    public boolean isValueTaken(String column, String value) throws SQLException {
+        String query = "SELECT COUNT(*) AS total FROM customer WHERE " + column + " = ?";
+        try (Connection connection = JDBCConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, value);
+            try (ResultSet rs = statement.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("total") > 0;
+                }
+            }
+        }
+        return false;
+    }
 }
