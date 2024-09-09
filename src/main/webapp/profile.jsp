@@ -15,9 +15,6 @@
     <link rel="stylesheet" href="./phuc/css/profile.css">
 </head>
 <body>
-<c:if test="${not empty errorMessage}">
-    <div class="alert alert-danger">${errorMessage}</div>
-</c:if>
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-8 offset-md-2">
@@ -37,7 +34,7 @@
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="customer_email" value="${customer.customer_email}">
+                    <input type="text" class="form-control" id="email" name="customer_email" value="${customer.customer_email}">
                     <div class="invalid-feedback">
                         Email không hợp lệ.
                     </div>
@@ -70,35 +67,32 @@
         let email = document.getElementById('email');
         let phone = document.getElementById('phone');
 
-        // Clear previous validation styles
         name.classList.remove('is-invalid');
         email.classList.remove('is-invalid');
         phone.classList.remove('is-invalid');
 
-        // Validate Name
         if (name.value.trim() === "") {
             name.classList.add('is-invalid');
             valid = false;
         }
 
-        // Validate Email
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
         if (!emailPattern.test(email.value.trim())) {
             email.classList.add('is-invalid');
             valid = false;
         }
 
-        // Validate Phone
         const phonePattern = /^[0-9]{10}$/;
         if (!phonePattern.test(phone.value.trim())) {
             phone.classList.add('is-invalid');
             valid = false;
         }
 
-        return valid; // Form will not be submitted if any field is invalid
+        return valid;
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 
