@@ -104,7 +104,7 @@
                                 <td>${customer.customer_citizen}</td>
                                 <td>${customer.customer_role}</td>
                                 <td>
-                                    <c:if test="${customer.customer_role == 'CUSTOMER'}">
+                                    <c:if test="${customer.customer_role == 'CUSTOMER' || customer.customer_role == 'CUSTOMER-VIP'}">
                                         <button class="btn btn-warning btn-sm"
                                                 onclick="editCustomer('${customer.customer_id}', '${customer.username}', '${customer.customer_name}', '${customer.customer_email}', '${customer.customer_phone}', '${customer.customer_citizen}', '${customer.customer_role}')">
                                             Sửa

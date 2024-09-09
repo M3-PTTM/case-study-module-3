@@ -20,7 +20,7 @@ public class CustomerDAO implements ICustomerDAO {
                     "FROM customer WHERE customer_id = ?";
     private static final String SELECT_ALL_CUSTOMERS =
             "SELECT customer_id, username, customer_name, customer_email, customer_phone, customer_citizen, customer_role " +
-                    "FROM customer WHERE customer_role = 'CUSTOMER' OR customer_role = 'CUSTOMER-VIP'";
+                    "FROM customer";
     private static final String DELETE_CUSTOMER_SQL =
             "DELETE FROM customer WHERE customer_id = ?";
     private static final String UPDATE_CUSTOMER_SQL =
@@ -259,5 +259,18 @@ public class CustomerDAO implements ICustomerDAO {
                 }
             }
         }
+    }
+    public boolean isValueTaken(String column, String value) throws SQLException {
+        String query = "SELECT COUNT(*) AS total FROM customer WHERE " + column + " = ?";
+        try (Connection connection = JDBCConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, value);
+            try (ResultSet rs = statement.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("total") > 0;
+                }
+            }
+        }
+        return false;
     }
 }
