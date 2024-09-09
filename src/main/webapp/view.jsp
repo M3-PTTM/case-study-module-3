@@ -136,6 +136,7 @@
                                 style=" color: #325662">${product.price}</span></h4>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
