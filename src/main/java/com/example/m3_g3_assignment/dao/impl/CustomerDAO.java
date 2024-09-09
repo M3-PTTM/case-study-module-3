@@ -20,7 +20,7 @@ public class CustomerDAO implements ICustomerDAO {
                     "FROM customer WHERE customer_id = ?";
     private static final String SELECT_ALL_CUSTOMERS =
             "SELECT customer_id, username, customer_name, customer_email, customer_phone, customer_citizen, customer_role " +
-                    "FROM customer WHERE customer_role = 'CUSTOMER' OR customer_role = 'CUSTOMER-VIP'";
+                    "FROM customer";
     private static final String DELETE_CUSTOMER_SQL =
             "DELETE FROM customer WHERE customer_id = ?";
     private static final String UPDATE_CUSTOMER_SQL =
