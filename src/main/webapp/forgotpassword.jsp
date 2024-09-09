@@ -11,7 +11,7 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
             crossorigin="anonymous"
     />
-    <title>Quên mật khẩu</title>
+    <title>Cập nhật mật khẩu</title>
     <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
 </head>
 <body>
@@ -26,7 +26,7 @@
             <div class="col-md-6 right">
                 <form action="forgotPassword" method="post">
                     <div class="input-box">
-                        <header>Quên mật khẩu</header>
+                        <header>Xác thực</header>
                         <c:if test="${not empty errorMessage}">
                             <div class="alert alert-danger" role="alert">
                                     ${errorMessage}
