@@ -18,4 +18,5 @@ public interface ICustomerDAO {
     Customer loginCustomer(String username, String password) throws SQLException;
     Customer findCustomerByEmail(String customer_email) throws SQLException;
     List<Customer> selectAllCustomers() throws SQLException;
+    void replaceCustomer(Customer customer) throws SQLException;
 }
