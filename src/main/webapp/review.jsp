@@ -66,7 +66,7 @@
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a href="#" class="dropdown-item">Thông tin</a></li>
                             <li><a href="#" class="dropdown-item">Cài đặt</a></li>
-                            <li><a href="#" class="dropdown-item">Đăng xuất</a></li>
+                            <li><a href="/logout" class="dropdown-item">Đăng xuất</a></li>
                         </ul>
                     </li>
                 </ul>

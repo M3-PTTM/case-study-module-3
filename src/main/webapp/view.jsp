@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <c:import url="/man/library/head.jsp"/>
+<c:import url="/man/library/head_view.jsp"/>
 <body>
 <div class="header_section header_bg">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
