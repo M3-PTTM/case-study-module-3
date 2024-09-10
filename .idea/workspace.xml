@@ -30,12 +30,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="M3_G3_Assignment" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -49,8 +44,8 @@
         <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -75,6 +70,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -91,6 +87,24 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.46781608&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build M3_G3_Assignment.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Tomcat Server.Tomcat 9.executor": "Run",
+    "git-widget-placeholder": "Rebasing man",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.46781608",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> 566e2c6fc66043e282d3da32709d43ed35147a8c
   }
 }</component>
   <component name="RecentsManager">
@@ -107,7 +121,18 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.93" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.93" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 9" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Gradle : com.example : M3_G3_Assignment-1.0-SNAPSHOT.war">
@@ -308,6 +333,7 @@
       <workItem from="1725796207151" duration="304000" />
       <workItem from="1725834637977" duration="5735000" />
       <workItem from="1725842851673" duration="3502000" />
+<<<<<<< HEAD
       <workItem from="1725846428457" duration="6259000" />
       <workItem from="1725879017828" duration="130000" />
       <workItem from="1725890300346" duration="1239000" />
@@ -315,6 +341,19 @@
       <workItem from="1725955438600" duration="4000" />
       <workItem from="1725956627655" duration="1216000" />
       <workItem from="1725973285901" duration="1583000" />
+=======
+      <workItem from="1725846428457" duration="7124000" />
+      <workItem from="1725864449452" duration="545000" />
+      <workItem from="1725865552958" duration="1108000" />
+      <workItem from="1725866904270" duration="1479000" />
+      <workItem from="1725871270403" duration="69000" />
+      <workItem from="1725875833059" duration="171000" />
+      <workItem from="1725921637879" duration="440000" />
+      <workItem from="1725932411878" duration="489000" />
+      <workItem from="1725951321889" duration="460000" />
+      <workItem from="1725955026923" duration="1355000" />
+      <workItem from="1725958868480" duration="1248000" />
+>>>>>>> 566e2c6fc66043e282d3da32709d43ed35147a8c
     </task>
     <servers />
   </component>

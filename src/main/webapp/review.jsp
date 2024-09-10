@@ -37,10 +37,10 @@
                class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-user-circle me-2"></i> Khách hàng
             </a>
-            <a href="/orders" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
+            <a href="/orders" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-shopping-cart me-2"></i> Đơn hàng
             </a>
-            <a href="/ReviewController" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <a href="/ReviewController" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active">
                 <i class="fas fa-comment-dots me-2"></i> Đánh giá
             </a>
         </div>
@@ -49,7 +49,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
             <div class="d-flex align-items-center">
                 <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                <h2 class="fs-2 m-0">Đơn hàng</h2>
+                <h2 class="fs-2 m-0">Đánh giá</h2>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent"
@@ -76,34 +76,27 @@
             <div class="row my-5">
                 <div class="col">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h2>Danh sách đơn hàng</h2>
+                        <h2>Danh sách các đánh giá</h2>
                     </div>
                     <table class="table bg-white rounded shadow-sm table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">Mã đơn hàng</th>
+                            <th scope="col">Mã đánh giá</th>
                             <th scope="col">Tên khách hàng</th>
                             <th scope="col">Tên sản phẩm</th>
-                            <th scope="col">Số lượng</th>
-                            <th scope="col">Giá tiền</th>
-                            <th scope="col">Tổng tiền</th>
-                            <th scope="col">Trạng thái</th>
+                            <th scope="col">Nội dung</th>
                             <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody id="productTable">
-                        <c:forEach var="order" items="${orders}">
+                        <c:forEach items="${reviews}" var="s">
                             <tr>
-                                <th scope="row">${order.code}</th>
-                                <td>${order.customer.customer_name}</td>
-                                <td>${order.product.name}</td>
-                                <td>${order.quantity}</td>
-                                <td><fmt:formatNumber value="${order.product.price}" pattern="###,###"/> VND</td>
-                                <td><fmt:formatNumber value="${order.product.price*order.quantity}" pattern="###,###"/> VND</td>
-                                <td>Đã thanh toán</td>
+                                <th scope="row">${s.getReview_id()}</th>
+                                <td>${s.getCustomer_name()}</td>
+                                <td>${s.getProduct_id()}</td>
+                                <td>${s.getReview_content()}</td>
                                 <td>
-                                    <a href="/orders?action=delete&product_id=${order.product.id}&customer_id=${order.customer.customer_id}"
-                                       class="btn btn-danger btn-sm">Xóa</a>
+                                    <a href="/ReviewController?action=deleteReview&id=${s.getReview_id()}" class="btn btn-danger btn-sm" role="button">Xóa</a>
                                 </td>
                             </tr>
                         </c:forEach>

@@ -46,7 +46,7 @@
             <a href="/orders" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-shopping-cart me-2"></i> Đơn hàng
             </a>
-            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <a href="/ReviewController" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-comment-dots me-2"></i> Đánh giá
             </a>
         </div>
@@ -72,7 +72,7 @@
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a href="#" class="dropdown-item">Thông tin</a></li>
                             <li><a href="#" class="dropdown-item">Cài đặt</a></li>
-                            <li><a href="#" class="dropdown-item">Đăng xuất</a></li>
+                            <li><a href="/logout" class="dropdown-item">Đăng xuất</a></li>
                         </ul>
                     </li>
                 </ul>

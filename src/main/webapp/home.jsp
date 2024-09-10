@@ -33,11 +33,11 @@
                 <c:choose>
                     <c:when test="${sessionScope.customer.customer_role=='ADMIN'}">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Quản Lý</a>
+                            <a class="nav-link" href="/dashboard.jsp">Quản Lý</a>
                         </li>
                     </c:when>
-                    <c:otherwise>
-                        <li class="nav-item">
+                   <c:otherwise>
+                         <li class="nav-item">
                             <a class="nav-link" href="#">Liên Hệ</a>
                         </li>
                     </c:otherwise>

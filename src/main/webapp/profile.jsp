@@ -22,11 +22,13 @@
             <form action="profile" method="post" onsubmit="return validateProfileForm()">
                 <div class="mb-3">
                     <label for="username" class="form-label">Tên đăng nhập</label>
-                    <input type="text" class="form-control" id="username" name="username" value="${customer.username}" readonly>
+                    <input type="text" class="form-control" id="username" name="username" value="${customer.username}"
+                           readonly>
                 </div>
                 <div class="mb-3">
                     <label for="customer_name" class="form-label">Họ tên</label>
-                    <input type="text" class="form-control" id="customer_name" name="customer_name" value="${customer.customer_name}">
+                    <input type="text" class="form-control" id="customer_name" name="customer_name"
+                           value="${customer.customer_name}">
                     <div class="invalid-feedback">
                         Họ và tên không được để trống.
                     </div>
@@ -34,7 +36,8 @@
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="email" name="customer_email" value="${customer.customer_email}">
+                    <input type="text" class="form-control" id="email" name="customer_email"
+                           value="${customer.customer_email}">
                     <div class="invalid-feedback">
                         Email không hợp lệ.
                     </div>
@@ -42,20 +45,24 @@
 
                 <div class="mb-3">
                     <label for="phone" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-control" id="phone" name="customer_phone" value="${customer.customer_phone}">
+                    <input type="text" class="form-control" id="phone" name="customer_phone"
+                           value="${customer.customer_phone}">
                     <div class="invalid-feedback">
                         Số điện thoại không hợp lệ. Số điện thoại phải có 10 chữ số.
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="citizen" class="form-label">Căn cước công dân</label>
-                    <input type="text" class="form-control" id="citizen" name="customer_citizen" value="${customer.customer_citizen}" readonly>
+                    <input type="text" class="form-control" id="citizen" name="customer_citizen"
+                           value="${customer.customer_citizen}" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Mật khẩu mới</label>
-                    <input type="password" class="form-control" id="password" name="password">
+                    <a href="forgotpassword.jsp" class="btn btn-secondary btn-left">Thay đổi mật khẩu</a>
                 </div>
-                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                <br><br>
+                <div class="mb-3" text-center>
+                    <button type="submit" class="btn btn-primary btn-center">Cập nhật</button>
+                </div>
             </form>
         </div>
     </div>
