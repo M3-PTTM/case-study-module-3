@@ -39,7 +39,7 @@
             <a href="/orders" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-shopping-cart me-2"></i> Đơn hàng
             </a>
-            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <a href="/ReviewController" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fas fa-comment-dots me-2"></i> Đánh giá
             </a>
         </div>

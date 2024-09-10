@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <c:import url="/man/library/head.jsp"/>
+<c:import url="/man/library/head_view.jsp"/>
 <body>
 <div class="header_section header_bg">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -164,124 +165,158 @@
 <div class="client_section layout_padding">
     <div id="my_slider" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="client_main">
-                        <h1 class="client_taital">Says Customers</h1>
-                        <div class="client_section_2">
-                            <div class="client_left">
-                                <div><img src="/man/images/client-img.png" class="client_img"></div>
-                            </div>
-                            <div class="client_right">
-                                <div class="quote_icon"><img src="/man/images/quote-icon.png"></div>
-                                <p class="client_text">It is a long established fact that a reader will be distracted by
-                                    the readable content of a page when looking at its layout. The point of using Lorem
-                                    Ipsum is that it has a more-or-less normal distribution of letters</p>
-                                <h3 class="client_name">Channery</h3>
-                            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="panel panel-default widget">
+                        <div class="panel-heading">
+                            <span class="glyphicon glyphicon-comment"></span>
+                            <h3 class="panel-title">
+                                Comment</h3>
+                            <span class="label label-info">
+                                ${countReviewById}</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="client_main">
-                        <h1 class="client_taital">Says Customers</h1>
-                        <div class="client_section_2">
-                            <div class="client_left">
-                                <div><img src="/man/images/client-img.png" class="client_img"></div>
+                        <div class="panel-body">
+                            <ul class="list-group" style="width: 1200px">
+                                <c:forEach items="${reviewList}" var="s" varStatus="status">
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-xs-2 col-md-1">
+                                                <img src="https://static.independent.co.uk/2023/03/22/10/JW4_Unit_211027_00134_R2.jpg?width=1200&height=1200&fit=crop"
+                                                     class="img-circle img-responsive" alt=""/></div>
+                                            <div class="col-xs-10 col-md-11">
+                                                <div>
+                                                    <a href="http://www.jquery2dotnet.com/2013/10/google-style-login-page-desing-usign.html">
+                                                        Bình luận </a>
+                                                    <div class="mic-info">
+                                                        Bởi: <a href="#">${s.getCustomer_name()}</a>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-text">
+                                                        ${s.getReview_content()}
+                                                </div>
+                                                <c:if test="${sessionScope.customer.customer_id==s.getCustomer_id()}">
+                                                    <div class="action">
+                                                        <a href="/ReviewServlet?action=delete&id_delete=${s.getReview_id()}&product_id=${s.getProduct_id()}"
+                                                           class="btn btn-danger btn-xs" role="button"
+                                                           title="Delete">
+                                                            <span class="glyphicon glyphicon-trash"></span>
+                                                        </a>
+                                                    </div>
+                                                </c:if>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                            <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                                <form method="post" action="/ReviewServlet?action=review">
+                                    <input type="hidden" name="id_product" value="${product.id}">
+                                    <div class="d-flex flex-start w-100">
+                                        <div style="height: 78px;width: 78px;margin-right: 3px">
+                                            <img style="border-radius: 100%"
+                                                 src="https://pyxis.nymag.com/v1/imgs/a92/485/5a746d4692b189ed226aea5ca9f7cfd32a-12-no-country-for-old-men.rsquare.w400.jpg">
+                                        </div>
+                                        <div data-mdb-input-init class="form-outline w-100">
+                                        <textarea name="reviewContent" class="form-control" id="textAreaExample"
+                                                  rows="4"
+                                                  style="background: #fff;"></textarea>
+                                            <label class="form-label" for="textAreaExample"></label>
+                                        </div>
+                                    </div>
+                                    <div class="float-end mt-2 pt-1">
+                                        <input type="submit" data-mdb-button-init data-mdb-ripple-init
+                                               class="btn btn-primary btn-sm" value="post">
+                                        <button type="button" data-mdb-button-init data-mdb-ripple-init
+                                                class="btn btn-outline-primary btn-sm">Cancel
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="client_right">
-                                <div class="quote_icon"><img src="/man/images/quote-icon.png"></div>
-                                <p class="client_text">It is a long established fact that a reader will be distracted by
-                                    the readable content of a page when looking at its layout. The point of using Lorem
-                                    Ipsum is that it has a more-or-less normal distribution of letters</p>
-                                <h3 class="client_name">Channery</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="client_main">
-                        <h1 class="client_taital">Says Customers</h1>
-                        <div class="client_section_2">
-                            <div class="client_left">
-                                <div><img src="/man/images/client-img.png" class="client_img"></div>
-                            </div>
-                            <div class="client_right">
-                                <div class="quote_icon"><img src="/man/images/quote-icon.png"></div>
-                                <p class="client_text">It is a long established fact that a reader will be distracted by
-                                    the readable content of a page when looking at its layout. The point of using Lorem
-                                    Ipsum is that it has a more-or-less normal distribution of letters</p>
-                                <h3 class="client_name">Channery</h3>
-                            </div>
+                            <a href="ReviewServlet?action=showAll&id_showAll=${product.id}"
+                               class="btn btn-primary btn-sm btn-block"
+                               role="button">
+                                <span
+                                        class="glyphicon glyphicon-refresh"></span>More
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
-            <i class="fa fa-angle-left"></i>
-        </a>
-        <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
-            <i class="fa fa-angle-right"></i>
-        </a>
     </div>
-</div>
-<div id="notification"
-     style="display: none; position: fixed; top: 10px; right: 10px; background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px;">
-    Sản phẩm đã được thêm vào giỏ hàng thành công!
-</div>
-<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
-        intent="WELCOME"
-        chat-title="Liên-Hệ"
-        agent-id="8d2fb5cb-8310-4459-9162-d9bb468e135d"
-        language-code="vi"
-></df-messenger>
-<div class="footer_section layout_padding">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-8 col-sm-12 padding_0">
-                <div class="map_main">
-                    <div class="map-responsive">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.749168916386!2d108.20956419999999!3d16.078500899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219a486b7f699%3A0xae6269b629a63e82!2zQ29kZUd5bSDEkMOgIE7hurVuZw!5e0!3m2!1svi!2s!4v1725580014381!5m2!1svi!2s"
-                                width="600" height="450" style="border:0; width: 100%;" allowfullscreen=""
-                                loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div id="notification"
+         style="display: none; position: fixed; top: 10px; right: 10px; background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px;">
+        Sản phẩm đã được thêm vào giỏ hàng thành công!
+    </div>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+            intent="WELCOME"
+            chat-title="Liên-Hệ"
+            agent-id="8d2fb5cb-8310-4459-9162-d9bb468e135d"
+            language-code="vi"
+    ></df-messenger>
+    <div class="footer_section layout_padding">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 col-sm-12 padding_0">
+                    <div class="map_main">
+                        <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.749168916386!2d108.20956419999999!3d16.078500899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219a486b7f699%3A0xae6269b629a63e82!2zQ29kZUd5bSDEkMOgIE7hurVuZw!5e0!3m2!1svi!2s!4v1725580014381!5m2!1svi!2s"
+                                    width="600" height="450" style="border:0; width: 100%;" allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-sm-12">
-                <div class="call_text"><a href="#"><img src="/man/images/map-icon.png"><span class="padding_left_0">Page when looking at its layou</span></a>
-                </div>
-                <div class="call_text"><a href="#"><img src="/man/images/call-icon.png"><span class="padding_left_0">Call Now  +01 123467890</span></a>
-                </div>
-                <div class="call_text"><a href="#"><img src="/man/images/mail-icon.png"><span class="padding_left_0">demo@gmail.com</span></a>
-                </div>
-                <div class="social_icon">
-                    <ul>
-                        <li><a href="#"><img src="/man/images/fb-icon1.png"></a></li>
-                        <li><a href="#"><img src="/man/images/twitter-icon.png"></a></li>
-                        <li><a href="#"><img src="/man/images/linkedin-icon.png"></a></li>
-                        <li><a href="#"><img src="/man/images/instagram-icon.png"></a></li>
-                    </ul>
-                </div>
-                <div class="container-fluid">
-                    <input type="text" class="email_text" placeholder="Enter Your Email" name="Enter Your Email">
-                    <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="call_text"><a href="#"><img src="/man/images/map-icon.png"><span class="padding_left_0">Page when looking at its layou</span></a>
+                    </div>
+                    <div class="call_text"><a href="#"><img src="/man/images/call-icon.png"><span
+                            class="padding_left_0">Call Now  +01 123467890</span></a>
+                    </div>
+                    <div class="call_text"><a href="#"><img src="/man/images/mail-icon.png"><span
+                            class="padding_left_0">demo@gmail.com</span></a>
+                    </div>
+                    <div class="social_icon">
+                        <ul>
+                            <li><a href="#"><img src="/man/images/fb-icon1.png"></a></li>
+                            <li><a href="#"><img src="/man/images/twitter-icon.png"></a></li>
+                            <li><a href="#"><img src="/man/images/linkedin-icon.png"></a></li>
+                            <li><a href="#"><img src="/man/images/instagram-icon.png"></a></li>
+                        </ul>
+                    </div>
+                    <div class="container-fluid">
+                        <input type="text" class="email_text" placeholder="Enter Your Email" name="Enter Your Email">
+                        <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="copyright_section">
+        <div class="container">
+            <p class="copyright_text">Copyright 2019 All Right Reserved By.<a href="https://html.design"> Free html
+                Templates</a></p>
+            <p class="copyright_text">Disrtributed By. <a href="https://themewagon.com">ThemeWagon </a></p>
+        </div>
+    </div>
 </div>
-<div class="copyright_section">
-    <div class="container">
-        <p class="copyright_text">Copyright 2019 All Right Reserved By.<a href="https://html.design"> Free html
-            Templates</a></p>
-        <p class="copyright_text">Disrtributed By. <a href="https://themewagon.com">ThemeWagon </a></p>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
     </div>
 </div>
 <c:import url="/man/library/add_product.jsp"/>
