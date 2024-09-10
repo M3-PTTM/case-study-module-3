@@ -10,11 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bd837f0-3514-436b-a9b6-0d4f81cfdea7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/ICustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/m3_g3_assignment/dao/ICustomerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +31,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="M3_G3_Assignment" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -330,6 +322,8 @@
       <workItem from="1725875833059" duration="171000" />
       <workItem from="1725921637879" duration="440000" />
       <workItem from="1725932411878" duration="489000" />
+      <workItem from="1725951321889" duration="460000" />
+      <workItem from="1725955026923" duration="1355000" />
     </task>
     <servers />
   </component>
