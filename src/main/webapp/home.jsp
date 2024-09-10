@@ -5,6 +5,13 @@
 <html lang="en">
 <c:import url="/man/library/head.jsp"/>
 <body>
+<c:if test="${not empty sessionScope.successMessage}">
+    <div id="success-alert" class="alert alert-success" role="alert"
+         style="position: fixed; top: 10px; right: 10px; z-index: 1000; background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px;">
+            ${sessionScope.successMessage}
+    </div>
+    <c:remove var="successMessage" scope="session" />
+</c:if>
 <div class="header_section header_bg">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a href="/home" class="logo"><img src="/man/images/logo.png"></a>
@@ -57,7 +64,7 @@
                             </form>
                         </li>
                         <c:if test="${sessionScope.customer != null}">
-                            <li><a href="#">Xin Chào ${sessionScope.customer.username}</a></li>
+                            <li><a href="/profile">Xin Chào ${sessionScope.customer.username}</a></li>
                         </c:if>
                     </ul>
                 </div>
@@ -282,6 +289,14 @@
             }
         });
     }
+</script>
+<script>
+    setTimeout(function () {
+        var alert = document.getElementById('success-alert');
+        if (alert) {
+            alert.style.display = 'none';
+        }
+    }, 3000);
 </script>
 <c:import url="/man/library/script.jsp"/>
 </body>

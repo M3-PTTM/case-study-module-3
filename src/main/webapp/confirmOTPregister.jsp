@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:if test="${sessionScope.otp == null}">
-    <c:redirect url="/forgotpassword.jsp"/>
+<c:if test="${sessionScope.otpRegister == null}">
+    <c:redirect url="/confirmOTPregister.jsp"/>
 </c:if>
 <html>
 <head>
@@ -14,7 +14,7 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
             crossorigin="anonymous"
     />
-    <title>Quên mật khẩu</title>
+    <title>Xác thực tài khooản</title>
     <link rel="icon" href="/man/images/logo.png" type="image/x-icon">
 </head>
 <body>
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="col-md-6 right">
-                <form action="confirmOTP" method="post" id="otpForm">
+                <form action="confirmRegister" method="post" id="otpForm">
                     <div class="input-box">
                         <header>Xác nhận mã OTP</header>
                         <c:if test="${not empty errorMessage}">
@@ -36,8 +36,8 @@
                             </div>
                         </c:if>
                         <div class="input-field">
-                            <input type="text" class="input" id="otp" name="otp"/>
-                            <label for="otp">Nhập mã OTP</label>
+                            <input type="text" class="input" id="otpRegister" name="otpRegister"/>
+                            <label for="otpRegister">Nhập mã OTP</label>
                         </div>
                         <div class="input-field">
                             <input type="submit" class="submit" value="Xác nhận"/>
@@ -55,6 +55,7 @@
 <script>
     let countdownTime;
     let countdownElement = null;
+
     window.onload = function () {
         countdownElement = document.getElementById("countdown");
         let storedTimeRemaining = sessionStorage.getItem("timeRemaining");
@@ -74,7 +75,7 @@
                 document.getElementById("expiredMessage").style.display = "block";
                 resetCountdown();
                 setTimeout(function () {
-                    window.location.href = "forgotpassword.jsp";
+                    window.location.href = "register.jsp";
                 }, 3000);
             } else {
                 countdownElement.innerText = countdownTime;
