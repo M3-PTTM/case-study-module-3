@@ -49,6 +49,15 @@ E-Commerce-Project/
 │── db.sql                 # File chứa dữ liệu mẫu
 │── README.md
 ```
+
+## Đóng góp
+
+Nếu bạn muốn đóng góp vào dự án, vui lòng fork repository, tạo nhánh mới và gửi pull request.
+
+## License
+
+Dự án này được phát hành theo giấy phép MIT.
+
 ## Dear HR
 
 Nếu bạn đọc được những dòng này mà tôi vẫn không có được cơ hội phỏng vấn ở công ty bạn thì... Tôi cũng không buồn lắm đâu, tôi biết cái dự án này chẳng ra gì cả. Thật sự thì có khá nhiều thứ mà tôi muốn học, hoặc chí ít hiện tại tôi đang cần học khá nhiều thứ nên vẫn chưa có thời gian để làm một dự án hoàn chỉnh hơn. Chỉ là mong bạn có thể phản hồi lại mail của tôi và nói rõ cho tôi biết là tôi đang thiếu thứ gì. Chỉ cần tôi học xong những gì tôi nghĩ là cần thiết thì tôi sẽ bắt tay ngay vào việc code một dự án thật hoành tráng cho bạn xem. Biết đâu một ngày nào đó bạn lại đọc được mail của tôi và xem được một dự án khác hoàn thiện hơn.
