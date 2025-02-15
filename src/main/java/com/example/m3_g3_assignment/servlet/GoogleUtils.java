@@ -18,8 +18,8 @@ public class GoogleUtils {
                         .add("redirect_uri",Goggle.GOOGLE_REDIRECT_URI).add("code", code)
                         .add("grant_type", Goggle.GOOGLE_GRANT_TYPE).build())
                 .execute().returnContent().asString();
-        JsonObject jobj = new Gson().fromJson(response, JsonObject.class);
-        return jobj.get("access_token").toString().replaceAll("\"", "");
+        JsonObject jsonObject = new Gson().fromJson(response, JsonObject.class);
+        return jsonObject.get("access_token").toString().replaceAll("\"", "");
     }
 
     public static GooglePojo getUserInfoGoogle(final String accessToken) throws ClientProtocolException, IOException {

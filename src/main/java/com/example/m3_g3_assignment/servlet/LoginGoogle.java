@@ -19,7 +19,6 @@ public class LoginGoogle extends HttpServlet {
 
     public LoginGoogle() {
         super();
-
     }
 
     @Override

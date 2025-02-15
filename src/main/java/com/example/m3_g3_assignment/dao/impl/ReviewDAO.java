@@ -4,7 +4,6 @@ import com.example.m3_g3_assignment.dao.IReviewDAO;
 import com.example.m3_g3_assignment.model.Review;
 import com.example.m3_g3_assignment.utils.JDBCConnection;
 
-import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

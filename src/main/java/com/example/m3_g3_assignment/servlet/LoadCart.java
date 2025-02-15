@@ -1,15 +1,9 @@
 package com.example.m3_g3_assignment.servlet;
 
-import com.example.m3_g3_assignment.dao.ICustomerDAO;
 import com.example.m3_g3_assignment.dao.ServiceCart;
-import com.example.m3_g3_assignment.dao.ServiceProduct;
-import com.example.m3_g3_assignment.dao.impl.CustomerDAO;
 import com.example.m3_g3_assignment.dao.impl.ServiceCartImpl;
-import com.example.m3_g3_assignment.dao.impl.ServiceProductImpl;
 import com.example.m3_g3_assignment.model.Cart;
 import com.example.m3_g3_assignment.model.Customer;
-import com.example.m3_g3_assignment.model.Product;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
 
 @WebServlet("/cart")
 public class LoadCart extends HttpServlet {
