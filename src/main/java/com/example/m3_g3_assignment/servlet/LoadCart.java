@@ -4,7 +4,6 @@ import com.example.m3_g3_assignment.dao.ServiceCart;
 import com.example.m3_g3_assignment.dao.impl.ServiceCartImpl;
 import com.example.m3_g3_assignment.model.Cart;
 import com.example.m3_g3_assignment.model.Customer;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
